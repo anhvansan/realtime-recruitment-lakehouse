@@ -1,0 +1,23 @@
+# ==============================================================================
+# CPC AdTech Lakehouse Pipeline Configuration
+# ==============================================================================
+
+kafka:
+  raw_topic: "cpc_events_raw"
+  dlq_topic: "cpc_events_dlq"
+  partitions: 3
+  replication_factor: 1
+
+streaming:
+  watermark_interval: "10 minutes"
+  ingest_trigger: "10 seconds"
+  refine_trigger: "10 seconds"
+  max_offsets_per_trigger: 50000
+
+storage:
+  bucket: "lakehouse"
+  bronze_path: "bronze/cpc_events"
+  silver_path: "silver/cpc_events"
+  dlq_path: "dlq/cpc_events_dlq"
+  ops_path: "ops/stream_metrics"
+  checkpoint_base: "checkpoints"

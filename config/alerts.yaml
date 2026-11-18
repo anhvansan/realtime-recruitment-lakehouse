@@ -1,0 +1,15 @@
+# ==============================================================================
+# CPC AdTech Lakehouse Alert Configuration
+# ==============================================================================
+
+thresholds:
+  pacing_fast: 1.2
+  pacing_slow: 0.6
+  budget_utilization_warning: 0.90
+  data_stale_seconds: 120
+  click_fraud_min_clicks: 100
+  click_fraud_max_applies: 0
+
+channels:
+  cooldown_seconds: 300
+  dry_run: true

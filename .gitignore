@@ -1,0 +1,35 @@
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Raw and local data
+data/
+docker_data/
+*.duckdb
+*.duckdb.wal
+
+# Python virtual environment & caches
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ruff_cache/
+
+# dbt artifacts
+dbt_cpc/target/
+dbt_cpc/logs/
+dbt_cpc/dbt_packages/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
