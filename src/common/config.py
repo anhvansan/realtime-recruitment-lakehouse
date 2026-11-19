@@ -69,6 +69,10 @@ class AppConfig(BaseSettings):
         default="http://minio:9000",
         validation_alias="S3_ENDPOINT",
     )
+    s3_endpoint_external: str = Field(
+        default="http://localhost:9000",
+        validation_alias="S3_ENDPOINT_EXTERNAL",
+    )
     s3_access_key: str = Field(
         default="minioadmin",
         validation_alias="S3_ACCESS_KEY",

@@ -464,7 +464,7 @@ cpc-adtech-lakehouse/
    **Pitfalls:** commit nhầm `.env`; để Windows line endings làm hỏng shell script (đặt `.gitattributes` với `*.sh text eol=lf`); truyền nguyên `http://minio:9000` vào DuckDB `CREATE SECRET` gây lỗi kết nối.
    **Learn:** T08, T09.
 
-### Task 1.2 — Xác nhận MinIO Conformance và viết ADR-001  \[S\]  \[Depends: 1.1\]
+### Task 1.2 — Xác nhận MinIO Conformance và viết ADR-001  \[S\]  \[Depends: 1.1\]  \[x\]
 
 **Goal:** ghi lại quyết định dùng MinIO (ADR-001) và có bộ test kiểm chứng S3 API + đo hiệu năng I/O cơ bản trên máy cá nhân.
 **Steps:**
@@ -481,7 +481,7 @@ cpc-adtech-lakehouse/
    **Pitfalls:** quên `path-style`; sai `region` làm SDK ký request lỗi.
    **Learn:** F08, T04.
 
-### Task 1.3 — Docker Compose cho nhóm `core`  \[M\]  \[Depends: 1.1, 1.2\]
+### Task 1.3 — Docker Compose cho nhóm `core`  \[M\]  \[Depends: 1.1, 1.2\]  \[x\]
 
 **Goal:** `make up` dựng Redpanda, Redpanda Console, MinIO, khởi tạo bucket `lakehouse`; có healthcheck và giới hạn tài nguyên.
 **Steps:**

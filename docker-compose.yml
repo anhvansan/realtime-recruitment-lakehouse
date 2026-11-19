@@ -1,0 +1,114 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+networks:
+  lakehouse-net:
+    driver: bridge
+
+services:
+  # ============================================================================
+  # MinIO - S3-Compatible Object Storage (Drop-in open-source image from pgsty)
+  # ============================================================================
+  minio:
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    container_name: cpc-minio
+    profiles: ["core"]
+    mem_limit: 448m
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:-minioadmin}
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    volumes:
+      - "${DATA_ROOT:-/mnt/d/docker_data/cpc_lakehouse}/minio:/data"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:9000/minio/health/live || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    logging: *default-logging
+    networks:
+      - lakehouse-net
+
+  # ============================================================================
+  # MinIO Bucket Initialization (runs once and exits)
+  # ============================================================================
+  minio-init:
+    image: pgsty/mc:RELEASE.2026-10-26T00-00-00Z
+    container_name: cpc-minio-init
+    profiles: ["core"]
+    mem_limit: 64m
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      echo 'Waiting for MinIO...' &&
+      /usr/bin/mc alias set myminio http://minio:9000 $${S3_ACCESS_KEY:-minioadmin} $${S3_SECRET_KEY:-minioadmin} &&
+      /usr/bin/mc mb --ignore-existing myminio/$${S3_BUCKET:-lakehouse} &&
+      echo 'Bucket created successfully!' &&
+      exit 0
+      "
+    logging: *default-logging
+    networks:
+      - lakehouse-net
+
+  # ============================================================================
+  # Redpanda - Kafka API Compatible Streaming Broker
+  # ============================================================================
+  redpanda:
+    image: redpandadata/redpanda:v24.2.20
+    container_name: cpc-redpanda
+    profiles: ["core"]
+    mem_limit: 704m
+    restart: unless-stopped
+    command:
+      - redpanda start
+      - --mode dev-container
+      - --smp 1
+      - --memory 512M
+      - --reserve-memory 0M
+      - --overprovisioned
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+    ports:
+      - "127.0.0.1:19092:19092"
+      - "127.0.0.1:9644:9644"
+    volumes:
+      - "${DATA_ROOT:-/mnt/d/docker_data/cpc_lakehouse}/redpanda:/var/lib/redpanda/data"
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster status || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging: *default-logging
+    networks:
+      - lakehouse-net
+
+  # ============================================================================
+  # Redpanda Console - Web UI for Kafka Topics & Messages
+  # ============================================================================
+  redpanda-console:
+    image: redpandadata/console:v2.7.2
+    container_name: cpc-redpanda-console
+    profiles: ["core"]
+    mem_limit: 192m
+    restart: unless-stopped
+    environment:
+      KAFKA_BROKERS: redpanda:9092
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    logging: *default-logging
+    networks:
+      - lakehouse-net
