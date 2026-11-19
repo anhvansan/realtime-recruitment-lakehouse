@@ -13,3 +13,8 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | S3 MinIO Object Store Core Service | F08, T04 | `docker-compose.yml:15` | `services.minio` | 1.2, 1.3 |
 | Redpanda Message Broker Core Service | F07, T01 | `docker-compose.yml:59` | `services.redpanda` | 1.3 |
 | S3 API Conformance & Performance Suite | T04, F08 | `scripts/s3_conformance.py:76` | `S3ConformanceRunner` | 1.2 |
+| Redpanda Log Retention Policy | T01, F07 | `docs/progress/1.4.md:14` | `log_retention_ms=3600000` | 1.4 |
+| Disk Governance & Report Script | T08, F08 | `scripts/disk_report.sh:1` | `disk_report.sh` | 1.5 |
+| WSL2 & Drive D Storage Strategy | R5, R6 | `docs/adr/008-disk-strategy.md:43` | `ADR-008` | 1.5 |
+| Docker Resource Baseline Profiler | F14, R14 | `scripts/bench/resource_snapshot.sh:1` | `resource_snapshot.sh` | 1.6
+| Resource Baseline Report | F14, R14 | `docs/benchmarks/baseline.md:12` | `Resource Baseline` | 1.6 |

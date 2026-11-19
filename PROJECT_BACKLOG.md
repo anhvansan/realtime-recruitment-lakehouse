@@ -538,7 +538,7 @@ minio:
 **Pitfalls:** `advertise-kafka-addr` sai khiến producer ngoài host kết nối được nhưng không gửi được; chạy hai bản `up` song song làm tranh cổng.
 **Learn:** T01, T04, T08, F07.
 
-### Task 1.4 — Cấu hình retention và dọn dữ liệu cũ của Redpanda  \[S\]  \[Depends: 1.3\]
+### Task 1.4 — Cấu hình retention và dọn dữ liệu cũ của Redpanda  \[S\]  \[Depends: 1.3\]  \[x\]
 
 **Goal:** broker không ăn dần ổ đĩa, nhưng không làm mất dữ liệu trước khi Spark kịp đọc.
 **Steps:**
@@ -552,7 +552,7 @@ minio:
    **Pitfalls:** nhầm retention với compaction; retention quá ngắn khi debug.
    **Learn:** T01, F07, F16.
 
-### Task 1.5 — Kỷ luật ổ đĩa trên Windows/WSL2  \[M\]  \[Depends: 1.3\]
+### Task 1.5 — Kỷ luật ổ đĩa trên Windows/WSL2  \[M\]  \[Depends: 1.3\]  \[x\]
 
 **Goal:** đo, chọn và chứng minh chiến lược không làm đầy ổ C.
 **Steps:**
@@ -574,7 +574,7 @@ minio:
    **Pitfalls:** quyền sở hữu file trên NTFS; đường dẫn `D:/` và `/mnt/d` khác nhau tuỳ ngữ cảnh; file `ext4.vhdx` chỉ phình, không tự co nếu không bật `sparseVhd` hoặc compact thủ công.
    **Learn:** T08, F08.
 
-### Task 1.6 — Đo baseline tài nguyên  \[S\]  \[Depends: 1.3\]
+### Task 1.6 — Đo baseline tài nguyên  \[S\]  \[Depends: 1.3\]  \[x\]
 
 **Goal:** có số thật để so với ngân sách 4.4.
 **Steps:** viết `scripts/bench/resource_snapshot.sh` lấy mẫu `docker stats` mỗi 5s ra CSV; chạy 5 phút khi idle; so với bảng 4.4.
