@@ -142,19 +142,19 @@ Kafka còn có `timestamp` riêng (thời điểm broker nhận). Bronze lưu c�
 
 | Metric | Ý nghĩa kinh doanh | Công thức | Grain | Lưu ý/edge case | 
 | ----- | ----- | ----- | ----- | ----- | 
-| `impressions` *(có điều kiện)* | Số lần tin được hiển thị | `COUNT(*) WHERE event_type='impression'` | campaign × hour | Chỉ tồn tại nếu dữ liệu có (giả thuyết H4). Nếu không có, bỏ CTR và tầng Impression của funnel, ghi vào data dictionary | 
+| `impressions` *(Đã loại bỏ)* | Số lần tin được hiển thị | ĐÃ LOẠI BỎ (Kết quả Task 2.1 H4: không có log impression, events.csv impressions là NULL 100%) | campaign × hour | Bỏ CTR và tầng Impression khỏi phễu theo R1 & R9 |
 | `clicks` | Số click hợp lệ | `COUNT(*) WHERE event_type='click'` | mọi grain | Đã dedup theo `event_id` | 
-| `spend` | Tiền đã tiêu | `SUM(spend)` trên event `click` | mọi grain | Chỉ click mới tạo spend (H1). `DECIMAL(18,4)` | 
-| `applies` | Số hồ sơ nộp | `COUNT(*) WHERE event_type='apply'` | mọi grain |  | 
-| `qualified` | Hồ sơ đạt | `COUNT(*) WHERE event_type='qualified'` | mọi grain |  | 
-| `unqualified` | Hồ sơ không đạt | `COUNT(*) WHERE event_type='unqualified'` | mọi grain |  | 
+| `spend` | Tiền đã tiêu | `SUM(spend)` trên event `click` | mọi grain | Chỉ click mới tạo spend (H1, ADR-009). `DECIMAL(18,4)` | 
+| `applies` | Số hồ sơ nộp | `COUNT(*) WHERE event_type='apply'` | mọi grain | Nguồn từ `application.csv` | 
+| `qualified` | Hồ sơ đạt | `COUNT(*) WHERE event_type='qualified'` | mọi grain | Nguồn từ `application.csv` | 
+| `unqualified` | Hồ sơ không đạt | `COUNT(*) WHERE event_type='unqualified'` | mọi grain | Nguồn từ `application.csv` | 
 | `CPC` | Giá trung bình mỗi click | `spend / NULLIF(clicks,0)` | mọi grain | Nên xấp xỉ `bid` | 
-| `CTR` *(có điều kiện)* | Tỷ lệ click trên hiển thị | `clicks / NULLIF(impressions,0)` | publisher, campaign |  | 
+| `CTR` *(Đã loại bỏ)* | Tỷ lệ click trên hiển thị | ĐÃ LOẠI BỎ (không có metric impressions) | publisher, campaign | Bỏ theo kết quả Task 2.1 | 
 | `click_to_apply_rate` | Chất lượng traffic | `applies / NULLIF(clicks,0)` | publisher, campaign, job | Chỉ số chính của P2 | 
 | `qualified_rate` | Chất lượng ứng viên | `qualified / NULLIF(applies,0)` | job, campaign |  | 
 | `CPA` | Chi phí mỗi hồ sơ nộp | `spend / NULLIF(applies,0)` | job, campaign |  | 
 | `CPQA` | Chi phí mỗi hồ sơ **đạt** (Cost per Qualified Application) | `spend / NULLIF(qualified,0)` | job, campaign | Chỉ số chính của P3 | 
-| `daily_budget` | Ngân sách ngày | Lấy từ `campaign.csv` (nếu có) hoặc seed `campaign_budget` | campaign | Kiểm tra ở Task 2.1 (U9) và Task 4.2 | 
+| `daily_budget` | Ngân sách ngày | Lấy trực tiếp từ `campaign.csv` (cột `budget_total` với `pacing_unit = 'Daily'`) | campaign | Đã xác nhận ở Task 2.1 (U9); dùng dữ liệu thật, không sinh ngẫu nhiên | 
 | `budget_utilization` | % ngân sách đã dùng | `cum_spend_today / daily_budget` | campaign (hiện tại) | Alert nếu `> 0.90` | 
 | `ideal_cum_spend` | Đường chi tiêu lý tưởng (tuyến tính) | \- **Giờ đã kết thúc (`h < hour(sim_now)`):** `daily_budget * (h + 1) / 24.0`  \- **Thời điểm hiện tại (`sim_now` đang chạy dở):** `daily_budget * (seconds_since_midnight(sim_now) / 86400.0)` | campaign × hour / thời điểm hiện tại | Tránh lỗi phóng đại `ideal_cum_spend` ở đầu mỗi giờ khi giờ hiện tại chưa chạy hết 60 phút | 
 | `pacing_ratio` | Đang tiêu nhanh/chậm so với kế hoạch | `cum_spend / NULLIF(ideal_cum_spend,0)` | campaign × hour / hiện tại | `> 1.2` = tiêu quá nhanh; `< 0.6` = tiêu quá chậm (ngưỡng trong `config/alerts.yaml`) | 
@@ -588,7 +588,7 @@ minio:
 **Mục tiêu:** bộ phát dữ liệu có thể tua nhanh thời gian, cố tình bơm dữ liệu bẩn, và ghi lại **sự thật tuyệt đối** (manifest) để mọi bước sau có thể đối soát.
 **Rủi ro chính:** bỏ sót bảng quan trọng hoặc ôm đồm quá nhiều bảng phụ trong 17 file CSV; đồng hồ mô phỏng sai làm hỏng cả watermark/pacing; thiết kế khoá partition gây lệch.
 
-### Task 2.1 — Khảo sát 17 file CSV, phân loại và chốt Data Dictionary  \[L\]  \[Depends: 1.1\]
+### Task 2.1 — Khảo sát 17 file CSV, phân loại và chốt Data Dictionary  \[L\]  \[Depends: 1.1\]  \[x\]
 
 **Goal:** biết bộ 17 file CSV trong `data/raw/` *thực sự* chứa gì, file nào dùng cho streaming, file nào dùng làm bảng dimension/seed, và file nào loại bỏ để giữ gọn phạm vi dự án (R1, K14). Đây là cổng bắt buộc của Epic 2–4.
 **Steps:**
@@ -940,10 +940,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
 **Steps:**
 
 1. Dựa vào kết quả Task 2.1 (U9) trên file `campaign.csv`:
-
-   * **Trường hợp A (`campaign.csv` có sẵn ngân sách hợp lệ):** Đưa `campaign.csv` (hoặc bản rút gọn các cột cần thiết) vào `dbt_cpc/seeds/` (hoặc đọc từ S3), chuẩn hoá thành `dim_campaign_budget`.
-
-   * **Trường hợp B (`campaign.csv` không có cột ngân sách hoặc bị thiếu):** Viết `scripts/generate_budget_seed.py` kết hợp danh sách campaign từ `campaign.csv` và lịch sử chi tiêu từ `tracking.csv` để gán `daily_budget = ROUND(p75(daily_spend) * hệ_số)` theo `budget_profile` (`generous`, `normal`, `tight` để kích hoạt cảnh báo khi demo), có seed cố định, xuất ra `dbt_cpc/seeds/campaign_budget.csv` và gắn nhãn **"SIMULATED BUDGET"** (R13).
+   * **Trường hợp A đã được xác nhận:** `campaign.csv` có sẵn ngân sách ngày thực tế hợp lệ (`budget_total` với `pacing_unit = 'Daily'`). Do đó, áp dụng trực tiếp Trường hợp A: đưa `campaign.csv` vào `dbt_cpc/seeds/` chuẩn hoá thành `dim_campaign_budget` (dùng dữ liệu thật theo R1, không cần sinh ngẫu nhiên `generate_budget_seed.py` nữa). Lưu ý: Campaign 1 có ngân sách 1 tỷ (dữ liệu test ngoại lai, cần lưu ý khi kiểm thử).
 
 2. Nạp các bảng dimension nhỏ đã được duyệt ở Task 2.1 (ví dụ `master_publisher.csv`, `company.csv`, `group.csv`, `job.csv`) vào seeds hoặc external parquet để Dashboard hiển thị được **tên thật của Publisher, Campaign, Job, Company** thay vì chỉ hiện ID.
 

@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report s3-check lint test format
+.PHONY: help up down clean nuke-data disk-report s3-check lint test format profile
 
 .DEFAULT_GOAL := help
 
@@ -8,6 +8,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make lint        - Run ruff linter check"
 	@echo "  make format      - Run ruff code formatter"
 	@echo "  make test        - Run unit tests with pytest"
+	@echo "  make profile     - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make up          - Start core infrastructure services (Task 1.3)"
 	@echo "  make down        - Stop running infrastructure services (Task 1.3)"
 	@echo "  make clean       - Clean dangling containers and temporary artifacts (Task 1.5)"
@@ -23,6 +24,9 @@ format: ## Format code with ruff
 
 test: ## Run unit tests
 	pytest -q
+
+profile: ## Run CSV profiling script
+	python scripts/profile_tracking.py
 
 up: ## Start core services
 	@echo "Target 'up' will be configured in Task 1.3 (docker compose)"
