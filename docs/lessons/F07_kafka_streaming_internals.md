@@ -57,7 +57,9 @@ Nếu cấu hình sai `advertise-kafka-addr`, client ngoài host có thể kết
 
 | File:dòng | Symbol | Đoạn code | Giải thích |
 | :--- | :--- | :--- | :--- |
-| `docker-compose.yml:68-76` | `command` | Trích cấu hình Redpanda: | Cấu hình Dual Listeners tách bạch mạng nội bộ container và cổng gắn ngoài host. |
+| `docker-compose.yml:68-76` | `command` | Dual Listeners Redpanda | Cấu hình Dual Listeners tách bạch mạng nội bộ container và cổng gắn ngoài host. |
+| `scripts/analyze_partition_skew.py:73-170` | `analyze_candidates` | Phân tích skew DuckDB + CRC32 | Kiểm chứng phân phối 3 partition của `campaign_id`, `job_id`, `publisher_id` trên 1,977 sự kiện thật. |
+| `docs/adr/005-partition-key.md:55-60` | `ADR-005` | Chốt `campaign_id` làm key | Giải thích bẫy hot partition qua số liệu `publisher_id = '1'` (99.19%). |
 
 ```yaml
     command:

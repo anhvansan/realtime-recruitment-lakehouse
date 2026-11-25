@@ -636,14 +636,14 @@ minio:
    **Pitfalls:** dùng float cho tiền trong JSON; chấp nhận field thừa/thiếu không rõ ràng; không version hoá schema.
    **Learn:** F13, F06.
 
-### Task 2.3 — Phân tích lệch khoá partition (ADR-005) \[S\] \[Depends: 2.1\]
+### Task 2.3 — Phân tích lệch khoá partition (ADR-005) \[S\] \[Depends: 2.1\] \[x\]
 
 **Goal:** chọn `campaign_id` hay `job_id` làm Kafka key dựa trên số liệu.
 **Steps:** dùng DuckDB tính tỷ lệ event theo từng ứng viên khoá (`campaign_id`, `job_id`, `publisher_id`); mô phỏng chia 3 partition bằng `hash(key) % 3` (gần đúng với partitioner thực); đo tỷ lệ lớn nhất của một partition và của top-1 khoá.
 **AC:** `docs/adr/005-partition-key.md` có bảng số liệu (max partition share, top-1 key share) cho từng ứng viên và kết luận; nếu một khoá chiếm > 40% sự kiện thì giải thích hậu quả (hot partition).
 **Learn:** F07.
 
-### Task 2.4 — Tạo topic \[S\] \[Depends: 1.4, 2.3\]
+### Task 2.4 — Tạo topic \[S\] \[Depends: 1.4, 2.3\] \[x\]
 
 **Steps:** viết script idempotent (`make topics`) dùng `rpk` tạo `cpc_events_raw` (3 partition) và `cpc_events_dlq` (1 partition), replication 1, `retention.ms=3600000`, `segment.ms=600000`, giới hạn `retention.bytes` hợp lý.
 **AC:** `rpk topic describe cpc_events_raw` khớp cấu hình · chạy `make topics` hai lần không lỗi.

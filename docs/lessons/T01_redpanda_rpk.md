@@ -44,7 +44,8 @@ Redpanda và CLI `rpk` giao tiếp trực tiếp qua Admin API (cổng 9644) và
 
 | File:dòng | Symbol | Đoạn code | Giải thích |
 | :--- | :--- | :--- | :--- |
-| `docker-compose.yml:83-88` | `healthcheck` | Trích cấu hình kiểm tra sức khỏe Redpanda: | Sử dụng `rpk cluster status` làm lệnh probe healthcheck cho container. |
+| `docker-compose.yml:83-88` | `healthcheck` | `rpk cluster status` | Sử dụng `rpk cluster status` làm lệnh probe healthcheck cho container Redpanda. |
+| `infra/redpanda/create_topics.sh:17-48` | `ensure_topic` | Idempotent `rpk topic` | Kiểm tra bằng `rpk topic describe`, tạo mới (`create`) hoặc đồng bộ config (`alter-config`) với `retention.ms=3600000`, `segment.ms=600000`. |
 
 ```yaml
     healthcheck:

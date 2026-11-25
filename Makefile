@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check spark-build spark-up smoke-interop spark-shell lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics spark-build spark-up smoke-interop spark-shell lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -13,6 +13,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make status         - Check status of core & apps services"
 	@echo "  make stats          - Inspect container resource usage (RAM/CPU)"
 	@echo "  make s3-check       - Run MinIO S3 conformance tests (Task 1.2)"
+	@echo "  make topics         - Provision idempotent Redpanda topics (Task 2.4)"
 	@echo "  make spark-build    - Build pinned Spark + Delta + DuckDB image (Task 3.1)"
 	@echo "  make spark-up       - Start Spark container in profile apps (Task 3.1)"
 	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
@@ -52,6 +53,9 @@ stats: ## View live resource consumption
 
 s3-check: ## Verify MinIO S3 API conformance
 	$(PYTHON) scripts/s3_conformance.py
+
+topics: ## Provision idempotent Redpanda topics (Task 2.4)
+	@bash infra/redpanda/create_topics.sh
 
 spark-build: ## Build custom Spark + Delta + S3A Docker image (Task 3.1)
 	docker compose --profile core --profile apps build spark

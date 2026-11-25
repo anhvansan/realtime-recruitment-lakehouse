@@ -17,6 +17,9 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Spend Calculation Rule (`spend = bid`) | F13, R9 | `docs/adr/009-spend-rule.md:43` | `Quyết định chọn Phương án A` | 2.1 |
 | S3 MinIO Object Store Core Service | F08, T04 | `docker-compose.yml:15` | `services.minio` | 1.2, 1.3 |
 | Redpanda Message Broker Core Service | F07, T01 | `docker-compose.yml:59` | `services.redpanda` | 1.3 |
+| Partition Key Skew Analyzer | F07, T05 | `scripts/analyze_partition_skew.py:73` | `analyze_candidates` | 2.3 |
+| Kafka Partition Key Decision (`campaign_id`) | F07 | `docs/adr/005-partition-key.md:55` | `ADR-005` | 2.3 |
+| Idempotent Redpanda Topic Provisioner | T01, F07 | `infra/redpanda/create_topics.sh:17` | `ensure_topic` | 2.4 |
 | S3 API Conformance & Performance Suite | T04, F08 | `scripts/s3_conformance.py:76` | `S3ConformanceRunner` | 1.2 |
 | Redpanda Log Retention Policy | T01, F07 | `docs/progress/1.4.md:14` | `log_retention_ms=3600000` | 1.4 |
 | Disk Governance & Report Script | T08, F08 | `scripts/disk_report.sh:1` | `disk_report.sh` | 1.5 |
