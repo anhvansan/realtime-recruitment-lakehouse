@@ -8,7 +8,12 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Configuration Loader | T09 | `src/common/config.py:152` | `load` | 1.1 |
 | CSV Inventory & Triage Profiler | T05, F12 | `scripts/profile_tracking.py:27` | `run_phase_1` | 2.1 |
 | Deep Hypotheses Verification (U1-U9, H1, H4) | T05, F13 | `scripts/profile_tracking.py:114` | `run_phase_2` | 2.1 |
-| Canonical Event & Funnel Mapping Contract | F13 | `docs/data_dictionary.md:73` | `Event Type Mapping` | 2.1 |
+| Canonical Event & Funnel Mapping Contract | F13 | `docs/data_dictionary.md:98` | `Event Type Mapping` | 2.1 |
+| JSON Schema Event Contract (`v1`) | F13, K14 | `src/common/schemas/cpc_event.v1.json:1` | `CPC Recruitment AdTech Canonical Event v1` | 2.2 |
+| Canonical Event Pydantic Model | F06, F13 | `src/common/schemas/cpc_event.py:77` | `CpcEventV1` | 2.2 |
+| Pure Event Contract Validator | F13 | `src/common/schemas/cpc_event.py:231` | `validate_event` | 2.2 |
+| Spark/Python Validation Parity Spec | F13 | `src/common/schemas/validation_rules.md:1` | `Validation Rules Specification` | 2.2 |
+| Monetary DECIMAL(18,4) & UTC Standard | F13, R9 | `docs/adr/007-decimal-and-utc.md:49` | `ADR-007` | 2.2 |
 | Spend Calculation Rule (`spend = bid`) | F13, R9 | `docs/adr/009-spend-rule.md:43` | `Quyết định chọn Phương án A` | 2.1 |
 | S3 MinIO Object Store Core Service | F08, T04 | `docker-compose.yml:15` | `services.minio` | 1.2, 1.3 |
 | Redpanda Message Broker Core Service | F07, T01 | `docker-compose.yml:59` | `services.redpanda` | 1.3 |

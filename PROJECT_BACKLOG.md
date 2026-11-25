@@ -620,7 +620,7 @@ minio:
    **Pitfalls:** ôm hết cả 17 file vào pipeline làm phình dự án; bỏ sót `application.csv` hoặc `campaign.csv` khi trong đó chứa hồ sơ ứng tuyển hoặc ngân sách thật; múi giờ ngầm định; tiền biểu diễn bằng số thực.
    **Learn:** F12, F13, T05.
 
-### Task 2.2 — Data Contract và hàm validate dùng chung \[M\] \[Depends: 2.1\]
+### Task 2.2 — Data Contract và hàm validate dùng chung \[M\] \[Depends: 2.1\] \[x\]
 
 **Goal:** một định nghĩa duy nhất cho event hợp lệ, test được mà không cần Kafka/Spark.
 **Steps:**

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cpc-adtech-lakehouse.local/schemas/cpc_event.v1.json",
+  "title": "CPC Recruitment AdTech Canonical Event v1",
+  "description": "Canonical JSON event contract for Redpanda topic cpc_events_raw (aligned with Task 2.1 and ADR-007/009).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_time",
+    "produced_at",
+    "event_type",
+    "job_id",
+    "campaign_id",
+    "publisher_id",
+    "spend",
+    "source_row_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Contract schema version."
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Deterministic SHA-1 hex identifier sha1(f'{source_file}:{row_number}')."
+    },
+    "event_time": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|\\+00:00)$",
+      "description": "Simulation event timestamp formatted as ISO-8601 UTC."
+    },
+    "produced_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|\\+00:00)$",
+      "description": "Producer wall-clock emission timestamp formatted as ISO-8601 UTC."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": ["click", "apply", "qualified", "unqualified"],
+      "description": "Canonical recruitment funnel event type (impression excluded per Task 2.1)."
+    },
+    "job_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Job posting identifier."
+    },
+    "campaign_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Campaign identifier and Kafka partition key."
+    },
+    "group_id": {
+      "type": ["string", "null"],
+      "description": "Optional advertiser group identifier."
+    },
+    "publisher_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Traffic publisher identifier."
+    },
+    "bid": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{1,14}(\\.\\d{1,4})?$",
+      "description": "Non-negative DECIMAL(18,4) bid encoded as string in JSON (required for click)."
+    },
+    "spend": {
+      "type": "string",
+      "pattern": "^\\d{1,14}(\\.\\d{1,4})?$",
+      "description": "Non-negative DECIMAL(18,4) spend encoded as string (= bid for click, '0.0000' otherwise)."
+    },
+    "source_row_id": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "0-based or 1-based source CSV row index for lineage and reconciliation."
+    }
+  },
+  "if": {
+    "properties": {
+      "event_type": {
+        "const": "click"
+      }
+    },
+    "required": ["event_type"]
+  },
+  "then": {
+    "required": ["bid"],
+    "properties": {
+      "bid": {
+        "type": "string",
+        "pattern": "^\\d{1,14}(\\.\\d{1,4})?$"
+      }
+    }
+  }
+}

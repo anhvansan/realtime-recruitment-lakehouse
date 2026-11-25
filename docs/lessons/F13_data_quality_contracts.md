@@ -59,7 +59,10 @@ Quy trình bảo đảm chất lượng dữ liệu và cách ly lỗi trong ki�
 
 | File:dòng | Symbol | Đoạn code | Giải thích |
 | :--- | :--- | :--- | :--- |
-| `docs/data_dictionary.md:73-81` | `Event Type Mapping` | Trích từ Data Dictionary: | Bản giao kèo dữ liệu (Data Contract) quy định rõ điều kiện và giá trị spend/bid cho từng loại sự kiện. |
+| `docs/data_dictionary.md:100-108` | `Event Type Mapping` | Quy tắc chuẩn hoá phễu | Ánh xạ từ dữ liệu CSV gốc sang 4 loại sự kiện chuẩn (bỏ `impression`). |
+| `src/common/schemas/cpc_event.v1.json:1-97` | JSON Schema `v1` | Draft 2020-12 Contract | Bắt buộc `bid`/`spend` dạng chuỗi thập phân và điều kiện `if/then` khi `event_type == 'click'`. |
+| `src/common/schemas/cpc_event.py:231-443` | `validate_event` | Bộ validator thuần Python | Phân loại chính xác 7 `error_type` trước khi dựng model `CpcEventV1`. |
+| `src/common/schemas/validation_rules.md:1-85` | Spec Parity | Tài liệu quy chuẩn 7 mã lỗi | Làm căn cứ viết `validate_df()` bằng PySpark và test chéo ở Task 3.3. |
 
 ```markdown
 | Nguồn phát sinh | Điều kiện logic trên dữ liệu gốc | `event_type` chuẩn | Giá trị `bid` | Giá trị `spend` |
