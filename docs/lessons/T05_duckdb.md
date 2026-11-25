@@ -53,7 +53,9 @@ Kiến trúc bên trong của DuckDB:
 
 | File:dòng | Symbol | Đoạn code | Giải thích dòng nào quan trọng |
 | :--- | :--- | :--- | :--- |
-| `scripts/profile_tracking.py:46-52` | `read_csv_auto` | Trích đoạn nguyên văn: | DuckDB tự động suy diễn kiểu dữ liệu và đọc trực tiếp file CSV mà không cần định nghĩa bảng trước. |
+| `scripts/profile_tracking.py:46-52` | `read_csv_auto` | Đọc CSV trực tiếp | DuckDB tự động suy diễn kiểu dữ liệu và đọc trực tiếp file CSV mà không cần định nghĩa bảng trước. |
+| `tests/integration/smoke_delta_interop.py:89-118` | `build_duckdb_connection` | `LOAD httpfs`, `LOAD delta`, `CREATE SECRET` | Dùng `cfg.s3_endpoint_host_port` (không có `http://`), `URL_STYLE 'path'`, giới hạn `memory_limit='256MB'`, không log secret (R6). |
+| `tests/integration/smoke_delta_interop.py:170-190` | `run_test_b` | `delta_scan('s3://...')` | Quét trực tiếp bảng Delta do Spark ghi trên MinIO và kiểm chứng chính xác kiểu `DECIMAL(18,4)`. |
 
 ```python
             # Row count

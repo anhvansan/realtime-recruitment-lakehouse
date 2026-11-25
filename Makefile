@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check spark-build spark-up smoke-interop spark-shell lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -10,9 +10,13 @@ help: ## Show available commands and their descriptions
 	@echo "  make help           - Show this help message"
 	@echo "  make up             - Start core infrastructure services (MinIO, Redpanda)"
 	@echo "  make down           - Stop running infrastructure services"
-	@echo "  make status         - Check status of core services"
+	@echo "  make status         - Check status of core & apps services"
 	@echo "  make stats          - Inspect container resource usage (RAM/CPU)"
 	@echo "  make s3-check       - Run MinIO S3 conformance tests (Task 1.2)"
+	@echo "  make spark-build    - Build pinned Spark + Delta + DuckDB image (Task 3.1)"
+	@echo "  make spark-up       - Start Spark container in profile apps (Task 3.1)"
+	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
+	@echo "  make spark-shell    - Open interactive PySpark shell inside Spark container (Task 3.1)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -37,17 +41,29 @@ profile: ## Run CSV profiling script
 up: ## Start core services in background
 	docker compose --profile core up -d
 
-down: ## Stop core services
-	docker compose --profile core down
+down: ## Stop core and apps services
+	docker compose --profile core --profile apps down
 
-status: ## Check core services status
-	docker compose --profile core ps
+status: ## Check core and apps services status
+	docker compose --profile core --profile apps ps
 
 stats: ## View live resource consumption
 	docker stats --no-stream
 
 s3-check: ## Verify MinIO S3 API conformance
 	$(PYTHON) scripts/s3_conformance.py
+
+spark-build: ## Build custom Spark + Delta + S3A Docker image (Task 3.1)
+	docker compose --profile core --profile apps build spark
+
+spark-up: ## Start Spark container (requires core services healthy)
+	docker compose --profile core --profile apps up -d spark
+
+smoke-interop: ## Run Spark <-> Delta <-> MinIO <-> DuckDB interop smoke test (Task 3.1)
+	docker compose --profile core --profile apps exec -T spark python3 /app/tests/integration/smoke_delta_interop.py
+
+spark-shell: ## Open interactive PySpark shell in Spark container
+	docker compose --profile core --profile apps exec spark /opt/spark/bin/pyspark --master local[2] --conf spark.sql.warehouse.dir=/tmp/spark-warehouse --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

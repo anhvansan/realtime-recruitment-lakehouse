@@ -16,5 +16,10 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Redpanda Log Retention Policy | T01, F07 | `docs/progress/1.4.md:14` | `log_retention_ms=3600000` | 1.4 |
 | Disk Governance & Report Script | T08, F08 | `scripts/disk_report.sh:1` | `disk_report.sh` | 1.5 |
 | WSL2 & Drive D Storage Strategy | R5, R6 | `docs/adr/008-disk-strategy.md:43` | `ADR-008` | 1.5 |
-| Docker Resource Baseline Profiler | F14, R14 | `scripts/bench/resource_snapshot.sh:1` | `resource_snapshot.sh` | 1.6
+| Docker Resource Baseline Profiler | F14, R14 | `scripts/bench/resource_snapshot.sh:1` | `resource_snapshot.sh` | 1.6 |
 | Resource Baseline Report | F14, R14 | `docs/benchmarks/baseline.md:12` | `Resource Baseline` | 1.6 |
+| Spark + Delta + S3A Baked Image | T02, R4 | `infra/spark/Dockerfile:5` | `FROM apache/spark:3.5.3` | 3.1 |
+| Deterministic Spark JAR Downloader | T02, R4 | `infra/spark/download_jars.py:37` | `jar_paths_by_group` | 3.1 |
+| Spark App Container Service | T02, R5 | `docker-compose.yml:119` | `services.spark` | 3.1 |
+| Spark <-> Delta <-> DuckDB Interop Test | T02, T03, T05, F10 | `tests/integration/smoke_delta_interop.py:298` | `main` | 3.1 |
+| Delta Lake Table Format Decision | F10, T03 | `docs/adr/003-delta.md:49` | `ADR-003` | 3.1 |
