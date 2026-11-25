@@ -20,6 +20,7 @@ __pycache__/
 *.so
 .pytest_cache/
 .ruff_cache/
+*.egg-info/
 
 # dbt artifacts
 dbt_cpc/target/
