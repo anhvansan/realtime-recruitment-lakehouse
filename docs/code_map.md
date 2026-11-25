@@ -20,6 +20,9 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Partition Key Skew Analyzer | F07, T05 | `scripts/analyze_partition_skew.py:73` | `analyze_candidates` | 2.3 |
 | Kafka Partition Key Decision (`campaign_id`) | F07 | `docs/adr/005-partition-key.md:55` | `ADR-005` | 2.3 |
 | Idempotent Redpanda Topic Provisioner | T01, F07 | `infra/redpanda/create_topics.sh:17` | `ensure_topic` | 2.4 |
+| Simulation Clock & Deadline Time Mapper | F02, F01 | `src/producer/time_mapper.py:30` | `TimeMapper` | 2.5 |
+| Chunked Parquet Stream Reader | F01 | `src/producer/replay_producer.py:302` | `iter_parquet_chunks` | 2.5 |
+| Idempotent Kafka Replay Producer & Graceful SIGINT | T01, T09, F06 | `src/producer/replay_producer.py:483` | `run_replay` | 2.5 |
 | S3 API Conformance & Performance Suite | T04, F08 | `scripts/s3_conformance.py:76` | `S3ConformanceRunner` | 1.2 |
 | Redpanda Log Retention Policy | T01, F07 | `docs/progress/1.4.md:14` | `log_retention_ms=3600000` | 1.4 |
 | Disk Governance & Report Script | T08, F08 | `scripts/disk_report.sh:1` | `disk_report.sh` | 1.5 |

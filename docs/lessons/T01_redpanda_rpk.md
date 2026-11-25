@@ -46,6 +46,7 @@ Redpanda và CLI `rpk` giao tiếp trực tiếp qua Admin API (cổng 9644) và
 | :--- | :--- | :--- | :--- |
 | `docker-compose.yml:83-88` | `healthcheck` | `rpk cluster status` | Sử dụng `rpk cluster status` làm lệnh probe healthcheck cho container Redpanda. |
 | `infra/redpanda/create_topics.sh:17-48` | `ensure_topic` | Idempotent `rpk topic` | Kiểm tra bằng `rpk topic describe`, tạo mới (`create`) hoặc đồng bộ config (`alter-config`) với `retention.ms=3600000`, `segment.ms=600000`. |
+| `src/producer/replay_producer.py:369-403` | `build_producer`, `_produce_with_backpressure` | Idempotent `confluent-kafka` | Bật `enable.idempotence=True`, `acks='all'`, nén `lz4`, `linger.ms=20`, xử lý `BufferError` bằng `poll(0.1)` và gọi `flush()` khi thoát. |
 
 ```yaml
     healthcheck:

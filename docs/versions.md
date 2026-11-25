@@ -13,6 +13,8 @@ Tài liệu này lưu trữ toàn bộ các phiên bản phần mềm, Docker im
 | Pydantic-Settings | 2.12.0 | 2026-11-19 | Nạp biến môi trường .env |
 | PyYAML | 6.0.3 | 2026-11-19 | Parser cho config/*.yaml |
 | Jsonschema | 4.26.0 | 2026-11-25 | Kiểm chuẩn JSON Schema Draft 2020-12 (Task 2.2) |
+| Confluent-Kafka | 2.16.2 | 2026-11-25 | Python Kafka/Redpanda Producer client (Task 2.5) |
+| PyArrow | 25.0.1 | 2026-11-25 | Đọc file Parquet dạng chunk/batch cho Replay Producer (Task 2.5) |
 | GNU Make | 4.1 | 2026-11-19 | Build tool & workflow orchestration |
 | DuckDB | `1.5.6` (Spark container) / `2.0.0` (Windows host) + `httpfs`, `delta` | 2026-11-25 | In-memory OLAP & Delta direct scan engine (Task 2.1, 3.1) |
 | Boto3 | 1.44.6 | 2026-11-19 | AWS SDK Python kiểm tra S3 API |

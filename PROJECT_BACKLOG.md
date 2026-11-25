@@ -649,7 +649,7 @@ minio:
 **AC:** `rpk topic describe cpc_events_raw` khớp cấu hình · chạy `make topics` hai lần không lỗi.
 **Learn:** T01, F07.
 
-### Task 2.5 — Replay Producer v1 (chưa bơm lỗi) \[L\] \[Depends: 2.2, 2.4\]
+### Task 2.5 — Replay Producer v1 (chưa bơm lỗi) \[L\] \[Depends: 2.2, 2.4\] \[x\]
 
 **Goal:** phát lại dữ liệu theo đúng nhịp thời gian, ổn định, có thể đo.
 **Steps:**

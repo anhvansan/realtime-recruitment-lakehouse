@@ -1,9 +1,16 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics spark-build spark-up smoke-interop spark-shell lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
 # Detect python executable (prefers python3 on Linux/WSL, python on Windows)
 PYTHON := $(shell which python3 2>/dev/null || which python 2>/dev/null || echo python)
+
+SPEED_FACTOR ?= 60
+SEED ?= 42
+NO_FAULTS ?= 1
+DRY_RUN ?= 0
+MAX_SLEEP_SEC ?=
+LIMIT ?=
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -14,6 +21,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make stats          - Inspect container resource usage (RAM/CPU)"
 	@echo "  make s3-check       - Run MinIO S3 conformance tests (Task 1.2)"
 	@echo "  make topics         - Provision idempotent Redpanda topics (Task 2.4)"
+	@echo "  make replay         - Run Replay Producer v1 into cpc_events_raw (Task 2.5)"
 	@echo "  make spark-build    - Build pinned Spark + Delta + DuckDB image (Task 3.1)"
 	@echo "  make spark-up       - Start Spark container in profile apps (Task 3.1)"
 	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
@@ -56,6 +64,9 @@ s3-check: ## Verify MinIO S3 API conformance
 
 topics: ## Provision idempotent Redpanda topics (Task 2.4)
 	@bash infra/redpanda/create_topics.sh
+
+replay: ## Replay clean events into Redpanda cpc_events_raw (Task 2.5)
+	$(PYTHON) src/producer/replay_producer.py --speed-factor $(SPEED_FACTOR) --seed $(SEED) $(if $(filter 1 true,$(NO_FAULTS)),--no-faults,) $(if $(filter 1 true,$(DRY_RUN)),--dry-run,) $(if $(MAX_SLEEP_SEC),--max-sleep-sec $(MAX_SLEEP_SEC),) $(if $(LIMIT),--limit $(LIMIT),)
 
 spark-build: ## Build custom Spark + Delta + S3A Docker image (Task 3.1)
 	docker compose --profile core --profile apps build spark

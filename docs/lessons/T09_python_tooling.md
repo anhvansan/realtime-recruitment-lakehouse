@@ -55,7 +55,8 @@ DuckDB khi cấu hình Secret S3 yêu cầu thuộc tính `ENDPOINT` chỉ chứ
 
 | File:dòng | Symbol | Đoạn code | Giải thích dòng nào quan trọng |
 | :--- | :--- | :--- | :--- |
-| `src/common/config.py:126-135` | `AppConfig.s3_endpoint_host_port` | Trích đoạn nguyên văn từ `src/common/config.py`: | Tách bỏ tiền tố `http://` hoặc `https://` và dấu gạch chéo cuối để phục vụ DuckDB Secret. |
+| `src/common/config.py:130-139` | `AppConfig.s3_endpoint_host_port` | Trích đoạn nguyên văn từ `src/common/config.py`: | Tách bỏ tiền tố `http://` hoặc `https://` và dấu gạch chéo cuối để phục vụ DuckDB Secret. |
+| `src/producer/replay_producer.py:483-664` | `run_replay` | Bắt `SIGINT` & `flush()` sạch | Dùng `threading.Event` kết hợp `signal.signal(signal.SIGINT, ...)` đánh thức vòng đợi deadline ngay lập tức và `flush()` trước khi thoát. |
 
 ```python
     @property
