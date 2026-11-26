@@ -40,7 +40,8 @@ Giả sử một `click` trị giá `bid = "2.5000"` được gửi 2 lần vớ
 | :--- | :--- | :--- |
 | `src/common/schemas/cpc_event.py:77-118` | `CpcEventV1` | Quy định trường `event_id` (SHA-1) và `source_row_id` bắt buộc cho khử trùng & truy vết. |
 | `src/common/schemas/cpc_event.v1.json:25-29` | `properties.event_id` | Khoá hợp đồng định danh duy nhất cho phép mọi chặng phía sau thực thi idempotency. |
-| *(Bổ sung thêm ở Task 2.5, 3.3, 3.4)* | `replay_producer`, `ingest`, `refine` | Cài đặt `txnAppId`/`txnVersion` và `MERGE` theo `event_id`. |
+| `src/producer/fault_injector.py:229-250` | `FaultInjector.process_event` | Bơm 2% message trùng (`event_id` giữ nguyên) sau 0–60s mô phỏng để kiểm chứng dedup downstream. |
+| `docs/lessons/labs.md:9-23` | `Lab L2` | Thí nghiệm dừng producer và chạy lệch `--start-row` để chứng minh producer idempotency không thay thế Silver dedup. |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao Data Contract `cpc_event.v1` bắt buộc phải có `event_id` do Producer tính từ `(source_file, row_number)` thay vì để Spark sinh `uuid4()` ngẫu nhiên?  

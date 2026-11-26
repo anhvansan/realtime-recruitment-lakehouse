@@ -7,8 +7,10 @@ PYTHON := $(shell which python3 2>/dev/null || which python 2>/dev/null || echo 
 
 SPEED_FACTOR ?= 60
 SEED ?= 42
-NO_FAULTS ?= 1
+NO_FAULTS ?= 0
 DRY_RUN ?= 0
+START_ROW ?= 0
+RUN_ID ?=
 MAX_SLEEP_SEC ?=
 LIMIT ?=
 
@@ -65,8 +67,8 @@ s3-check: ## Verify MinIO S3 API conformance
 topics: ## Provision idempotent Redpanda topics (Task 2.4)
 	@bash infra/redpanda/create_topics.sh
 
-replay: ## Replay clean events into Redpanda cpc_events_raw (Task 2.5)
-	$(PYTHON) src/producer/replay_producer.py --speed-factor $(SPEED_FACTOR) --seed $(SEED) $(if $(filter 1 true,$(NO_FAULTS)),--no-faults,) $(if $(filter 1 true,$(DRY_RUN)),--dry-run,) $(if $(MAX_SLEEP_SEC),--max-sleep-sec $(MAX_SLEEP_SEC),) $(if $(LIMIT),--limit $(LIMIT),)
+replay: ## Replay events into Redpanda cpc_events_raw (NO_FAULTS=0 injects faults by default)
+	$(PYTHON) src/producer/replay_producer.py --speed-factor $(SPEED_FACTOR) --seed $(SEED) --start-row $(START_ROW) $(if $(filter 1 true,$(NO_FAULTS)),--no-faults,) $(if $(filter 1 true,$(DRY_RUN)),--dry-run,) $(if $(RUN_ID),--run-id $(RUN_ID),) $(if $(MAX_SLEEP_SEC),--max-sleep-sec $(MAX_SLEEP_SEC),) $(if $(LIMIT),--limit $(LIMIT),)
 
 spark-build: ## Build custom Spark + Delta + S3A Docker image (Task 3.1)
 	docker compose --profile core --profile apps build spark

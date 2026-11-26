@@ -22,7 +22,11 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Idempotent Redpanda Topic Provisioner | T01, F07 | `infra/redpanda/create_topics.sh:17` | `ensure_topic` | 2.4 |
 | Simulation Clock & Deadline Time Mapper | F02, F01 | `src/producer/time_mapper.py:30` | `TimeMapper` | 2.5 |
 | Chunked Parquet Stream Reader | F01 | `src/producer/replay_producer.py:302` | `iter_parquet_chunks` | 2.5 |
-| Idempotent Kafka Replay Producer & Graceful SIGINT | T01, T09, F06 | `src/producer/replay_producer.py:483` | `run_replay` | 2.5 |
+| Idempotent Kafka Replay Producer & Graceful SIGINT | T01, T09, F06 | `src/producer/replay_producer.py:642` | `run_replay` | 2.5, 2.6 |
+| Seeded Fault Injector (2% Dup, 2% Late, 1% Corrupt) | F04, F06, F13 | `src/producer/fault_injector.py:149` | `FaultInjector` | 2.6 |
+| Ground-Truth Manifest & Late IDs Writer | F04, F13 | `src/producer/replay_producer.py:611` | `_write_manifest_files` | 2.6 |
+| Fault Rate & Determinism Test Suite (100k events) | F04, F06, F13 | `tests/unit/test_fault_injector.py:55` | `test_fault_rates_converge_on_100k_events` | 2.7 |
+| Lab L2: Replay Overlap Duplicate Experiment | F06 | `docs/lessons/labs.md:7` | `Lab L2` | 2.7 |
 | S3 API Conformance & Performance Suite | T04, F08 | `scripts/s3_conformance.py:76` | `S3ConformanceRunner` | 1.2 |
 | Redpanda Log Retention Policy | T01, F07 | `docs/progress/1.4.md:14` | `log_retention_ms=3600000` | 1.4 |
 | Disk Governance & Report Script | T08, F08 | `scripts/disk_report.sh:1` | `disk_report.sh` | 1.5 |

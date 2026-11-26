@@ -674,7 +674,7 @@ minio:
    **Pitfalls:** `sleep` từng message làm lệch giờ; GIL làm throughput thấp (ghi nhận, không tối ưu sớm); múi giờ; quên `flush`.
    **Learn:** F01, F02, F06, F07, T01, T09.
 
-### Task 2.6 — Fault Injection và Manifest sự thật \[M\] \[Depends: 2.5\]
+### Task 2.6 — Fault Injection và Manifest sự thật \[M\] \[Depends: 2.5\] \[x\]
 
 **Goal:** bơm dữ liệu bẩn **có kiểm soát** và biết chính xác đã bơm gì.
 **Steps:**
@@ -693,7 +693,7 @@ minio:
    **Pitfalls:** event hỏng nhưng vẫn bị đếm là hợp lệ; "late" tính theo đồng hồ thật thay vì đồng hồ mô phỏng.
    **Learn:** F04, F13, F06.
 
-### Task 2.7 — Kiểm thử producer và quan sát trên Console \[S\] \[Depends: 2.6\]
+### Task 2.7 — Kiểm thử producer và quan sát trên Console \[S\] \[Depends: 2.6\] \[x\]
 
 **Steps:** viết test `time_mapper`, tỷ lệ inject, xác định manifest; chạy thật rồi dùng Redpanda Console xem phân phối message theo partition và so với kết quả 2.3.
 **AC:** `pytest tests/unit/producer` pass · ảnh chụp/ghi chú phân phối partition trong `docs/progress/2.7.md`.

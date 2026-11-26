@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import heapq
 import json
 import signal
 import sys
@@ -34,6 +35,11 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from src.common.config import AppConfig, load  # noqa: E402
 from src.common.schemas.cpc_event import CpcEventV1, validate_event  # noqa: E402
+from src.producer.fault_injector import (  # noqa: E402
+    FaultConfig,
+    FaultInjector,
+    ScheduledMessage,
+)
 from src.producer.time_mapper import TimeMapper, ensure_utc, parse_sim_start  # noqa: E402
 
 
@@ -292,6 +298,8 @@ def prepare_sorted_parquet(
         row = con.execute(
             f"SELECT COUNT(*), MIN(orig_ts) FROM read_parquet('{safe_out}')"
         ).fetchone()
+        if row is None:
+            return 0, datetime.now(UTC)
         count = int(row[0])
         min_ts = ensure_utc(row[1]) if row[1] is not None else datetime.now(UTC)
         return count, min_ts
@@ -466,7 +474,19 @@ def _parse_args(argv: list[str] | None, cfg: AppConfig) -> argparse.Namespace:
         "--seed",
         type=int,
         default=42,
-        help="Deterministic seed (reserved for fault injection in Task 2.6).",
+        help="Deterministic seed for fault injection (Task 2.6).",
+    )
+    parser.add_argument(
+        "--run-id",
+        type=str,
+        default=None,
+        help="Optional run identifier for manifest filenames (default: UTC timestamp).",
+    )
+    parser.add_argument(
+        "--manifest-dir",
+        type=Path,
+        default=Path("data/manifests"),
+        help="Directory to write replay_<run_id>.json and .late_ids.jsonl.",
     )
     parser.add_argument(
         "--dry-run",
@@ -476,13 +496,153 @@ def _parse_args(argv: list[str] | None, cfg: AppConfig) -> argparse.Namespace:
     parser.add_argument(
         "--no-faults",
         action="store_true",
-        help="Emit clean stream with zero fault injection (Task 2.5 baseline).",
+        help="Disable fault injection and emit 100%% clean events.",
     )
     return parser.parse_args(argv)
 
 
+class _DispatchContext:
+    """Mutable loop state shared across live stream emission and delayed heap drain."""
+
+    def __init__(
+        self,
+        *,
+        args: argparse.Namespace,
+        mapper: TimeMapper,
+        producer: Producer | None,
+        topic: str,
+        stats: DeliveryStats,
+        stop_event: threading.Event,
+        t_start: float,
+    ) -> None:
+        self.args = args
+        self.mapper = mapper
+        self.producer = producer
+        self.topic = topic
+        self.stats = stats
+        self.stop_event = stop_event
+        self.t_start = t_start
+        self.last_log_ts = t_start
+        self.last_emit_ts: float | None = None
+        self.min_interval_sec = (1.0 / args.max_rate) if args.max_rate else 0.0
+        self.wall_shift_sec = 0.0
+        self.contract_failures = 0
+
+    def emit(self, emit_orig_ts: datetime, msg: ScheduledMessage) -> bool:
+        """Wait until scheduled deadline and emit a ScheduledMessage. Returns False if stopped."""
+        deadline = self.mapper.target_wall_time(emit_orig_ts) - self.wall_shift_sec
+        if self.min_interval_sec > 0 and self.last_emit_ts is not None:
+            deadline = max(deadline, self.last_emit_ts + self.min_interval_sec)
+
+        now = time.monotonic()
+        wait_sec = deadline - now
+        if (
+            wait_sec > 0
+            and self.args.max_sleep_sec is not None
+            and wait_sec > self.args.max_sleep_sec
+        ):
+            self.wall_shift_sec += wait_sec - self.args.max_sleep_sec
+            wait_sec = self.args.max_sleep_sec
+            deadline = now + wait_sec
+
+        if wait_sec > 0:
+            while wait_sec > 0 and not self.stop_event.is_set():
+                slice_sec = min(wait_sec, 5.0)
+                self.stop_event.wait(timeout=slice_sec)
+                if self.producer is not None:
+                    self.producer.poll(0)
+                now = time.monotonic()
+                wait_sec = deadline - now
+                if now - self.last_log_ts >= 5.0 and not self.stop_event.is_set() and wait_sec > 0:
+                    elapsed = now - self.t_start
+                    rate = self.stats.produced / elapsed if elapsed > 0 else 0.0
+                    print(
+                        f"[PROGRESS] sent={self.stats.produced} | acked={self.stats.acked} | "
+                        f"rate={rate:.1f} msg/s | waiting next event in {wait_sec:.1f}s",
+                        flush=True,
+                    )
+                    self.last_log_ts = now
+
+            if self.stop_event.is_set():
+                return False
+
+        behind_ms = max(0.0, (time.monotonic() - deadline) * 1000.0)
+        if behind_ms > self.stats.max_behind_ms:
+            self.stats.max_behind_ms = behind_ms
+
+        if self.args.dry_run:
+            res = validate_event(msg.raw_json)
+            if msg.kind == "corrupt":
+                if res.is_valid:
+                    self.contract_failures += 1
+                    print(f"[FAULT ERROR] Injected corrupt ({msg.error_type}) passed validate_event!")
+            elif not res.is_valid:
+                self.contract_failures += 1
+                print(f"[CONTRACT ERROR] kind={msg.kind}: {res.errors}")
+            self.stats.produced += 1
+            self.stats.acked += 1
+            if self.stats.produced <= 3:
+                print(
+                    f"[DRY-RUN SAMPLE #{self.stats.produced}] ({msg.kind}) "
+                    f"key={msg.key} {msg.raw_json}"
+                )
+        else:
+            assert self.producer is not None
+            _produce_with_backpressure(
+                producer=self.producer,
+                topic=self.topic,
+                key=msg.key,
+                value=msg.raw_json,
+                stats=self.stats,
+            )
+            self.producer.poll(0)
+
+        self.last_emit_ts = time.monotonic()
+        if self.last_emit_ts - self.last_log_ts >= 5.0:
+            elapsed = self.last_emit_ts - self.t_start
+            rate = self.stats.produced / elapsed if elapsed > 0 else 0.0
+            print(
+                f"[PROGRESS] sent={self.stats.produced} | acked={self.stats.acked} | "
+                f"rate={rate:.1f} msg/s | behind_schedule_ms={behind_ms:.1f}",
+                flush=True,
+            )
+            self.last_log_ts = self.last_emit_ts
+        return True
+
+
+def _write_manifest_files(
+    manifest_dir: Path,
+    run_id: str,
+    injector: FaultInjector,
+    *,
+    speed_factor: float,
+    no_faults: bool,
+    interrupted: bool,
+) -> tuple[Path, Path]:
+    """Persist replay_<run_id>.json and replay_<run_id>.late_ids.jsonl."""
+    manifest_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = manifest_dir / f"replay_{run_id}.json"
+    late_ids_path = manifest_dir / f"replay_{run_id}.late_ids.jsonl"
+
+    with late_ids_path.open("w", encoding="utf-8") as fh:
+        for rec in injector.late_records:
+            fh.write(rec.to_json() + "\n")
+
+    manifest_data = injector.build_manifest(
+        run_id=run_id,
+        speed_factor=speed_factor,
+        no_faults=no_faults,
+        late_ids_file=late_ids_path.as_posix(),
+        interrupted=interrupted,
+    )
+    with manifest_path.open("w", encoding="utf-8") as fh:
+        json.dump(manifest_data, fh, indent=2)
+        fh.write("\n")
+    return manifest_path, late_ids_path
+
+
 def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
-    """Execute full DuckDB sort -> chunk stream -> deadline-paced Kafka replay."""
+    """Execute DuckDB sort -> chunk stream -> deadline-paced fault-aware Kafka replay."""
     if args.start_row < 0:
         raise ValueError("--start-row must be >= 0")
     if args.max_rate is not None and args.max_rate <= 0:
@@ -491,7 +651,7 @@ def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
         raise ValueError("--max-sleep-sec must be >= 0")
 
     t0_prep = time.perf_counter()
-    total_available, stream_orig_t0 = prepare_sorted_parquet(
+    total_available, _ = prepare_sorted_parquet(
         raw_dir=args.raw_dir,
         out_parquet=args.parquet_out,
         single_file=args.file,
@@ -517,11 +677,19 @@ def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
         speed_factor=args.speed_factor,
     )
 
+    fault_cfg = (
+        FaultConfig(duplicate_rate=0.0, late_rate=0.0, corrupt_rate=0.0)
+        if args.no_faults
+        else FaultConfig()
+    )
+    injector = FaultInjector(seed=args.seed, config=fault_cfg)
+    run_id = args.run_id or datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+
     topic = cfg.pipeline.kafka.raw_topic
     bootstrap = cfg.kafka_bootstrap_external
 
     print("=" * 84)
-    print("📨 CPC REPLAY PRODUCER v1 (Task 2.5)")
+    print(f"📨 CPC REPLAY PRODUCER (run_id={run_id})")
     print(f"   Sorted Parquet : {args.parquet_out} ({total_available:,} rows, prep {prep_ms:.1f}ms)")
     print(
         f"   Start/Limit    : start_row={args.start_row}, limit={args.limit or 'ALL'}, "
@@ -546,13 +714,20 @@ def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
 
     producer = None if args.dry_run else build_producer(bootstrap)
     stats = DeliveryStats()
-    last_log_ts = t_start
-    last_emit_ts: float | None = None
-    min_interval_sec = (1.0 / args.max_rate) if args.max_rate else 0.0
+    ctx = _DispatchContext(
+        args=args,
+        mapper=mapper,
+        producer=producer,
+        topic=topic,
+        stats=stats,
+        stop_event=stop_event,
+        t_start=t_start,
+    )
+
+    delayed_heap: list[tuple[datetime, int, ScheduledMessage]] = []
+    heap_seq = 0
     prev_event_time: datetime | None = None
     non_monotonic_count = 0
-    contract_failures = 0
-    wall_shift_sec = 0.0
 
     try:
         for row in iter_parquet_chunks(
@@ -564,83 +739,29 @@ def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
             if stop_event.is_set():
                 break
 
-            orig_ts = ensure_utc(row["orig_ts"])
-            deadline = mapper.target_wall_time(orig_ts) - wall_shift_sec
-            if min_interval_sec > 0 and last_emit_ts is not None:
-                deadline = max(deadline, last_emit_ts + min_interval_sec)
-
-            now = time.monotonic()
-            wait_sec = deadline - now
-            if wait_sec > 0 and args.max_sleep_sec is not None and wait_sec > args.max_sleep_sec:
-                wall_shift_sec += wait_sec - args.max_sleep_sec
-                wait_sec = args.max_sleep_sec
-                deadline = now + wait_sec
-
-            if wait_sec > 0:
-                # Wait in up to 5s slices so progress logs and SIGINT stay responsive
-                while wait_sec > 0 and not stop_event.is_set():
-                    slice_sec = min(wait_sec, 5.0)
-                    stop_event.wait(timeout=slice_sec)
-                    if producer is not None:
-                        producer.poll(0)
-                    now = time.monotonic()
-                    wait_sec = deadline - now
-                    if now - last_log_ts >= 5.0 and not stop_event.is_set() and wait_sec > 0:
-                        elapsed = now - t_start
-                        rate = stats.produced / elapsed if elapsed > 0 else 0.0
-                        print(
-                            f"[PROGRESS] sent={stats.produced} | acked={stats.acked} | "
-                            f"rate={rate:.1f} msg/s | waiting next event in {wait_sec:.1f}s",
-                            flush=True,
-                        )
-                        last_log_ts = now
-
-                if stop_event.is_set():
-                    break
-
-            behind_ms = max(0.0, (time.monotonic() - deadline) * 1000.0)
-            if behind_ms > stats.max_behind_ms:
-                stats.max_behind_ms = behind_ms
-
-            sim_event_time = mapper.map_sim_time(orig_ts)
-            payload = build_event_payload(row, mapper)
-            raw_json = json.dumps(payload, separators=(",", ":"))
+            row_orig_ts = ensure_utc(row["orig_ts"])
+            sim_event_time = mapper.map_sim_time(row_orig_ts)
 
             if prev_event_time is not None and sim_event_time < prev_event_time:
                 non_monotonic_count += 1
             prev_event_time = sim_event_time
 
-            # Local parity safeguard in --dry-run (or --no-faults)
-            if args.dry_run:
-                res = validate_event(raw_json)
-                if not res.is_valid:
-                    contract_failures += 1
-                    print(f"[CONTRACT ERROR] row={payload['source_row_id']}: {res.errors}")
-                stats.produced += 1
-                stats.acked += 1
-                if stats.produced <= 3:
-                    print(f"[DRY-RUN SAMPLE #{stats.produced}] key={payload['campaign_id']} {raw_json}")
-            else:
-                assert producer is not None
-                _produce_with_backpressure(
-                    producer=producer,
-                    topic=topic,
-                    key=payload["campaign_id"],
-                    value=raw_json,
-                    stats=stats,
-                )
-                producer.poll(0)
+            payload = build_event_payload(row, mapper)
+            for msg in injector.process_event(payload, sim_event_time):
+                emit_orig_ts = row_orig_ts + (msg.emit_sim_time - sim_event_time)
+                heapq.heappush(delayed_heap, (emit_orig_ts, heap_seq, msg))
+                heap_seq += 1
 
-            last_emit_ts = time.monotonic()
-            if last_emit_ts - last_log_ts >= 5.0:
-                elapsed = last_emit_ts - t_start
-                rate = stats.produced / elapsed if elapsed > 0 else 0.0
-                print(
-                    f"[PROGRESS] sent={stats.produced} | acked={stats.acked} | "
-                    f"rate={rate:.1f} msg/s | behind_schedule_ms={behind_ms:.1f}",
-                    flush=True,
-                )
-                last_log_ts = last_emit_ts
+            while delayed_heap and delayed_heap[0][0] <= row_orig_ts:
+                due_orig_ts, _, due_msg = heapq.heappop(delayed_heap)
+                if not ctx.emit(due_orig_ts, due_msg):
+                    break
+
+        # Drain remaining scheduled delayed duplicates and late events
+        while delayed_heap and not stop_event.is_set():
+            due_orig_ts, _, due_msg = heapq.heappop(delayed_heap)
+            if not ctx.emit(due_orig_ts, due_msg):
+                break
     except KafkaException as exc:
         print(f"❌ Kafka error: {exc}", file=sys.stderr)
         return 1
@@ -651,18 +772,37 @@ def run_replay(args: argparse.Namespace, cfg: AppConfig) -> int:
             if remaining > 0:
                 print(f"⚠️  {remaining} messages still unacknowledged after flush timeout!")
 
+    manifest_path, late_ids_path = _write_manifest_files(
+        args.manifest_dir,
+        run_id,
+        injector,
+        speed_factor=args.speed_factor,
+        no_faults=args.no_faults,
+        interrupted=stop_event.is_set(),
+    )
+
+    corrupt_total = sum(injector.corrupt_by_type.values())
     total_elapsed = time.monotonic() - t_start
     avg_rate = stats.produced / total_elapsed if total_elapsed > 0 else 0.0
     print("\n" + "=" * 84)
-    print("📊 TỔNG KẾT REPLAY PRODUCER v1")
+    print("📊 TỔNG KẾT REPLAY PRODUCER")
     print(f"   Trạng thái       : {'STOPPED BY SIGINT' if stop_event.is_set() else 'COMPLETED'}")
+    print(f"   Rows read        : {injector.rows_read} | Valid unique: {injector.sent_valid_unique}")
+    print(
+        f"   Faults injected  : dup={injector.injected_duplicates}, "
+        f"late={injector.injected_late} (>10m: {injector.injected_late_over_10m}), "
+        f"corrupt={corrupt_total}"
+    )
+    print(f"   Expected spend   : {injector.expected_spend_total:.4f}")
     print(f"   Produced / Acked : {stats.produced} / {stats.acked}")
     print(f"   Delivery errors  : {stats.delivery_errors} | Buffer retries: {stats.buffer_retries}")
-    print(f"   Non-monotonic ts : {non_monotonic_count} | Dry-run contract fails: {contract_failures}")
+    print(f"   Non-monotonic ts : {non_monotonic_count} | Dry-run fails: {ctx.contract_failures}")
     print(f"   Elapsed / Rate   : {total_elapsed:.2f}s / {avg_rate:.1f} msg/s")
     print(f"   Max behind ms    : {stats.max_behind_ms:.2f} ms")
+    print(f"   Manifest JSON    : {manifest_path}")
+    print(f"   Late IDs JSONL   : {late_ids_path}")
     print("=" * 84)
-    return 1 if (stats.delivery_errors > 0 or contract_failures > 0) else 0
+    return 1 if (stats.delivery_errors > 0 or ctx.contract_failures > 0) else 0
 
 
 def main(argv: list[str] | None = None) -> int:
