@@ -24,10 +24,44 @@ class KafkaConfig(BaseModel):
 
 
 class StreamingConfig(BaseModel):
-    watermark_interval: str = "10 minutes"
-    ingest_trigger: str = "10 seconds"
-    refine_trigger: str = "10 seconds"
+    trigger_seconds: int = 10
+    watermark_delay: str = "10 minutes"
     max_offsets_per_trigger: int = 50000
+    fail_on_data_loss: bool = False
+
+    @property
+    def trigger_interval(self) -> str:
+        """Return Structured Streaming processingTime trigger string."""
+        return f"{self.trigger_seconds} seconds"
+
+    @property
+    def watermark_interval(self) -> str:
+        """Backward-compatible alias for watermark_delay."""
+        return self.watermark_delay
+
+    @property
+    def ingest_trigger(self) -> str:
+        """Backward-compatible alias for Q1 trigger interval."""
+        return self.trigger_interval
+
+    @property
+    def refine_trigger(self) -> str:
+        """Backward-compatible alias for Q2 trigger interval."""
+        return self.trigger_interval
+
+
+class SparkConfig(BaseModel):
+    master: str = "local[2]"
+    driver_memory: str = "1536m"
+    shuffle_partitions: int = 4
+    timezone: str = "UTC"
+    warehouse_dir: str = "/tmp/spark-warehouse"
+    enable_rocksdb: bool = False
+
+
+class CheckpointConfig(BaseModel):
+    ingest_bronze: str = "checkpoints/ingest_bronze"
+    refine_silver: str = "checkpoints/refine_silver"
 
 
 class StoragePathConfig(BaseModel):
@@ -37,11 +71,13 @@ class StoragePathConfig(BaseModel):
     dlq_path: str = "dlq/cpc_events_dlq"
     ops_path: str = "ops/stream_metrics"
     checkpoint_base: str = "checkpoints"
+    checkpoints: CheckpointConfig = Field(default_factory=CheckpointConfig)
 
 
 class PipelineYamlConfig(BaseModel):
     kafka: KafkaConfig = Field(default_factory=KafkaConfig)
     streaming: StreamingConfig = Field(default_factory=StreamingConfig)
+    spark: SparkConfig = Field(default_factory=SparkConfig)
     storage: StoragePathConfig = Field(default_factory=StoragePathConfig)
 
 
@@ -142,6 +178,16 @@ class AppConfig(BaseSettings):
     def s3_use_ssl(self) -> bool:
         """Return True if s3_endpoint uses SSL (https://), otherwise False."""
         return self.s3_endpoint.strip().lower().startswith("https://")
+
+    def s3a_uri(self, relative_path: str) -> str:
+        """Build an S3A URI (used by Spark / Hadoop) under the configured bucket."""
+        clean = relative_path.lstrip("/")
+        return f"s3a://{self.s3_bucket}/{clean}" if clean else f"s3a://{self.s3_bucket}/"
+
+    def s3_uri(self, relative_path: str) -> str:
+        """Build an S3 URI (used by DuckDB / boto3) under the configured bucket."""
+        clean = relative_path.lstrip("/")
+        return f"s3://{self.s3_bucket}/{clean}" if clean else f"s3://{self.s3_bucket}/"
 
 
 def _find_project_root() -> Path:

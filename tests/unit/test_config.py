@@ -14,7 +14,22 @@ def test_default_config_loading():
     assert cfg.s3_bucket == "lakehouse"
     assert cfg.speed_factor == 60
     assert cfg.pipeline.kafka.raw_topic == "cpc_events_raw"
+    assert cfg.pipeline.kafka.dlq_topic == "cpc_events_dlq"
+    assert cfg.pipeline.streaming.trigger_seconds == 10
+    assert cfg.pipeline.streaming.trigger_interval == "10 seconds"
+    assert cfg.pipeline.streaming.watermark_delay == "10 minutes"
     assert cfg.pipeline.streaming.watermark_interval == "10 minutes"
+    assert cfg.pipeline.streaming.max_offsets_per_trigger == 50000
+    assert cfg.pipeline.streaming.fail_on_data_loss is False
+    assert cfg.pipeline.spark.master == "local[2]"
+    assert cfg.pipeline.spark.driver_memory == "1536m"
+    assert cfg.pipeline.spark.shuffle_partitions == 4
+    assert cfg.pipeline.spark.timezone == "UTC"
+    assert cfg.pipeline.spark.enable_rocksdb is False
+    assert cfg.pipeline.storage.checkpoints.ingest_bronze == "checkpoints/ingest_bronze"
+    assert cfg.pipeline.storage.checkpoints.refine_silver == "checkpoints/refine_silver"
+    assert cfg.s3a_uri(cfg.pipeline.storage.bronze_path) == "s3a://lakehouse/bronze/cpc_events"
+    assert cfg.s3_uri(cfg.pipeline.storage.silver_path) == "s3://lakehouse/silver/cpc_events"
 
 
 def test_s3_endpoint_host_port_variations():

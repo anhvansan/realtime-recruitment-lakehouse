@@ -13,7 +13,7 @@ import re
 from datetime import UTC, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any, Literal, cast
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -425,13 +425,14 @@ def validate_event(raw: str) -> ValidationResult:
     assert parsed_event_time is not None
     assert parsed_produced_at is not None
     assert parsed_spend is not None
+    assert isinstance(row_id, int) and not isinstance(row_id, bool)
 
     event = CpcEventV1(
         schema_version=SUPPORTED_SCHEMA_VERSION,
         event_id=payload["event_id"],
         event_time=parsed_event_time,
         produced_at=parsed_produced_at,
-        event_type=raw_event_type,
+        event_type=cast(EventType, raw_event_type),
         job_id=payload["job_id"],
         campaign_id=payload["campaign_id"],
         group_id=group_id,

@@ -9,10 +9,21 @@ kafka:
   replication_factor: 1
 
 streaming:
-  watermark_interval: "10 minutes"
-  ingest_trigger: "10 seconds"
-  refine_trigger: "10 seconds"
+  trigger_seconds: 10
+  watermark_delay: "10 minutes"
   max_offsets_per_trigger: 50000
+  # Task 1.4 policy: dev allows offset expiration since Bronze is source of truth
+  fail_on_data_loss: false
+
+spark:
+  master: "local[2]"
+  # Fits inside container mem_limit: 2304m (Section 4.4 budget)
+  driver_memory: "1536m"
+  shuffle_partitions: 4
+  timezone: "UTC"
+  warehouse_dir: "/tmp/spark-warehouse"
+  # Measure default heap state store first; enable RocksDB after benchmarking
+  enable_rocksdb: false
 
 storage:
   bucket: "lakehouse"
@@ -21,3 +32,6 @@ storage:
   dlq_path: "dlq/cpc_events_dlq"
   ops_path: "ops/stream_metrics"
   checkpoint_base: "checkpoints"
+  checkpoints:
+    ingest_bronze: "checkpoints/ingest_bronze"
+    refine_silver: "checkpoints/refine_silver"

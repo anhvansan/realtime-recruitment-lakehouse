@@ -58,6 +58,8 @@ Máy có 16GB RAM:
 | File:dòng | Symbol | Đoạn code | Giải thích dòng nào quan trọng |
 | :--- | :--- | :--- | :--- |
 | `Makefile:6-16` | `help` | Trích đoạn từ `Makefile`: | Định nghĩa các lệnh vận hành chuẩn hóa cho hạ tầng Docker (`up`, `down`, `clean`, `nuke-data`, `disk-report`). |
+| `config/pipeline.yaml:18-26` | `spark` | `driver_memory: "1536m"`, `warehouse_dir: "/tmp/spark-warehouse"` | Cấp heap Spark `1536m` vừa khít trong `mem_limit: 2304m` (chừa overhead JVM/Python) và đặt warehouse ở `/tmp` để tránh lỗi `chmod` trên NTFS bind mount `/app`. |
+| `src/streaming/spark_session.py:48-106` | `build_spark_conf` | Cấu hình tập trung từ `AppConfig` | Đọc `spark.*` và `s3a.*` từ config, đảm bảo không hard-code endpoint hay để lộ credentials ra log container. |
 
 ```makefile
 help: ## Show available commands and their descriptions

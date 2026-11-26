@@ -38,3 +38,9 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Spark App Container Service | T02, R5 | `docker-compose.yml:119` | `services.spark` | 3.1 |
 | Spark <-> Delta <-> DuckDB Interop Test | T02, T03, T05, F10 | `tests/integration/smoke_delta_interop.py:298` | `main` | 3.1 |
 | Delta Lake Table Format Decision | F10, T03 | `docs/adr/003-delta.md:49` | `ADR-003` | 3.1 |
+| Centralized Pipeline & Spark YAML Config | T02, T08, R5 | `config/pipeline.yaml:11` | `streaming`, `spark`, `storage` | 3.2 |
+| Spark & Checkpoint Pydantic Config + S3A URI | T02, T09 | `src/common/config.py:53` | `SparkConfig`, `AppConfig.s3a_uri` | 3.2 |
+| SparkSession Factory (16GB RAM, Delta, S3A, UTC) | T02, T08, R6 | `src/streaming/spark_session.py:109` | `build_spark` | 3.2 |
+| Spark Config Builder & Credential Redactor | T02, R6 | `src/streaming/spark_session.py:48` | `build_spark_conf`, `redact_spark_conf` | 3.2 |
+| Hadoop S3A Bucket/Prefix Lister | T02, T04 | `src/streaming/spark_session.py:179` | `list_s3a_paths` | 3.2 |
+| Local SparkSession + Delta Roundtrip Test | T02 | `tests/unit/test_spark_session.py:137` | `test_build_spark_local_delta_roundtrip` | 3.2 |

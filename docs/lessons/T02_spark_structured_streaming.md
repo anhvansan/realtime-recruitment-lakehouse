@@ -15,7 +15,7 @@ infra/spark/Dockerfile (apache/spark:3.5.3-scala2.12-java17-python3-ubuntu)
 │   ├── spark-sql-kafka-0-10_2.12-3.5.3.jar + kafka-clients
 │   ├── hadoop-aws-3.3.4.jar
 │   └── aws-java-sdk-bundle-1.12.262.jar
-├── Python env: delta-spark==3.2.1, duckdb==2.0.0, pydantic, boto3
+├── Python env: delta-spark==3.2.1, duckdb==1.5.6, pydantic, boto3
 └── Volumes:
     ├── .:/app (mã nguồn dự án)
     └── ${DATA_ROOT}/ivy_cache:/home/spark/.ivy2 (cache ổ D, bảo vệ ổ C)
@@ -26,6 +26,7 @@ infra/spark/Dockerfile (apache/spark:3.5.3-scala2.12-java17-python3-ubuntu)
 2. **S3A Path-Style Access:** `spark.hadoop.fs.s3a.path.style.access=true` (nếu thiếu, Hadoop sẽ gọi `lakehouse.minio:9000` gây lỗi DNS).
 3. **S3A Endpoint & SSL:** Truyền đầy đủ scheme `http://minio:9000` (`cfg.s3_endpoint`) và `fs.s3a.connection.ssl.enabled=false`.
 4. **Local Tuning:** `spark.sql.shuffle.partitions=4` (tránh mặc định 200 tạo ra hàng trăm file Parquet rỗng/nhỏ) và `spark.sql.session.timeZone=UTC`.
+5. **Chính sách Offset & State Store:** `fail_on_data_loss: false` trong `config/pipeline.yaml` (Task 1.4: chấp nhận offset Redpanda hết hạn sau 1h vì Bronze là nguồn sự thật); giữ heap state store mặc định (**đo trước, bật RocksDB sau** qua `enable_rocksdb` khi benchmark Task 3.7/3.9).
 
 ## 4. Ví dụ số
 - Ngân sách RAM của container `cpc-spark`: `mem_limit: 2304m` (2.25GB).
@@ -50,7 +51,10 @@ infra/spark/Dockerfile (apache/spark:3.5.3-scala2.12-java17-python3-ubuntu)
 | `infra/spark/Dockerfile:5-38` | `FROM` & `download_jars.py` | Pin `apache/spark:3.5.3`, nướng sẵn 8 JAR thiếu vào `/opt/spark/jars/` không qua Ivy. |
 | `infra/spark/download_jars.py:37-105` | `jar_paths_by_group`, `download_one` | Ép IPv4, kiểm tra `Content-Length`, retry 5 lần, tách layer `aws` (~270MB) và `core` (~13MB). |
 | `docker-compose.yml:119-151` | `services.spark` | Cấu hình profile `apps`, `mem_limit: 2304m`, bind mount Ivy cache sang ổ D. |
-| `tests/integration/smoke_delta_interop.py:63-86` | `build_smoke_spark` | Khởi tạo `SparkSession` chuẩn Delta + MinIO S3A từ `src/common/config.py`. |
+| `config/pipeline.yaml:11-37` | `streaming`, `spark`, `storage` | Khai báo tập trung trigger (`10s`), watermark (`10 minutes`), `fail_on_data_loss: false`, heap `1536m`, `shuffle_partitions: 4`, bảng Delta & checkpoints. |
+| `src/streaming/spark_session.py:36-195` | `build_spark`, `build_spark_conf`, `redact_spark_conf`, `list_s3a_paths` | Factory duy nhất dựng `SparkSession` (local-only hoặc S3A MinIO), che credentials theo R6. |
+| `tests/unit/test_spark_session.py:137-150` | `test_build_spark_local_delta_roundtrip` | Kiểm chứng dựng `SparkSession(local_only=True)` ghi/đọc Delta cục bộ không lộ secret. |
+| `tests/integration/smoke_delta_interop.py:67-93` | `build_smoke_spark` | Khởi tạo `SparkSession` smoke test liên thông Delta + MinIO S3A (Task 3.1). |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao trong `Dockerfile` ta thay `spark-submit --packages` (Ivy) bằng `download_jars.py` tải trực tiếp 8 file JAR từ Maven Central?  

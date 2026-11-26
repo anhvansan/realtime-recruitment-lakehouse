@@ -728,7 +728,7 @@ minio:
    **Pitfalls:** lệch phiên bản Scala (`_2.12` vs `_2.13`); thiếu SDK AWS khiến `s3a` báo lỗi lớp không tìm thấy; thiếu `path.style.access`; DuckDB đòi extension `httpfs` + secret S3 dùng `cfg.s3_endpoint_host_port` (không kèm `http://`).
    **Learn:** T02, T03, T05, F10.
 
-### Task 3.2 — SparkSession factory và cấu hình \[M\] \[Depends: 3.1\]
+### Task 3.2 — SparkSession factory và cấu hình \[M\] \[Depends: 3.1\] \[x\]
 
 **Goal:** một nơi duy nhất cấu hình Spark, phù hợp máy 16GB.
 **Steps:** `src/streaming/spark_session.py` dựng session với:
