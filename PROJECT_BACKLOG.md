@@ -789,7 +789,7 @@ def process_batch(batch_df, batch_id: int):
 **Pitfalls:** bản ghi JSON hợp lệ nhưng thiếu trường **không** làm `from_json` báo corrupt (phải bắt bằng quy tắc `missing_required`); `event_date` null làm hỏng partition; quên `persist` khiến batch bị tính hai lần.
 **Learn:** F06, F13, T02, T03.
 
-### Task 3.4 — Q2 Refine: Silver chuẩn hoá và khử trùng \[L\] \[Depends: 3.3\]
+### Task 3.4 — Q2 Refine: Silver chuẩn hoá và khử trùng \[L\] \[Depends: 3.3\] \[x\]
 
 **Goal:** Silver có **đúng một dòng cho mỗi `event_id`**, kiểu dữ liệu chuẩn, ghi idempotent.
 **Steps:**

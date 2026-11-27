@@ -27,6 +27,7 @@ class StreamingConfig(BaseModel):
     trigger_seconds: int = 10
     watermark_delay: str = "10 minutes"
     max_offsets_per_trigger: int = 50000
+    max_files_per_trigger: int = 100
     fail_on_data_loss: bool = False
 
     @property

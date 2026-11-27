@@ -50,3 +50,8 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Q1 Kafka DLQ At-Least-Once Publisher | F06, F13 | `src/streaming/ingest.py:60` | `publish_to_kafka_dlq` | 3.3 |
 | Q1 Streaming Query Runner & Checkpoint | T02 | `src/streaming/ingest.py:142` | `start_ingest_query` | 3.3 |
 | Python <-> PySpark Validation Parity Suite | F13, T02 | `tests/unit/test_validation_parity.py:212` | `test_python_and_spark_validation_parity` | 3.3 |
+| Q2 Refine Bronze Delta Stream Reader | T02, T03 | `src/streaming/refine.py:50` | `read_bronze_delta_stream` | 3.4 |
+| Bronze -> Silver Type Normalizer & Silver DLQ | F12, F13 | `src/streaming/refine.py:65` | `transform_bronze_to_silver` | 3.4 |
+| 2-Layer Dedup & Partition-Pruned Delta MERGE | F03, F04, F05, F06, T03 | `src/streaming/refine.py:192` | `make_upsert_silver` | 3.4 |
+| Q2 Refine Watermark Streaming Runner | F03, F04, F05, T02 | `src/streaming/refine.py:260` | `start_refine_query` | 3.4 |
+| Silver Idempotent MERGE & Dedup Test | F06, T03 | `tests/unit/test_refine.py:223` | `test_upsert_silver_idempotent_and_deduplicates` | 3.4 |

@@ -42,6 +42,8 @@ Giả sử một `click` trị giá `bid = "2.5000"` được gửi 2 lần vớ
 | `src/common/schemas/cpc_event.v1.json:25-29` | `properties.event_id` | Khoá hợp đồng định danh duy nhất cho phép mọi chặng phía sau thực thi idempotency. |
 | `src/producer/fault_injector.py:229-250` | `FaultInjector.process_event` | Bơm 2% message trùng (`event_id` giữ nguyên) sau 0–60s mô phỏng để kiểm chứng dedup downstream. |
 | `src/streaming/ingest.py:86-139` | `make_process_batch` | Ghi Bronze & DLQ Delta idempotent với `txnAppId` + `txnVersion=batch_id`; ghi topic `cpc_events_dlq` at-least-once. |
+| `src/streaming/refine.py:192-257` | `make_upsert_silver` | Khử trùng 2 lớp: trong batch (`dropDuplicates(["event_id"])`) + toàn cục qua Delta `MERGE` insert-only (`t.event_id = s.event_id AND t.event_date = s.event_date`). |
+| `tests/unit/test_refine.py:187-220` | `_run_upsert_silver_idempotency_check` | Gọi lặp lại `upsert_silver` trên cùng micro-batch (kể cả replay `batch_id=0` và `batch_id=1`) chứng minh Silver & DLQ không nhân đôi dòng. |
 | `docs/lessons/labs.md:9-23` | `Lab L2` | Thí nghiệm dừng producer và chạy lệch `--start-row` để chứng minh producer idempotency không thay thế Silver dedup. |
 
 ## 8. Tự kiểm tra

@@ -57,6 +57,7 @@ infra/spark/Dockerfile (apache/spark:3.5.3-scala2.12-java17-python3-ubuntu)
 | `tests/integration/smoke_delta_interop.py:67-93` | `build_smoke_spark` | Khởi tạo `SparkSession` smoke test liên thông Delta + MinIO S3A (Task 3.1). |
 | `src/streaming/validation.py:132-304` | `validate_df` | Parse JSON chế độ `PERMISSIVE` với `columnNameOfCorruptRecord`, phân tách luồng sạch vào Bronze và bản ghi lỗi vào DLQ. |
 | `src/streaming/ingest.py:86-166` | `make_process_batch`, `start_ingest_query` | Đọc stream Redpanda (`maxOffsetsPerTrigger`, `failOnDataLoss`), gọi `persist()`/`unpersist()` trong `foreachBatch` ghi đa sink + checkpoint S3A. |
+| `src/streaming/refine.py:50-286` | `read_bronze_delta_stream`, `make_upsert_silver`, `start_refine_query` | Đọc stream từ Bronze Delta (`maxFilesPerTrigger`), khử trùng theo watermark 10 phút và `foreachBatch` gọi Delta `MERGE` sang Silver. |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao trong `Dockerfile` ta thay `spark-submit --packages` (Ivy) bằng `download_jars.py` tải trực tiếp 8 file JAR từ Maven Central?  

@@ -12,6 +12,7 @@ streaming:
   trigger_seconds: 10
   watermark_delay: "10 minutes"
   max_offsets_per_trigger: 50000
+  max_files_per_trigger: 100
   # Task 1.4 policy: dev allows offset expiration since Bronze is source of truth
   fail_on_data_loss: false
 

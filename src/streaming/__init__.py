@@ -6,6 +6,12 @@ from src.streaming.ingest import (
     read_kafka_raw_stream,
     start_ingest_query,
 )
+from src.streaming.refine import (
+    make_upsert_silver,
+    read_bronze_delta_stream,
+    start_refine_query,
+    transform_bronze_to_silver,
+)
 from src.streaming.spark_session import (
     build_spark,
     build_spark_conf,
@@ -19,9 +25,13 @@ __all__ = [
     "build_spark_conf",
     "list_s3a_paths",
     "make_process_batch",
+    "make_upsert_silver",
     "publish_to_kafka_dlq",
+    "read_bronze_delta_stream",
     "read_kafka_raw_stream",
     "redact_spark_conf",
     "start_ingest_query",
+    "start_refine_query",
+    "transform_bronze_to_silver",
     "validate_df",
 ]

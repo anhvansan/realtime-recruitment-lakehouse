@@ -41,6 +41,7 @@ Khi bơm 100.000 dòng với tỷ lệ `late_rate=0.02` (độ trễ phân bố 
 | `src/producer/fault_injector.py:168-227` | `FaultInjector.process_event` | Giữ nguyên `event_time`, đẩy bản ghi trễ vào `heapq` chậm `5..15` phút mô phỏng và ghi `LateRecord`. |
 | `src/producer/replay_producer.py:725-762` | `delayed_heap` | Hàng đợi ưu tiên phát hành các sự kiện trễ đúng thời điểm đồng hồ mô phỏng bước tới. |
 | `tests/unit/test_fault_injector.py:55-84` | `test_fault_rates_converge_on_100k_events` | Kiểm chứng tỷ lệ 2% trễ và xấp xỉ 50% vượt ngưỡng 10 phút trên 100.000 dòng. |
+| `src/streaming/refine.py:260-273` | `start_refine_query` | Áp dụng `withWatermark("event_time", "10 minutes")` + `dropDuplicatesWithinWatermark(["event_id"])` trên luồng Bronze ➔ Silver. |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao trong `late_ids.jsonl` ta cần lưu cả `delay_minutes` lẫn `spend`?  
