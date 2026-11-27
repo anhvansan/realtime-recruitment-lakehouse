@@ -842,7 +842,7 @@ def upsert_silver(batch_df, batch_id: int):
    **AC:** `make reconcile MANIFEST=...` ➔ PASS trên lần chạy sạch · cố tình xoá 1 dòng Silver thủ công ➔ FAIL ở đúng mục (d)/(e).
    **Learn:** F13, F14.
 
-### Task 3.6 — Kiểm thử hồi phục và idempotency (kill/restart) \[M\] \[Depends: 3.5\]
+### Task 3.6 — Kiểm thử hồi phục và idempotency (kill/restart) \[M\] \[Depends: 3.5\] \[x\]
 
 **Goal:** chứng minh không mất, không trùng tiền khi hệ thống chết.
 **Kịch bản (mỗi kịch bản kết thúc bằng `make reconcile` PASS):**

@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell reconcile lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream reconcile lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -29,6 +29,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make spark-up       - Start Spark container in profile apps (Task 3.1)"
 	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
 	@echo "  make spark-shell    - Open interactive PySpark shell inside Spark container (Task 3.1)"
+	@echo "  make stream         - Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)"
 	@echo "  make reconcile      - Run DuckDB reconciliation vs replay manifest (Task 3.5)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
@@ -86,6 +87,9 @@ spark-shell: ## Open interactive PySpark shell in Spark container
 
 reconcile: ## Run DuckDB reconciliation harness against replay manifest (Task 3.5)
 	docker compose --profile core --profile apps exec -T spark python3 /app/tests/integration/reconcile.py $(if $(MANIFEST),--manifest $(MANIFEST),)
+
+stream: ## Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)
+	docker compose --profile core --profile apps exec -T spark python3 /app/src/streaming/run_all.py
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

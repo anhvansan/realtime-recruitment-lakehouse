@@ -58,3 +58,6 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | DuckDB Lakehouse Snapshot Fetcher | F14, T05 | `tests/integration/reconcile.py:255` | `fetch_lakehouse_snapshot` | 3.5 |
 | End-to-End Reconciliation Evaluator (a)-(e) | F13, F14 | `tests/integration/reconcile.py:130` | `evaluate_reconciliation` | 3.5 |
 | Reconciliation Unit Test Suite | F14 | `tests/unit/test_reconcile.py:55` | `test_reconcile_clean_pass` | 3.5 |
+| Empty Bronze Delta Initializer | T02, T03 | `src/streaming/run_all.py:33` | `ensure_bronze_table_exists` | 3.6 |
+| Single-JVM Q1 + Q2 Pipeline Runner | F16, T02, R5 | `src/streaming/run_all.py:78` | `run_streaming_pipeline` | 3.6 |
+| Streaming Failure Models & Recovery Guide | F16 | `docs/lessons/F16_failure_models_recovery.md:1` | `F16` | 3.6 |
