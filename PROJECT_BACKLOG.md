@@ -820,7 +820,7 @@ def upsert_silver(batch_df, batch_id: int):
    **Pitfalls:** quên điều kiện `event_date` trong MERGE ➔ quét cả bảng; MERGE có nhánh `whenMatched` vô tình làm ghi đè; chạy `OPTIMIZE` đồng thời trên cùng partition đang ghi gây xung đột (xem 3.8).
    **Learn:** F03, F04, F05, F06, T02, T03.
 
-### Task 3.5 — Bộ đối soát đúng–sai (Reconciliation Harness) \[M\] \[Depends: 2.6, 3.4\]
+### Task 3.5 — Bộ đối soát đúng–sai (Reconciliation Harness) \[M\] \[Depends: 2.6, 3.4\] \[x\]
 
 **Goal:** biến câu "hệ thống chạy đúng" thành một lệnh có kết quả PASS/FAIL, dựa trên **sự thật từ manifest**.
 **Steps:**

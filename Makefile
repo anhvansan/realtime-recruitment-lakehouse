@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell reconcile lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -13,6 +13,7 @@ START_ROW ?= 0
 RUN_ID ?=
 MAX_SLEEP_SEC ?=
 LIMIT ?=
+MANIFEST ?=
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -28,6 +29,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make spark-up       - Start Spark container in profile apps (Task 3.1)"
 	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
 	@echo "  make spark-shell    - Open interactive PySpark shell inside Spark container (Task 3.1)"
+	@echo "  make reconcile      - Run DuckDB reconciliation vs replay manifest (Task 3.5)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -81,6 +83,9 @@ smoke-interop: ## Run Spark <-> Delta <-> MinIO <-> DuckDB interop smoke test (T
 
 spark-shell: ## Open interactive PySpark shell in Spark container
 	docker compose --profile core --profile apps exec spark /opt/spark/bin/pyspark --master local[2] --conf spark.sql.warehouse.dir=/tmp/spark-warehouse --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+
+reconcile: ## Run DuckDB reconciliation harness against replay manifest (Task 3.5)
+	docker compose --profile core --profile apps exec -T spark python3 /app/tests/integration/reconcile.py $(if $(MANIFEST),--manifest $(MANIFEST),)
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

@@ -66,6 +66,7 @@ Quy trình bảo đảm chất lượng dữ liệu và cách ly lỗi trong ki�
 | `src/producer/fault_injector.py:149-296` | `FaultInjector` | Bơm lỗi có seed & Manifest | Bơm 2% trùng, 2% trễ, 1% corrupt chia 6 loại lỗi và ghi manifest loại trừ corrupt khỏi `expected_spend_total`. |
 | `src/streaming/validation.py:132-304` | `validate_df` | Bộ validator PySpark thuần SQL | Đối chiếu 7 `error_type` (kể cả kiểm tra chuỗi JSON gốc bắt float `12.5`), tách `valid_df` / `invalid_df` không cần Python UDF. |
 | `tests/unit/test_validation_parity.py:212-217` | `test_python_and_spark_validation_parity` | Test chéo Python vs Spark | Chạy cùng tập fixture qua `validate_event()` và `validate_df()`, khẳng định `is_valid` và `error_type` khớp 100%. |
+| `tests/integration/reconcile.py:130-221` | `evaluate_reconciliation` | Đối soát Bronze/Silver/DLQ vs Manifest | Xác minh DLQ từng `error_type`, không mất event hợp lệ ngoài phần trễ vượt watermark, và `SUM(spend)` chuẩn đến 4 chữ số thập phân. |
 
 ```markdown
 | Nguồn phát sinh | Điều kiện logic trên dữ liệu gốc | `event_type` chuẩn | Giá trị `bid` | Giá trị `spend` |

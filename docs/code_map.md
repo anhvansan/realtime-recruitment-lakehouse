@@ -55,3 +55,6 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | 2-Layer Dedup & Partition-Pruned Delta MERGE | F03, F04, F05, F06, T03 | `src/streaming/refine.py:192` | `make_upsert_silver` | 3.4 |
 | Q2 Refine Watermark Streaming Runner | F03, F04, F05, T02 | `src/streaming/refine.py:260` | `start_refine_query` | 3.4 |
 | Silver Idempotent MERGE & Dedup Test | F06, T03 | `tests/unit/test_refine.py:223` | `test_upsert_silver_idempotent_and_deduplicates` | 3.4 |
+| DuckDB Lakehouse Snapshot Fetcher | F14, T05 | `tests/integration/reconcile.py:255` | `fetch_lakehouse_snapshot` | 3.5 |
+| End-to-End Reconciliation Evaluator (a)-(e) | F13, F14 | `tests/integration/reconcile.py:130` | `evaluate_reconciliation` | 3.5 |
+| Reconciliation Unit Test Suite | F14 | `tests/unit/test_reconcile.py:55` | `test_reconcile_clean_pass` | 3.5 |
