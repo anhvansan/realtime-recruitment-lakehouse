@@ -745,7 +745,7 @@ minio:
   **AC:** test đơn vị dựng session với đường dẫn local (không S3) và ghi/đọc Delta thành công · `make spark-shell` liệt kê được object trong bucket `lakehouse` trên MinIO · không có credential trong log.
   **Learn:** T02, T08.
 
-### Task 3.3 — Q1 Ingest: parse, validate, định tuyến Bronze/DLQ \[L\] \[Depends: 2.2, 2.4, 3.2\]
+### Task 3.3 — Q1 Ingest: parse, validate, định tuyến Bronze/DLQ \[L\] \[Depends: 2.2, 2.4, 3.2\] \[x\]
 
 **Goal:** mọi message đi đúng một trong hai nơi: Bronze (hợp lệ) hoặc DLQ (lỗi), không mất và không trùng.
 **Steps:**

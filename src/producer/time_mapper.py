@@ -8,7 +8,9 @@ Maps historical CSV timestamps into:
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
+
+UTC = timezone.utc
 
 
 def ensure_utc(dt: datetime) -> datetime:

@@ -44,3 +44,9 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Spark Config Builder & Credential Redactor | T02, R6 | `src/streaming/spark_session.py:48` | `build_spark_conf`, `redact_spark_conf` | 3.2 |
 | Hadoop S3A Bucket/Prefix Lister | T02, T04 | `src/streaming/spark_session.py:179` | `list_s3a_paths` | 3.2 |
 | Local SparkSession + Delta Roundtrip Test | T02 | `tests/unit/test_spark_session.py:137` | `test_build_spark_local_delta_roundtrip` | 3.2 |
+| PySpark PERMISSIVE JSON & Contract Validator | F13, T02 | `src/streaming/validation.py:132` | `validate_df` | 3.3 |
+| Q1 Ingest Kafka Raw Stream Reader | T01, T02 | `src/streaming/ingest.py:31` | `read_kafka_raw_stream` | 3.3 |
+| Q1 Idempotent Bronze/DLQ Batch Router | F06, T03 | `src/streaming/ingest.py:86` | `make_process_batch` | 3.3 |
+| Q1 Kafka DLQ At-Least-Once Publisher | F06, F13 | `src/streaming/ingest.py:60` | `publish_to_kafka_dlq` | 3.3 |
+| Q1 Streaming Query Runner & Checkpoint | T02 | `src/streaming/ingest.py:142` | `start_ingest_query` | 3.3 |
+| Python <-> PySpark Validation Parity Suite | F13, T02 | `tests/unit/test_validation_parity.py:212` | `test_python_and_spark_validation_parity` | 3.3 |

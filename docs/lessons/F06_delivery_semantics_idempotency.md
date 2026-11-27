@@ -41,6 +41,7 @@ Giả sử một `click` trị giá `bid = "2.5000"` được gửi 2 lần vớ
 | `src/common/schemas/cpc_event.py:77-118` | `CpcEventV1` | Quy định trường `event_id` (SHA-1) và `source_row_id` bắt buộc cho khử trùng & truy vết. |
 | `src/common/schemas/cpc_event.v1.json:25-29` | `properties.event_id` | Khoá hợp đồng định danh duy nhất cho phép mọi chặng phía sau thực thi idempotency. |
 | `src/producer/fault_injector.py:229-250` | `FaultInjector.process_event` | Bơm 2% message trùng (`event_id` giữ nguyên) sau 0–60s mô phỏng để kiểm chứng dedup downstream. |
+| `src/streaming/ingest.py:86-139` | `make_process_batch` | Ghi Bronze & DLQ Delta idempotent với `txnAppId` + `txnVersion=batch_id`; ghi topic `cpc_events_dlq` at-least-once. |
 | `docs/lessons/labs.md:9-23` | `Lab L2` | Thí nghiệm dừng producer và chạy lệch `--start-row` để chứng minh producer idempotency không thay thế Silver dedup. |
 
 ## 8. Tự kiểm tra

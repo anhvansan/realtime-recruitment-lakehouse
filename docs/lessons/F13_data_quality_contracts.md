@@ -64,6 +64,8 @@ Quy trình bảo đảm chất lượng dữ liệu và cách ly lỗi trong ki�
 | `src/common/schemas/cpc_event.py:231-443` | `validate_event` | Bộ validator thuần Python | Phân loại chính xác 7 `error_type` trước khi dựng model `CpcEventV1`. |
 | `src/common/schemas/validation_rules.md:1-85` | Spec Parity | Tài liệu quy chuẩn 7 mã lỗi | Làm căn cứ viết `validate_df()` bằng PySpark và test chéo ở Task 3.3. |
 | `src/producer/fault_injector.py:149-296` | `FaultInjector` | Bơm lỗi có seed & Manifest | Bơm 2% trùng, 2% trễ, 1% corrupt chia 6 loại lỗi và ghi manifest loại trừ corrupt khỏi `expected_spend_total`. |
+| `src/streaming/validation.py:132-304` | `validate_df` | Bộ validator PySpark thuần SQL | Đối chiếu 7 `error_type` (kể cả kiểm tra chuỗi JSON gốc bắt float `12.5`), tách `valid_df` / `invalid_df` không cần Python UDF. |
+| `tests/unit/test_validation_parity.py:212-217` | `test_python_and_spark_validation_parity` | Test chéo Python vs Spark | Chạy cùng tập fixture qua `validate_event()` và `validate_df()`, khẳng định `is_valid` và `error_type` khớp 100%. |
 
 ```markdown
 | Nguồn phát sinh | Điều kiện logic trên dữ liệu gốc | `event_type` chuẩn | Giá trị `bid` | Giá trị `spend` |

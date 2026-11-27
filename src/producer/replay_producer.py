@@ -19,7 +19,7 @@ import sys
 import threading
 import time
 from collections.abc import Iterator
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 from typing import Any
@@ -41,6 +41,8 @@ from src.producer.fault_injector import (  # noqa: E402
     ScheduledMessage,
 )
 from src.producer.time_mapper import TimeMapper, ensure_utc, parse_sim_start  # noqa: E402
+
+UTC = timezone.utc
 
 
 class DeliveryStats:

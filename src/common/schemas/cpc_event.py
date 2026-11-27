@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Literal, cast
@@ -18,6 +18,7 @@ from typing import Any, Literal, cast
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 SUPPORTED_SCHEMA_VERSION = "v1"
+UTC = timezone.utc
 
 EventType = Literal["click", "apply", "qualified", "unqualified"]
 VALID_EVENT_TYPES: tuple[str, ...] = ("click", "apply", "qualified", "unqualified")
