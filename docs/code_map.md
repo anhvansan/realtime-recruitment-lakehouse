@@ -80,7 +80,7 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Campaign Budget & Dimension Views (5 dims) | T06, F12, R13 | `dbt_cpc/models/dimensions/dim_campaign_budget.sql:1` | `dim_campaign_budget` | 4.2 |
 | Dimension PK & Staging Referential Integrity Tests | T06, F13 | `dbt_cpc/models/dimensions/schema.yml:3` | `dim_campaign_budget` | 4.2 |
 | Real Budget & Linear Pacing Curve ADR | F12, R9, R13 | `docs/adr/010-campaign-budget-and-pacing.md:34` | `ADR-010` | 4.2 |
-| Seed Determinism & PII Exclusion Unit Tests | T06, R6 | `tests/unit/test_prepare_seeds.py:20` | `test_prepare_all_seeds_is_deterministic_on_real_raw_csvs` | 4.2 |
+| Seed Determinism & PII Exclusion Unit Tests | T06, R6 | `tests/unit/test_prepare_seeds.py:210` | `test_prepare_all_seeds_is_deterministic` | 4.2 |
 | Gold Hourly Campaign Pacing (Hour Spine, P1) | F12, T06, R9 | `dbt_cpc/models/gold/fct_campaign_hourly_pacing.sql:1` | `fct_campaign_hourly_pacing` | 4.4 |
 | Gold Publisher Quality & Fraud Flags R1/R2 (P2) | F12, T06, R9 | `dbt_cpc/models/gold/fct_publisher_quality.sql:1` | `fct_publisher_quality` | 4.4 |
 | Gold Recruitment Efficiency CPC/CPA/CPQA (P3) | F12, T06, R9 | `dbt_cpc/models/gold/fct_recruitment_efficiency.sql:1` | `fct_recruitment_efficiency` | 4.4 |
