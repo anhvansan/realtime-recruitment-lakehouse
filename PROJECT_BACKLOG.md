@@ -981,7 +981,7 @@ from cum c join {{ ref('campaign_budget') }} b using (campaign_id)
    **Pitfalls:** giờ thiếu event làm đường tích luỹ đứt; dùng `(hour + 1)/24` cho giờ đang chạy dở làm lệch parity với dashboard; chia cho 0; join làm nhân dòng khi `campaign_budget` trùng khoá.
    **Learn:** F12, F11, T05, T06.
 
-### Task 4.5 — Data Quality Tests \[M\] \[Depends: 4.4\]
+### Task 4.5 — Data Quality Tests \[M\] \[Depends: 4.4\] \[x\]
 
 **Steps:**
 
@@ -997,7 +997,7 @@ from cum c join {{ ref('campaign_budget') }} b using (campaign_id)
    **AC:** `dbt test` pass trên lần chạy sạch · cố ý tiêm 1 bản ghi `spend` âm vào fixture ➔ test tương ứng FAIL.
    **Learn:** F13.
 
-### Task 4.6 — Lịch chạy dbt không cần Airflow \[S\] \[Depends: 4.4\]
+### Task 4.6 — Lịch chạy dbt không cần Airflow \[S\] \[Depends: 4.4\] \[x\]
 
 **Steps:** `scripts/dbt_loop.sh` (`make dbt-loop`) chạy `dbt build` mỗi 60 giây, có khoá `flock` chống chạy chồng, log thời lượng, ghi `gold/_last_run.json` (để dashboard hiển thị "cập nhật lúc"). Ghi rõ đây là lựa chọn thay thế nhẹ; Airflow là tuỳ chọn ở Task 7.1.
 **AC:** hai lần chạy chồng không xảy ra · file `_last_run.json` cập nhật đều.

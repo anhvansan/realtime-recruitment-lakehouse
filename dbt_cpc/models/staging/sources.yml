@@ -8,3 +8,8 @@ sources:
         description: "Cleaned, deduplicated CPC recruitment AdTech events in Silver Delta."
         config:
           external_location: "delta_scan('s3://{{ env_var('S3_BUCKET', 'lakehouse') }}/silver/cpc_events')"
+          loaded_at_field: processed_at
+          freshness:
+            warn_after:
+              count: 2
+              period: minute

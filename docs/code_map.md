@@ -86,3 +86,8 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Gold Recruitment Efficiency CPC/CPA/CPQA (P3) | F12, T06, R9 | `dbt_cpc/models/gold/fct_recruitment_efficiency.sql:1` | `fct_recruitment_efficiency` | 4.4 |
 | Gold Marts Schema & Non-Null Tests | F13, T06 | `dbt_cpc/models/gold/schema.yml:3` | `fct_campaign_hourly_pacing` | 4.4 |
 | Gold Metric Catalog Section 2.3 Unit Tests | F12, R9 | `tests/unit/test_gold_metrics.py:124` | `test_fct_campaign_hourly_pacing_section_2_3_closed_and_in_progress_hours` | 4.4 |
+| Singular Quality Tests (Spend, Pacing, SimRange, Funnel, Reconcile) | F13, T06 | `dbt_cpc/tests/assert_non_negative_spend.sql:1` | `assert_non_negative_spend` | 4.5 |
+| Silver Source Freshness (`processed_at` 2m warn) | F13, F14, T06 | `dbt_cpc/models/staging/sources.yml:9` | `lakehouse_silver.cpc_events` | 4.5 |
+| Lightweight dbt Scheduler (`flock` + `_last_run.json`) | T06, R5 | `scripts/dbt_loop.sh:1` | `run_one_cycle` | 4.6 |
+| Gold `_last_run.json` MinIO Metadata Writer | F14, T04, R6 | `scripts/write_gold_last_run.py:34` | `build_last_run_payload`, `upload_last_run_metadata` | 4.6 |
+| Singular & Negative (`spend < 0`) Quality Unit Tests | F13 | `tests/unit/test_dbt_quality_tests.py:114` | `test_assert_non_negative_spend_passes_clean_and_fails_on_negative_spend` | 4.5, 4.6 |

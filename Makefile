@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -17,6 +17,7 @@ MANIFEST ?=
 TABLE ?= all
 COMPACT_MODE ?= --full
 DBT_SELECT ?=
+INTERVAL_SEC ?= 60
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -39,6 +40,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make dbt-seed       - Load dbt dimension seeds into DuckDB (Task 4.2)"
 	@echo "  make dbt-build      - Run dbt models and tests against Silver Delta (Task 4.1/4.3)"
 	@echo "  make dbt-test       - Run dbt data quality tests (Task 4.1/4.3)"
+	@echo "  make dbt-loop       - Run periodic dbt build loop with flock (Task 4.6)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -113,6 +115,9 @@ dbt-build: ## Run dbt models and tests against Silver Delta (loads .env safely)
 
 dbt-test: ## Run dbt data quality tests (loads .env safely)
 	$(PYTHON) -c "import shutil, subprocess, sys; from dotenv import load_dotenv; load_dotenv('.env'); dbt_bin = shutil.which('dbt') or 'dbt'; sys.exit(subprocess.call([dbt_bin, 'test', '--project-dir', 'dbt_cpc', '--profiles-dir', 'dbt_cpc', *sys.argv[1:]]))" $(if $(DBT_SELECT),-s $(DBT_SELECT),)
+
+dbt-loop: ## Run periodic dbt build loop with flock + _last_run.json (Task 4.6)
+	@bash scripts/dbt_loop.sh --interval $(INTERVAL_SEC)
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

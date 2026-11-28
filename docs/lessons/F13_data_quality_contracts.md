@@ -67,6 +67,10 @@ Quy trình bảo đảm chất lượng dữ liệu và cách ly lỗi trong ki�
 | `src/streaming/validation.py:132-304` | `validate_df` | Bộ validator PySpark thuần SQL | Đối chiếu 7 `error_type` (kể cả kiểm tra chuỗi JSON gốc bắt float `12.5`), tách `valid_df` / `invalid_df` không cần Python UDF. |
 | `tests/unit/test_validation_parity.py:212-217` | `test_python_and_spark_validation_parity` | Test chéo Python vs Spark | Chạy cùng tập fixture qua `validate_event()` và `validate_df()`, khẳng định `is_valid` và `error_type` khớp 100%. |
 | `tests/integration/reconcile.py:130-221` | `evaluate_reconciliation` | Đối soát Bronze/Silver/DLQ vs Manifest | Xác minh DLQ từng `error_type`, không mất event hợp lệ ngoài phần trễ vượt watermark, và `SUM(spend)` chuẩn đến 4 chữ số thập phân. |
+| `dbt_cpc/tests/assert_non_negative_spend.sql:1-34` | `assert_non_negative_spend` | Kiểm tra `spend >= 0` | Chặn tuyệt đối số tiền âm ở tầng Staging và 3 bảng Gold. |
+| `dbt_cpc/tests/assert_campaign_funnel_monotonic_warn.sql:1-24` | `assert_campaign_funnel_monotonic_warn` | Kiểm tra phễu tích luỹ (`severity = 'warn'`) | Chỉ kiểm tra `clicks >= applies >= qualified` ở grain tích luỹ toàn thời gian theo `campaign_id`, tránh báo sai ở grain giờ/ngày. |
+| `dbt_cpc/tests/assert_stg_silver_event_id_reconcile.sql:1-20` | `assert_stg_silver_event_id_reconcile` | Đối soát `COUNT(DISTINCT event_id)` | Bảo đảm Staging không mất hoặc nhân bản dòng so với Silver trên MinIO. |
+| `dbt_cpc/models/staging/sources.yml:9-14` | `freshness` (`processed_at`) | `warn_after: 2 minute` | Cảnh báo nếu luồng Spark Q2 dừng cập nhật Silver quá 2 phút. |
 
 ```markdown
 | Nguồn phát sinh | Điều kiện logic trên dữ liệu gốc | `event_type` chuẩn | Giá trị `bid` | Giá trị `spend` |
