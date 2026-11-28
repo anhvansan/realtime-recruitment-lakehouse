@@ -16,9 +16,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import boto3
-from botocore.config import Config
-
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
@@ -68,6 +65,9 @@ def upload_last_run_metadata(
     key: str = "gold/_last_run.json",
 ) -> str:
     """Upload ``_last_run.json`` payload to S3/MinIO and return its ``s3://`` URI."""
+    import boto3
+    from botocore.config import Config
+
     resolved_endpoint = _resolve_s3_endpoint(cfg, endpoint)
     s3 = boto3.client(
         "s3",
