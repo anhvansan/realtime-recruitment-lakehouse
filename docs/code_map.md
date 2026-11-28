@@ -91,3 +91,7 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Lightweight dbt Scheduler (`flock` + `_last_run.json`) | T06, R5 | `scripts/dbt_loop.sh:1` | `run_one_cycle` | 4.6 |
 | Gold `_last_run.json` MinIO Metadata Writer | F14, T04, R6 | `scripts/write_gold_last_run.py:34` | `build_last_run_payload`, `upload_last_run_metadata` | 4.6 |
 | Singular & Negative (`spend < 0`) Quality Unit Tests | F13 | `tests/unit/test_dbt_quality_tests.py:114` | `test_assert_non_negative_spend_passes_clean_and_fails_on_negative_spend` | 4.5, 4.6 |
+| Zero-Copy DuckDB Serving Architecture ADR | F11, F15 | `docs/adr/004-serving.md:45` | `ADR-004` | 5.1 |
+| Dashboard DuckDB `:memory:` Root Connection & K1/R6 | F11, T05, T07 | `src/dashboard/db.py:91` | `create_root_connection`, `get_root_connection` | 5.1 |
+| Thread-Safe Per-Query Cursor & Retry Runner | F11, F15, F16 | `src/dashboard/db.py:157` | `run_query`, `DatabaseConnectionError` | 5.1 |
+| Dashboard DB Concurrency, Delta & Secret Redaction Tests | F11, R6 | `tests/unit/test_dashboard_db.py:55` | `test_run_query_five_concurrent_threads_no_lock_or_race` | 5.1 |

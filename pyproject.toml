@@ -12,13 +12,16 @@ dependencies = [
     "confluent-kafka>=2.6.0",
     "dbt-core==1.11.17",
     "dbt-duckdb==1.11.1",
+    "deltalake==1.7.0",
     "duckdb>=1.2.0",
     "jsonschema>=4.23.0",
+    "pandas>=2.0.0",
     "pyarrow>=17.0.0",
     "pydantic>=2.0.0",
     "pydantic-settings>=2.0.0",
     "python-dotenv>=1.0.0",
     "pyyaml>=6.0.0",
+    "streamlit==1.67.0",
 ]
 
 [tool.setuptools.packages.find]

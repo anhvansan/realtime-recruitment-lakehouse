@@ -1013,7 +1013,7 @@ from cum c join {{ ref('campaign_budget') }} b using (campaign_id)
 **Mục tiêu:** biến dữ liệu thành sản phẩm cho Linh, Minh, Hùng, Hạnh và chính bạn (mục 1.3).
 **Rủi ro chính:** dùng chung một connection DuckDB giữa nhiều thread; gửi alert từ trong dashboard (lặp vô hạn, chỉ chạy khi có người xem); truy vấn quét toàn bộ S3 mỗi lần làm tươi.
 
-### Task 5.1 — Lớp kết nối DuckDB (ADR-004) \[M\] \[Depends: 3.1\]
+### Task 5.1 — Lớp kết nối DuckDB (ADR-004) \[M\] \[Depends: 3.1\] \[x\]
 
 **Steps:**
 
