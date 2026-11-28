@@ -1,0 +1,19 @@
+name: "dbt_cpc"
+version: "1.0.0"
+config-version: 2
+
+profile: "dbt_cpc"
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_cpc:
+    staging:
+      +materialized: view

@@ -9,6 +9,8 @@ description = "Near Real-Time CPC AdTech Lakehouse on Windows/WSL2 & MinIO"
 requires-python = ">=3.11"
 dependencies = [
     "confluent-kafka>=2.6.0",
+    "dbt-core==1.11.17",
+    "dbt-duckdb==1.11.1",
     "duckdb>=1.2.0",
     "jsonschema>=4.23.0",
     "pyarrow>=17.0.0",

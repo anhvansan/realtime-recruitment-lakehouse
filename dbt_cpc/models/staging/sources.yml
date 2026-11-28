@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: lakehouse_silver
+    description: "Silver Delta Lake tables on MinIO (S3-compatible object store)."
+    tables:
+      - name: cpc_events
+        description: "Cleaned, deduplicated CPC recruitment AdTech events in Silver Delta."
+        config:
+          external_location: "delta_scan('s3://{{ env_var('S3_BUCKET', 'lakehouse') }}/silver/cpc_events')"

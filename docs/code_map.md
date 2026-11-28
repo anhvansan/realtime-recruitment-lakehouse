@@ -70,3 +70,9 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Safe Delta VACUUM Retention Guard (>= 1h / 168h) | F10, T03 | `src/streaming/maintenance.py:197` | `vacuum_table`, `validate_vacuum_retention` | 3.8 |
 | Small Files Benchmark (DuckDB vs OPTIMIZE) | F10, T03, T05 | `scripts/bench/bench_small_files.py:132` | `main` | 3.8 |
 | Maintenance Retry & Safety Unit Tests | T03 | `tests/unit/test_maintenance.py:31` | `test_run_with_conflict_retry_succeeds_after_transient_conflicts` | 3.8 |
+| dbt Project Configuration | T06 | `dbt_cpc/dbt_project.yml:1` | `dbt_cpc` | 4.1 |
+| dbt-duckdb Profile & S3 Secret Config (K1, R6, R7) | T05, T06, K1 | `dbt_cpc/profiles.yml:1` | `dbt_cpc.outputs.dev` | 4.1 |
+| Silver Delta Source (`delta_scan` external_location) | T06, K6 | `dbt_cpc/models/staging/sources.yml:3` | `lakehouse_silver.cpc_events` | 4.1 |
+| Staging CPC Events View (`event_hour`, explicit casts) | T06, F12 | `dbt_cpc/models/staging/stg_cpc_events.sql:1` | `stg_cpc_events` | 4.3 |
+| Staging Generic Data Tests (`data_tests`) | T06, F13 | `dbt_cpc/models/staging/schema.yml:3` | `stg_cpc_events` | 4.3 |
+| dbt Config & Contract Offline Unit Tests | T06, F13 | `tests/unit/test_dbt_config.py:14` | `test_dbt_profiles_enforces_env_vars_and_k1_endpoint_rule` | 4.1, 4.3 |

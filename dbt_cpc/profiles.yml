@@ -1,0 +1,41 @@
+dbt_cpc:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ":memory:"
+      threads: 2
+      extensions:
+        - httpfs
+        - delta
+      settings:
+        memory_limit: "512MB"
+        TimeZone: "UTC"
+      secrets:
+        - type: s3
+          provider: config
+          key_id: "{{ env_var('S3_ACCESS_KEY') }}"
+          secret: "{{ env_var('S3_SECRET_KEY') }}"
+          endpoint: "{{ env_var('S3_ENDPOINT_HOST_PORT', env_var('S3_ENDPOINT_EXTERNAL', 'localhost:9000')) | replace('http://', '') | replace('https://', '') }}"
+          region: "{{ env_var('S3_REGION', 'us-east-1') }}"
+          url_style: "path"
+          use_ssl: false
+    docker:
+      type: duckdb
+      path: ":memory:"
+      threads: 2
+      extensions:
+        - httpfs
+        - delta
+      settings:
+        memory_limit: "512MB"
+        TimeZone: "UTC"
+      secrets:
+        - type: s3
+          provider: config
+          key_id: "{{ env_var('S3_ACCESS_KEY') }}"
+          secret: "{{ env_var('S3_SECRET_KEY') }}"
+          endpoint: "{{ env_var('S3_ENDPOINT_HOST_PORT', env_var('S3_ENDPOINT', 'minio:9000')) | replace('http://', '') | replace('https://', '') }}"
+          region: "{{ env_var('S3_REGION', 'us-east-1') }}"
+          url_style: "path"
+          use_ssl: false

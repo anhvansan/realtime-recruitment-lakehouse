@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_cpc_events
+    description: "Staging view over Silver Delta cpc_events with explicit column projection, standard DuckDB types, and event_hour."
+    columns:
+      - name: event_id
+        description: "Deterministic SHA-1 hex identifier for each source event."
+        data_tests:
+          - not_null
+          - unique
+      - name: event_time
+        description: "Simulated UTC event timestamp."
+        data_tests:
+          - not_null
+      - name: event_hour
+        description: "UTC hour bucket truncated from event_time via date_trunc('hour', event_time)."
+      - name: produced_at
+        description: "Wall-clock UTC timestamp when the producer emitted the event."
+      - name: processed_at
+        description: "Wall-clock UTC timestamp when Spark Q2 wrote the row to Silver."
+      - name: event_date
+        description: "UTC calendar date derived from event_time (Silver Delta partition key)."
+      - name: event_type
+        description: "Canonical recruitment CPC funnel event type."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["click", "apply", "qualified", "unqualified"]
+      - name: job_id
+        description: "Job posting identifier."
+        data_tests:
+          - not_null
+      - name: campaign_id
+        description: "Advertising campaign identifier (Kafka partition key)."
+        data_tests:
+          - not_null
+      - name: group_id
+        description: "Optional advertiser group identifier."
+      - name: publisher_id
+        description: "Partner publisher identifier."
+        data_tests:
+          - not_null
+      - name: bid
+        description: "CPC bid amount in DECIMAL(18,4); required for click events."
+      - name: spend
+        description: "Monetary spend in DECIMAL(18,4) (= bid for click, 0.0000 otherwise)."
+        data_tests:
+          - not_null
+      - name: source_row_id
+        description: "1-based source CSV row number for lineage traceability."

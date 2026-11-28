@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile dbt-build dbt-test lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -16,6 +16,7 @@ LIMIT ?=
 MANIFEST ?=
 TABLE ?= all
 COMPACT_MODE ?= --full
+DBT_SELECT ?=
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -34,6 +35,8 @@ help: ## Show available commands and their descriptions
 	@echo "  make stream         - Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)"
 	@echo "  make compact        - Run Delta Lake compaction (OPTIMIZE) safely (Task 3.8)"
 	@echo "  make reconcile      - Run DuckDB reconciliation vs replay manifest (Task 3.5)"
+	@echo "  make dbt-build      - Run dbt models and tests against Silver Delta (Task 4.1/4.3)"
+	@echo "  make dbt-test       - Run dbt data quality tests (Task 4.1/4.3)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -96,6 +99,12 @@ stream: ## Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)
 
 compact: ## Run Delta Lake compaction (OPTIMIZE) on Bronze/Silver tables (Task 3.8)
 	docker compose --profile core --profile apps exec -T spark python3 /app/src/streaming/maintenance.py --table $(TABLE) $(COMPACT_MODE)
+
+dbt-build: ## Run dbt models and tests against Silver Delta (loads .env safely)
+	$(PYTHON) -c "import shutil, subprocess, sys; from dotenv import load_dotenv; load_dotenv('.env'); dbt_bin = shutil.which('dbt') or 'dbt'; sys.exit(subprocess.call([dbt_bin, 'build', '--project-dir', 'dbt_cpc', '--profiles-dir', 'dbt_cpc', *sys.argv[1:]]))" $(if $(DBT_SELECT),-s $(DBT_SELECT),)
+
+dbt-test: ## Run dbt data quality tests (loads .env safely)
+	$(PYTHON) -c "import shutil, subprocess, sys; from dotenv import load_dotenv; load_dotenv('.env'); dbt_bin = shutil.which('dbt') or 'dbt'; sys.exit(subprocess.call([dbt_bin, 'test', '--project-dir', 'dbt_cpc', '--profiles-dir', 'dbt_cpc', *sys.argv[1:]]))" $(if $(DBT_SELECT),-s $(DBT_SELECT),)
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

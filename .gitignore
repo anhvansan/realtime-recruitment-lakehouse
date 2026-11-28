@@ -26,6 +26,7 @@ __pycache__/
 dbt_cpc/target/
 dbt_cpc/logs/
 dbt_cpc/dbt_packages/
+dbt_cpc/.user.yml
 
 # OS specific files
 .DS_Store

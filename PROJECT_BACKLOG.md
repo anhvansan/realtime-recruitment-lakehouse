@@ -911,7 +911,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
 **Mục tiêu:** tách logic kinh doanh khỏi luồng streaming; tính chỉ số bằng SQL có test; kiểm định dữ liệu tự động.
 **Rủi ro chính:** công thức lệch giữa dbt và dashboard; test sai ngữ nghĩa (ví dụ so sánh click với apply ở grain không hợp lệ); xử lý nguồn ngân sách và các bảng dimension từ 17 file CSV.
 
-### Task 4.1 — Khởi tạo dbt-duckdb và kết nối Delta trên MinIO \[M\] \[Depends: 3.1\]
+### Task 4.1 — Khởi tạo dbt-duckdb và kết nối Delta trên MinIO \[M\] \[Depends: 3.1\] \[x\]
 
 **Steps:**
 
@@ -936,7 +936,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
 3. ADR-010: ghi rõ nguồn ngân sách (thật từ `campaign.csv` hay mô phỏng) và định nghĩa đường lý tưởng tuyến tính.
    **AC:** `dbt seed` / `dbt run` tạo đủ các bảng dimension đã chọn · mọi `campaign_id` xuất hiện trong dữ liệu sự kiện đều có `daily_budget` (test `relationships`) · chạy lại script cho cùng kết quả.
 
-### Task 4.3 — Model staging \[S\] \[Depends: 4.1\]
+### Task 4.3 — Model staging \[S\] \[Depends: 4.1\] \[x\]
 
 **Steps:** `stg_cpc_events` (view): chọn đúng cột, ép kiểu, thêm `event_hour`; **không** chứa logic kinh doanh.
 **AC:** `dbt build -s stg_cpc_events` pass kèm test `not_null`, `unique(event_id)`.
