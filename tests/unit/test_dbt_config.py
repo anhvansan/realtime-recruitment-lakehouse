@@ -96,3 +96,41 @@ def test_stg_cpc_events_schema_tests_declared() -> None:
         if isinstance(t, dict) and "accepted_values" in t
     )
     assert accepted["arguments"]["values"] == ["click", "apply", "qualified", "unqualified"]
+
+    expected_rels = {
+        "campaign_id": ("dim_campaign_budget", "campaign_id"),
+        "job_id": ("dim_job", "job_id"),
+        "publisher_id": ("dim_publisher", "publisher_id"),
+    }
+    for col_name, (target_model, target_field) in expected_rels.items():
+        rel = next(
+            t["relationships"]
+            for t in cols[col_name]["data_tests"]
+            if isinstance(t, dict) and "relationships" in t
+        )
+        assert f"ref('{target_model}')" in rel["arguments"]["to"]
+        assert rel["arguments"]["field"] == target_field
+
+
+def test_dimension_models_no_select_star_and_schema_primary_keys() -> None:
+    dims_dir = DBT_DIR / "models" / "dimensions"
+    expected_dims = {
+        "dim_campaign_budget": "campaign_id",
+        "dim_job": "job_id",
+        "dim_publisher": "publisher_id",
+        "dim_company": "company_id",
+        "dim_group": "group_id",
+    }
+
+    for model_name in expected_dims:
+        sql_text = (dims_dir / f"{model_name}.sql").read_text(encoding="utf-8")
+        assert re.search(r"select\s+\*", sql_text, flags=re.IGNORECASE) is None
+        assert "materialized='view'" in sql_text
+
+    parsed = yaml.safe_load((dims_dir / "schema.yml").read_text(encoding="utf-8"))
+    models = {m["name"]: m for m in parsed["models"]}
+    assert set(expected_dims).issubset(set(models))
+    for model_name, pk in expected_dims.items():
+        cols = {c["name"]: c for c in models[model_name]["columns"]}
+        assert "not_null" in cols[pk]["data_tests"]
+        assert "unique" in cols[pk]["data_tests"]

@@ -17,3 +17,57 @@ models:
   dbt_cpc:
     staging:
       +materialized: view
+    dimensions:
+      +materialized: view
+
+seeds:
+  dbt_cpc:
+    seed_campaign_budget:
+      +column_types:
+        campaign_id: varchar
+        campaign_name: varchar
+        company_id: varchar
+        pacing_unit: varchar
+        budget_total: varchar
+        daily_budget: varchar
+        is_active: varchar
+        is_outlier_budget: varchar
+        budget_source: varchar
+    seed_job:
+      +column_types:
+        job_id: varchar
+        job_title: varchar
+        company_id: varchar
+        group_id: varchar
+        campaign_id: varchar
+        work_schedule: varchar
+        role_location: varchar
+        job_budget: varchar
+        status: varchar
+        is_active: varchar
+    seed_publisher:
+      +column_types:
+        publisher_id: varchar
+        publisher_name: varchar
+        publisher_type: varchar
+        min_bid: varchar
+        max_bid: varchar
+        cpc_increment: varchar
+        is_active: varchar
+    seed_company:
+      +column_types:
+        company_id: varchar
+        company_name: varchar
+        billing_id: varchar
+        customer_type: varchar
+        status: varchar
+        is_active: varchar
+    seed_group:
+      +column_types:
+        group_id: varchar
+        group_name: varchar
+        budget_group: varchar
+        company_id: varchar
+        campaign_id: varchar
+        status: varchar
+        is_active: varchar

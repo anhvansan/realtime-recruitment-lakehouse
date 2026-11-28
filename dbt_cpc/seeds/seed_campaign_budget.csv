@@ -1,0 +1,194 @@
+campaign_id,campaign_name,company_id,pacing_unit,budget_total,daily_budget,is_active,is_outlier_budget,budget_source
+1,Campaign 121,1,Daily,1002930129.0000,1002930129.0000,1,true,campaign.csv
+2,drrrrrraft,1,Daily,31710.0000,31710.0000,1,false,campaign.csv
+3,2233,1,Daily,220.0000,220.0000,1,false,campaign.csv
+4,Campaign draft,1,Daily,1932570.0000,1932570.0000,1,false,campaign.csv
+5,Trung Thu3,1,Daily,193000.0000,193000.0000,1,false,campaign.csv
+6,Campaign 3-copy,1,Daily,193257.0000,193257.0000,1,false,campaign.csv
+7,Campaign draft 123,1,Daily,14910.0000,14910.0000,1,false,campaign.csv
+8,Tet 012,1,Daily,19600.0000,19600.0000,1,false,campaign.csv
+9,Test 123,1,Daily,25000.0000,25000.0000,1,false,campaign.csv
+10,Mua he xanh,1,Daily,47180.0000,47180.0000,1,false,campaign.csv
+11,Mau hef 2,1,Daily,77000.0000,77000.0000,1,false,campaign.csv
+12,Mua he 3 update v1,1,Daily,66000.0000,66000.0000,1,false,campaign.csv
+13,Mua he 45,1,Daily,44.0000,44.0000,1,false,campaign.csv
+15,New 1299-copy,1,Daily,100.0000,100.0000,1,false,campaign.csv
+16,New 1299-copy-copy,1,Daily,100.0000,100.0000,1,false,campaign.csv
+18,Campaign test publisher,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+20,Campaign 1023,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+22,Campaign 10500,1,Daily,1111.0000,1111.0000,1,false,campaign.csv
+24,Campaign 1105,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+26,New Campaign tesst,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+28,New Campaign test 1,1,Daily,1111.0000,1111.0000,1,false,campaign.csv
+30,Campaign 1243-copy,1,Daily,1234.0000,1234.0000,1,false,campaign.csv
+31,Campaign 115,1,Daily,2000.0000,2000.0000,1,false,campaign.csv
+32,New Campaign 05052022,1,Daily,333.0000,333.0000,1,false,campaign.csv
+33,05052022 test feed,1,Daily,222.0000,222.0000,1,false,campaign.csv
+34,Baby Cute,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+35,New Campaign budget 22,1,Daily,2.0000,2.0000,1,false,campaign.csv
+36,New Campaign2222222222,1,Daily,222.0000,222.0000,1,false,campaign.csv
+37,New Campaign,1,Daily,1.0000,1.0000,1,false,campaign.csv
+38,New Campaign2,1,Daily,1.0000,1.0000,1,false,campaign.csv
+39,New Campaign3,1,Daily,2.0000,2.0000,1,false,campaign.csv
+40,Campaign Name 3,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+43,Gotoro man,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+44,Gotoro Boy Man,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+45,Gotoro Boy KI,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+47,Gotoro Boy KI-1,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+48,Gotoro Boy Man 12,33,Daily,60000.0000,60000.0000,1,false,campaign.csv
+50,Campaign Name 1235,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+51,Milo,1,Daily,100.0000,100.0000,1,false,campaign.csv
+52,Campaign 114_update,1,Daily,20000.0000,20000.0000,1,false,campaign.csv
+53,Campaign Tet,40,Daily,1000.0000,1000.0000,1,false,campaign.csv
+54,test 23052022,33,Daily,20050.0000,20050.0000,1,false,campaign.csv
+55,Luke May Campaign,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+56,Chetu Campaign for QA Excellence,57,Daily,500.0000,500.0000,1,false,campaign.csv
+57,Campaign 352,33,Daily,100009.0000,100009.0000,1,false,campaign.csv
+58,Campaign 358-copy,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+59,Campaign 247,33,Daily,9000.0000,9000.0000,1,false,campaign.csv
+60,Campaign 316,1,Daily,2000.0000,2000.0000,1,false,campaign.csv
+61,Campaign 1151_update,3,Daily,10000.0000,10000.0000,1,false,campaign.csv
+62,Campaign 1052,8,Daily,2000.0000,2000.0000,1,false,campaign.csv
+63,Campaign 216,10,Daily,2000.0000,2000.0000,1,false,campaign.csv
+64,campaign 9412,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+65,Campaign 944,8,Daily,20000.0000,20000.0000,1,false,campaign.csv
+68,New Campaign22222,3,Daily,50000.0000,50000.0000,1,false,campaign.csv
+69,New 2112,15,Daily,30030.0000,30030.0000,1,false,campaign.csv
+70,New Campaign3236598,40,Daily,300112.0000,300112.0000,1,false,campaign.csv
+71,tetst1305,8,Daily,344556.0000,344556.0000,1,false,campaign.csv
+72,New Campaignasdfasdfqwefsdf,3,Daily,125450.0000,125450.0000,1,false,campaign.csv
+73,New Campaignasdfsadf,10,Daily,45697845.0000,45697845.0000,1,false,campaign.csv
+74,New Campaignádr234asfas,8,Daily,3021.0000,3021.0000,1,false,campaign.csv
+75,New Campaignfasdfcxvxv,3,Daily,3465623.0000,3465623.0000,1,false,campaign.csv
+76,New Campaignádfsafasdf,3,Daily,12545.0000,12545.0000,1,false,campaign.csv
+77,New Campaigndfasdfas,1,Daily,60000.0000,60000.0000,1,false,campaign.csv
+78,New Campaignádvcxvzvxzcv,8,Daily,2364653.0000,2364653.0000,1,false,campaign.csv
+79,New Campaignzxcvdfa,8,Daily,54510124.0000,54510124.0000,1,false,campaign.csv
+80,New Campaig 130599,8,Daily,5045444.0000,5045444.0000,1,false,campaign.csv
+81,New Campaign 123456,3,Daily,111111.0000,111111.0000,1,false,campaign.csv
+82,New Campaign 1114556,8,Daily,565656.0000,565656.0000,1,false,campaign.csv
+83,Campaign Name,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+84,Campaign 920-copy,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+85,New Campaign123,1,Daily,11111.0000,11111.0000,1,false,campaign.csv
+86,Campaign 924,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+87,Campaign 1047,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+88,Campaign 224,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+89,Campaign 244,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+90,Campaign 937,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+91,Campaign 1155,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+92,New Campaign 20221606,69,Daily,100.0000,100.0000,1,false,campaign.csv
+93,New Campaign n,33,Daily,1000.0000,1000.0000,1,false,campaign.csv
+94,New Campaign empty-copy,1,Daily,20.0000,20.0000,1,false,campaign.csv
+95,Campaign 133,1,Daily,133000.0000,133000.0000,1,false,campaign.csv
+96,Campaign 133-copy,1,Daily,133000.0000,133000.0000,1,false,campaign.csv
+97,New Campaign tesst-copy,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+98,Trung thu,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+99,Campaign 1013,1,Daily,20000.0000,20000.0000,1,false,campaign.csv
+100,sync data,33,Daily,20000.0000,20000.0000,1,false,campaign.csv
+101,Campaign 1103,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+102,Campaign 217,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+103,Thang test,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+104,New Campaign test 623,33,Daily,8000.0000,8000.0000,1,false,campaign.csv
+105,Campaign 517,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+106,Campaign 1006,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+107,Campaign 1015,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+108,Campaign of Vuong,10,Daily,100000.0000,100000.0000,1,false,campaign.csv
+110,New Campaign 1111,1,Weekly,122222222.0000,17460317.4286,1,false,campaign.csv
+111,Campaign 1609,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+112,193281209312,157,Daily,10000.0000,10000.0000,1,false,campaign.csv
+113,Anh Test Campaign,33,Daily,1000000.0000,1000000.0000,1,false,campaign.csv
+114,Anh test New Campaign 7/5,33,Daily,1000000.0000,1000000.0000,1,false,campaign.csv
+116,VINFAST CAMPAIGN,162,Daily,123123.0000,123123.0000,1,false,campaign.csv
+117,New Campaign N 6T7,33,Daily,20000.0000,20000.0000,1,false,campaign.csv
+118,Campaign 118,2,Daily,193257.0000,193257.0000,1,false,campaign.csv
+119,test create 713 343 by LTA,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+120,test create 713 343 by LTA-copy,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+121,New Campaign 713 415,33,Daily,1.0000,1.0000,1,false,campaign.csv
+122,New Campaign 1307 2019,165,Daily,1000.0000,1000.0000,1,false,campaign.csv
+123,New Campaign 714 1001,3,Daily,1.0000,1.0000,1,false,campaign.csv
+124,Campaign1445147,4,Daily,5000.0000,5000.0000,1,false,campaign.csv
+125,campaign 1067147,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+126,New Campaign 0011,2,Daily,1010101010.0000,1010101010.0000,1,true,campaign.csv
+127,New Campaign 121212,2,Daily,12121212.0000,12121212.0000,1,false,campaign.csv
+128,New Campaign tb,3,Daily,2000000.0000,2000000.0000,1,false,campaign.csv
+129,New Campaign Test ATS,33,Daily,1000.0000,1000.0000,1,false,campaign.csv
+130,Campaign 1037,2,Daily,2000.0000,2000.0000,1,false,campaign.csv
+131,Campaign1126157,2,Daily,2000.0000,2000.0000,1,false,campaign.csv
+132,Campaign test 151,33,Daily,1000.0000,1000.0000,1,false,campaign.csv
+133,Campaign 1351157,2,Daily,20000.0000,20000.0000,1,false,campaign.csv
+134,New Campaign 4536271809,2,Daily,4536271809.0000,4536271809.0000,1,true,campaign.csv
+140,New Campaign testt,2,Daily,56666.0000,56666.0000,1,false,campaign.csv
+141,Campaign 151,175,Daily,1000.0000,1000.0000,1,false,campaign.csv
+142,Campaign 151,175,Daily,10000.0000,10000.0000,1,false,campaign.csv
+143,New Campaign 15t7 2034,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+144,Speed Up campaign,33,Daily,2000.0000,2000.0000,1,false,campaign.csv
+145,FPT campaign,182,Daily,10000.0000,10000.0000,1,false,campaign.csv
+146,Campaign 1054187_update,2,Daily,999999.0000,999999.0000,1,false,campaign.csv
+148,Tester for system test in Danang,3,Daily,120000.0000,120000.0000,1,false,campaign.csv
+150,Campaign 1127187,33,Daily,20000.0000,20000.0000,1,false,campaign.csv
+151,Campaign_n 18T7 Test 151,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+152,Campaign_n_ad test 151,1,Daily,5000.0000,5000.0000,1,false,campaign.csv
+153,New Campaign test 718 214,1,Daily,120000.0000,120000.0000,1,false,campaign.csv
+154,New Campaign test 718 220,2,Daily,120000.0000,120000.0000,1,false,campaign.csv
+155,New Campaign ats,3,Daily,6000.0000,6000.0000,1,false,campaign.csv
+158,New Campaign kaka,2,Daily,7000.0000,7000.0000,1,false,campaign.csv
+159,New Campaignkkkk,2,Daily,60000.0000,60000.0000,1,false,campaign.csv
+161,New Campaign baka,1,Daily,60000.0000,60000.0000,1,false,campaign.csv
+162,New Campaign dz,4,Daily,2000.0000,2000.0000,1,false,campaign.csv
+165,New Campaign ss,2,Daily,2201.0000,2201.0000,1,false,campaign.csv
+166,New Campaign az,1,Daily,2222.0000,2222.0000,1,false,campaign.csv
+169,New Campaign fsoft,2,Daily,500.0000,500.0000,1,false,campaign.csv
+172,New Campaign fpt,2,Daily,3223.0000,3223.0000,1,false,campaign.csv
+173,New Campaign aew,8,Daily,90.0000,90.0000,1,false,campaign.csv
+175,New Campaign publisher,8,Daily,600.0000,600.0000,1,false,campaign.csv
+178,Campaign 1525187,3,Daily,200000.0000,200000.0000,1,false,campaign.csv
+179,New Campaign fptt,2,Daily,212.0000,212.0000,1,false,campaign.csv
+180,New Campaign a2,1,Daily,60000.0000,60000.0000,1,false,campaign.csv
+186,New Campaign fjt,2,Daily,300.0000,300.0000,1,false,campaign.csv
+187,New Campaign dev,3,Daily,2222.0000,2222.0000,1,false,campaign.csv
+188,Campaign 1654187,2,Daily,100000.0000,100000.0000,1,false,campaign.csv
+189,Campaign 1700187,33,Daily,20000.0000,20000.0000,1,false,campaign.csv
+190,Campaign 1700187564,4,Daily,20000.0000,20000.0000,1,false,campaign.csv
+191,New Campaign 1907 0939,33,Daily,10000.0000,10000.0000,1,false,campaign.csv
+192,New Campaignfde,33,Daily,121212123.0000,121212123.0000,1,true,campaign.csv
+193,Campaign 1113,194,Daily,5555.0000,5555.0000,1,false,campaign.csv
+194,Senior manual tester,195,Daily,1000.0000,1000.0000,1,false,campaign.csv
+195,New Sinh CU,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+196,Campaign 1620217,2,Daily,100000.0000,100000.0000,1,false,campaign.csv
+197,Test Campaign 21072022,241,Daily,10000000.0000,10000000.0000,1,false,campaign.csv
+198,Campaign 0913227,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+199,Campaign 1016,2,Daily,100000.0000,100000.0000,1,false,campaign.csv
+200,New Campaign test lta 722 514,3,Daily,12000.0000,12000.0000,1,false,campaign.csv
+201,New Campaign test 718 214-copy,3,Daily,120000.0000,120000.0000,1,false,campaign.csv
+202,Import XML - 2022,1,Daily,100000.0000,100000.0000,1,false,campaign.csv
+203,New Campaign HwU,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+204,I don't know,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+205,Magic Service,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+206,Magic Service-copy,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+207,New Campaign test duplicate,1,Daily,120000.0000,120000.0000,1,false,campaign.csv
+208,Campaign 1151-copy,1,Daily,10000.0000,10000.0000,1,false,campaign.csv
+209,Campaign 1700187564-copy,182,Daily,20000.0000,20000.0000,1,false,campaign.csv
+210,New Campaign ats-copy,3,Daily,6000.0000,6000.0000,1,false,campaign.csv
+211,New Campaign dz-copy,4,Daily,2000.0000,2000.0000,1,false,campaign.csv
+212,New Campaign1,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+213,Campaign 1455,1,Daily,1000000.0000,1000000.0000,1,false,campaign.csv
+214,Campaign 1501,40,Daily,200000.0000,200000.0000,1,false,campaign.csv
+215,CP1,251,Daily,100.0000,100.0000,1,false,campaign.csv
+216,CK01,251,Daily,1111.0000,1111.0000,1,false,campaign.csv
+217,New Campaign1,253,Daily,111.0000,111.0000,1,false,campaign.csv
+218,K01,4,Daily,111.0000,111.0000,1,false,campaign.csv
+219,New Campaign create bt lta 1033,3,Daily,12000.0000,12000.0000,1,false,campaign.csv
+220,New Campaign condition create bt lta 725 157,40,Daily,120000.0000,120000.0000,1,false,campaign.csv
+221,Su only 1-copy,1,Daily,100000.0000,100000.0000,1,false,campaign.csv
+222,Tien draft,1,Daily,500.0000,500.0000,1,false,campaign.csv
+223,Campaign 1652257,40,Daily,1000000.0000,1000000.0000,1,false,campaign.csv
+224,New Campaign create by lta 726 1100,1,Daily,12000.0000,12000.0000,1,false,campaign.csv
+225,New Campaign test 726 1104 lta 123,40,Daily,12000.0000,12000.0000,1,false,campaign.csv
+226,Su only 1-copy-copy,1,Daily,100000.0000,100000.0000,1,false,campaign.csv
+227,New Campaignádfsafasdf-copy,3,Daily,12545.0000,12545.0000,1,false,campaign.csv
+228,New Campaignádfsafasdf-copy-copy,3,Daily,12545.0000,12545.0000,1,false,campaign.csv
+229,New Campaign1-copy,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+230,New Campaign1-copy-copy,1,Daily,1000.0000,1000.0000,1,false,campaign.csv
+231,Campaign_N_27071755,2,Daily,5000.0000,5000.0000,1,false,campaign.csv
+232,Campaign_N_27071756,2,Daily,1000.0000,1000.0000,1,false,campaign.csv
+233,Campaign 2147,1,Daily,100000.0000,100000.0000,1,false,campaign.csv

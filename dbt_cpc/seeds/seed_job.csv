@@ -1,0 +1,1869 @@
+job_id,job_title,company_id,group_id,campaign_id,work_schedule,role_location,job_budget,status,is_active
+2,PHP Developer,1,10,1,FULL_TIME,REMOTE,50.0000,1,1
+3,Java Developer,1,10,1,FULL_TIME,REMOTE,,2,0
+4,C# Developer,1,10,1,FULL_TIME,REMOTE,,2,0
+5,NodeJS Developer,1,10,1,FULL_TIME,REMOTE,,2,0
+6,Photoshop,1,10,1,Full Time,REMOTE,,2,0
+7,Figma Team,1,10,1,FULL_TIME,REMOTE,,2,0
+8,IS Team,1,10,1,FULL_TIME,REMOTE,,2,0
+9,Design Team,1,10,1,FULL_TIME,REMOTE,,2,0
+39,123,1,,1,Full Time,,,3,0
+40,123,1,10,1,Full Time,,,2,0
+41,123,1,10,1,Full Time,,,5,0
+42,123,1,10,1,Full Time,,,5,0
+43,123,1,,1,Full Time,,,3,0
+44,123,1,10,1,Full Time,,,2,0
+45,123,1,10,1,Full Time,,,2,0
+46,123,1,10,1,Full Time,,,2,0
+47,123,1,10,1,Full Time,,,2,0
+48,123,1,10,1,Full Time,,,5,0
+49,123,1,10,1,Full Time,,,2,0
+50,123,1,10,1,Full Time,,,2,0
+51,123,1,10,1,Full Time,,,2,0
+52,123,1,10,1,Full Time,,,2,0
+53,123,1,10,1,Full Time,,,2,0
+54,123,1,10,1,Full Time,,,2,0
+55,123,1,10,1,Full Time,,,2,0
+56,123,1,10,1,Full Time,,,2,0
+57,123,1,10,1,Full Time,,,2,0
+58,123,1,10,1,Full Time,,,2,0
+59,123,1,10,1,Full Time,,,2,0
+60,123,1,10,1,Full Time,,,2,0
+61,123,1,10,1,Full Time,,,2,0
+62,123,1,10,1,Full Time,,,2,0
+63,123,1,10,1,Full Time,,,2,0
+64,123,1,10,1,Full Time,,,2,0
+65,123,1,10,1,Full Time,,,2,0
+66,123,1,10,1,Full Time,,,2,0
+67,123,1,10,1,Full Time,,,2,0
+68,123,1,10,1,Full Time,,,2,0
+69,123,1,10,1,Full Time,,,5,0
+70,123,1,10,1,Full Time,,,2,0
+71,123,1,10,1,Full Time,,,2,0
+72,123,1,10,1,Full Time,,,2,0
+73,123,1,10,1,Full Time,,,2,0
+74,123,1,10,1,Full Time,,,2,0
+75,123,1,10,1,Full Time,,,2,0
+76,123,1,10,1,Full Time,,,2,0
+77,123,1,10,1,Full Time,,,2,0
+78,123,1,10,1,Full Time,,,2,0
+79,123,1,10,1,Full Time,,,2,0
+80,123,1,10,1,Full Time,,,2,0
+81,123,1,10,1,Full Time,,,2,0
+82,123,1,10,1,Full Time,,,5,0
+83,123,1,10,1,Full Time,,,2,0
+84,123,1,10,1,Full Time,,,2,0
+85,123,1,10,1,Full Time,,,2,0
+86,123,1,10,1,Full Time,,,2,0
+87,123,1,10,1,Full Time,,,2,0
+88,123,1,,5,Part Time,,,3,0
+89,123,1,,5,Part Time,,,1,0
+90,123,1,,5,Part Time,,,1,0
+91,123,1,,5,Part Time,,,1,0
+92,123,1,,5,Part Time,,,5,0
+93,123,1,,5,Part Time,,,1,0
+94,123,1,,5,Part Time,,,1,0
+95,123,1,,5,Part Time,,,1,0
+96,123,1,,5,Part Time,,,1,0
+97,Job1,1,,4,Contract,Remote,,3,0
+98,Job1,1,,4,Contract,Remote,,1,1
+99,Job1,1,,4,Contract,Remote,,1,1
+100,Job1,1,,4,Contract,Remote,,1,1
+101,Job1,1,,4,Contract,Remote,,1,1
+102,Job1,1,,4,Contract,Remote,,1,1
+103,Job1,1,,4,Contract,Remote,,1,1
+104,Job1,1,,4,Contract,Remote,,1,1
+105,Job1,1,,4,Contract,Remote,,1,1
+106,Job1,1,,4,Contract,Remote,,1,1
+107,Job1,1,,4,Contract,Remote,,1,1
+108,Job1,1,,4,Contract,Remote,,1,1
+109,Job1,1,,4,Contract,Remote,,1,1
+110,Job1,1,,4,Contract,Remote,,1,1
+111,Job1,1,,4,Contract,Remote,,1,1
+112,Job1,1,,4,Contract,Remote,,1,1
+113,Job1,1,,4,Contract,Remote,,1,1
+114,Sales Executive,1,10,1,,REMOTE,,2,1
+115,Sales Executive 2,1,10,1,FULL_TIME,REMOTE,,3,1
+116,Job 132,1,,10,Full Time,Remote,,3,0
+117,Job 132,1,16,10,Full Time,Remote,,1,1
+118,Job 132,1,16,10,Full Time,Remote,,1,1
+119,Job 132,1,16,10,Full Time,Remote,,1,1
+120,Job 132,1,16,10,Full Time,Remote,,1,1
+121,Job 132,1,16,10,Full Time,Remote,,1,1
+122,Job 132,1,16,10,Full Time,Remote,,1,1
+123,Job 132,1,16,10,Full Time,Remote,,1,1
+124,Job 132,1,16,10,Full Time,Remote,,1,1
+125,Job 132,1,16,10,Full Time,Remote,,1,1
+126,Job 132,1,16,10,Full Time,Remote,,1,1
+127,Job 132,1,16,10,Full Time,Remote,,1,1
+128,Job 132,1,16,10,Full Time,Remote,,1,1
+129,Job 132,1,16,10,Full Time,Remote,,1,1
+130,Job 132,1,16,10,Full Time,Remote,,1,1
+131,Job 132,1,16,10,Full Time,Remote,,1,1
+132,Job 132,1,16,10,Full Time,Remote,,1,1
+133,test job,1,,33,Part Time,,,3,0
+134,test job,1,,33,Part Time,,,1,1
+135,test job,1,,33,Part Time,,,0,1
+136,test job,1,,33,Part Time,,,1,1
+137,test job,1,,33,Part Time,,,1,1
+138,test job,1,,33,Part Time,,,1,1
+139,test so luong,1,,33,Part Time,,,3,0
+140,test so luong,1,,33,Part Time,,,1,1
+141,test so luong,1,,33,Part Time,,,1,1
+142,tester,33,,54,Part Time,,,3,0
+143,tester,33,,54,Part Time,,,1,1
+144,tester,33,,54,Part Time,,,1,1
+145,tester,33,,54,Part Time,,,1,1
+146,tester 2305,33,,54,Full Time,,,3,0
+147,tester 2305,33,,54,Full Time,,,1,1
+148,Job Frontend,33,,48,Full Time,,,3,0
+149,Job Frontend,33,11,48,Full Time,,,2,0
+150,Job Frontend,33,11,48,Full Time,,,1,1
+151,Job Frontend,33,11,48,Full Time,,,2,0
+152,Job Frontend,33,11,48,Full Time,,,1,1
+153,Job Frontend,33,11,48,Full Time,,,1,1
+154,Job Frontend,33,11,48,Full Time,,,1,1
+155,Job Frontend,33,11,48,Full Time,,,2,0
+156,Job Frontend,33,11,48,Full Time,,,2,0
+157,Job Frontend,33,11,48,Full Time,,,1,1
+158,Job Frontend,33,11,48,Full Time,,,2,0
+159,Job 342,33,,48,Full Time,Remote,,3,0
+160,Job 342,33,11,48,Full Time,Remote,,2,0
+161,Job 342,33,11,48,Full Time,Remote,,2,0
+162,Job 342,33,11,48,Full Time,Remote,,2,0
+163,Job 342,33,11,48,Full Time,Remote,,2,0
+164,Job 342,33,11,48,Full Time,Remote,,2,0
+165,Job 342,33,11,48,Full Time,Remote,,2,0
+166,Job 342,33,11,48,Full Time,Remote,,2,0
+167,Job 342,33,11,48,Full Time,Remote,,2,0
+168,Job1203,1,,1,Full Time,Remote,,3,0
+169,Job1203,1,10,1,Full Time,Remote,,2,0
+170,Job1203,1,10,1,Full Time,Remote,,2,0
+171,Job1203,1,10,1,Full Time,Remote,,2,0
+172,Job1203,1,10,1,Full Time,Remote,,2,0
+173,Job1203,1,10,1,Full Time,Remote,,2,0
+174,Job1203,1,10,1,Full Time,Remote,,2,0
+175,Job1203,1,10,1,Full Time,Remote,,2,0
+176,Job1203,1,10,1,Full Time,Remote,,2,0
+177,Job1203,1,10,1,Full Time,Remote,,2,0
+178,Job1203,1,10,1,Full Time,Remote,,2,0
+179,Job1203_update,1,,1,Full Time,Remote,,1,0
+180,Job1203_update,1,10,1,Full Time,Remote,,2,0
+181,Job1203_update,1,10,1,Full Time,Remote,,2,0
+182,Job1203_update,1,10,1,Full Time,Remote,,2,0
+183,New Job nice data,1,,1,FULL_TIME,REMOTE,,3,1
+186,FE 01,33,,48,Full Time,Remote,,3,0
+187,FE 01,33,34,48,Full Time,Remote,,1,1
+188,FE 01,33,34,48,Full Time,Remote,,1,1
+189,FE 01,33,,48,Full Time,Remote,,2,0
+190,Job 957,1,,90,Full Time,Remote,,3,0
+191,Job 957,1,12,90,Full Time,Remote,,1,1
+192,Job 957,1,12,90,Full Time,Remote,,1,1
+193,Job 957,1,12,90,Full Time,Remote,,1,1
+194,Job 957,1,12,90,Full Time,Remote,,1,1
+195,Job 957,1,12,90,Full Time,Remote,,1,1
+196,Job 957,1,12,90,Full Time,Remote,,1,1
+197,Job 957,1,12,90,Full Time,Remote,,1,1
+198,Job 1156,1,,91,Full Time,In Person,,3,0
+199,Job 1156,1,13,91,Full Time,In Person,,1,1
+200,Job 1156,1,13,91,Full Time,In Person,,1,1
+201,Job 1156,1,13,91,Full Time,In Person,,1,1
+202,Job 1156,1,13,91,Full Time,In Person,,1,1
+203,Job 1156,1,13,91,Full Time,In Person,,1,1
+204,Job 1156,1,13,91,Full Time,In Person,,1,1
+205,Job 1156,1,13,91,Full Time,In Person,,1,1
+206,Job 1156,1,13,91,Full Time,In Person,,1,1
+207,Job 1141,1,,4,Full Time,In Person,,3,0
+208,Job 1141,1,14,4,Full Time,In Person,,2,0
+209,Job 1141,1,14,4,Full Time,In Person,,2,0
+210,Job 1141,1,14,4,Full Time,In Person,,2,0
+211,Job 1141,1,14,4,Full Time,In Person,,2,0
+212,Job 1141,1,14,4,Full Time,In Person,,2,0
+213,Job 118,1,,7,Full Time,In Person,,3,0
+214,Job 118,1,15,7,Full Time,In Person,,1,1
+215,Job 118,1,15,7,Full Time,In Person,,1,1
+216,Job 118,1,15,7,Full Time,In Person,,1,1
+217,Job 118,1,15,7,Full Time,In Person,,2,0
+218,Job 118,1,15,7,Full Time,In Person,,2,0
+219,Job 118,1,15,7,Full Time,In Person,,2,0
+220,Job 118,1,15,7,Full Time,In Person,,2,0
+221,Job 118,1,15,7,Full Time,In Person,,2,0
+222,Job 118,1,15,7,Full Time,In Person,,2,0
+224,close job,69,,92,Part Time,,,3,0
+225,close job,69,,92,Part Time,,,1,1
+226,Job 309,1,,10,Full Time,In Person,,3,0
+227,Job 309,1,19,10,Full Time,In Person,,2,0
+228,Job 309,1,19,10,Full Time,In Person,,2,0
+229,Job 309,1,19,10,Full Time,In Person,,2,0
+230,Job 309,1,19,10,Full Time,In Person,,2,0
+231,Job 309,1,19,10,Full Time,In Person,,2,0
+232,Job 309,1,19,10,Full Time,In Person,,2,0
+233,Job 309,1,19,10,Full Time,In Person,,2,0
+234,Job 436,1,,11,Part Time,In Person,,3,0
+235,Job 436,1,18,11,Part Time,In Person,,2,0
+236,Job 436,1,18,11,Part Time,In Person,,2,0
+237,Job 436,1,18,11,Part Time,In Person,,2,0
+238,Job 436,1,18,11,Part Time,In Person,,2,0
+239,Job 436,1,18,11,Part Time,In Person,,2,0
+240,Job 436,1,18,11,Part Time,In Person,,2,0
+242,PHP 1,1,,9,Full Time,Remote,,3,0
+243,PHP 1,1,17,9,Full Time,Remote,,1,1
+244,PHP 1,1,17,9,Full Time,Remote,,2,0
+245,PHP 1,1,17,9,Full Time,Remote,,2,0
+246,PHP 1,1,17,9,Full Time,Remote,,2,0
+247,PHP 1,1,17,9,Full Time,Remote,,2,0
+248,PHP 1,1,17,9,Full Time,Remote,,2,0
+249,PHP 1,1,17,9,Full Time,Remote,,2,0
+250,PHP 1,1,17,9,Full Time,Remote,,2,0
+251,PHP 1,1,17,9,Full Time,Remote,,2,0
+252,PHP 1,1,17,9,Full Time,Remote,,2,0
+253,PHP 1,1,17,9,Full Time,Remote,,2,0
+254,PHP 1,1,17,9,Full Time,Remote,,2,0
+255,PHP 1,1,17,9,Full Time,Remote,,2,0
+256,PHP 1,1,17,9,Full Time,Remote,,2,0
+257,Job 1130,33,,93,Full Time,In Person,,3,0
+258,Job 1130,33,,93,Full Time,In Person,,2,1
+259,Job 1130,33,,93,Full Time,In Person,,2,1
+260,Job 1130,33,,93,Full Time,In Person,,2,0
+261,Job 1130,33,,93,Full Time,In Person,,2,1
+262,Job 1130,33,,93,Full Time,In Person,,2,1
+263,Backend 20/6/2022,33,,93,Full Time,In Person,,2,1
+264,BE - En,33,,48,Full Time,Remote,,3,0
+265,BE Việt Nam!,33,,48,Full Time,Remote,,3,0
+266,BE Việt Nam!,33,,48,Full Time,Remote,,2,1
+267,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+268,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+269,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+270,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+271,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+272,BE Việt Nam!,33,,48,Full Time,Remote,,0,1
+273,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+274,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+275,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+276,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+277,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+278,BE Việt Nam!,33,,48,Full Time,Remote,,2,0
+279,BE Việt Nam!,33,,48,Full Time,Remote,,1,1
+280,Job 140,1,,10,Contract,In Person,,3,0
+281,Job 140,1,37,10,Contract,In Person,,1,1
+282,Job 140,1,37,10,Contract,In Person,,1,1
+283,Job 140,1,37,10,Contract,In Person,,1,1
+284,Network vN,33,,57,Full Time,Remote,,3,0
+285,Network vN,33,,57,Full Time,Remote,,2,0
+286,Network vN,33,,57,Full Time,Remote,,2,0
+287,Network vN,33,,57,Full Time,Remote,,2,0
+288,Network vN,33,,57,Full Time,Remote,,2,0
+289,Job 346,1,,11,Part Time,In Person,,3,0
+290,Job 346,1,,11,Part Time,In Person,,2,1
+291,Job 346,1,,11,Part Time,In Person,,1,1
+292,Job 346,1,,11,Part Time,In Person,,1,1
+293,Job 346,1,,11,Part Time,In Person,,1,1
+294,Job 346,1,,11,Part Time,In Person,,1,1
+295,Job 346,1,,11,Part Time,In Person,,1,1
+296,Job 346,1,,11,Part Time,In Person,,1,1
+297,Job 346,1,,11,Part Time,In Person,,1,1
+298,Job 1022,1,,8,Part Time,Remote,,3,0
+299,Job 1022,1,22,8,Part Time,Remote,,2,0
+300,Job 1022,1,22,8,Part Time,Remote,,0,1
+301,Job 1022,1,22,8,Part Time,Remote,,2,0
+302,Job 1022,1,22,8,Part Time,Remote,,2,0
+303,Job 1022,1,22,8,Part Time,Remote,,2,0
+304,Job 1022,1,22,8,Part Time,Remote,,2,0
+305,Job 1022,1,22,8,Part Time,Remote,,2,0
+306,Job 1022,1,22,8,Part Time,Remote,,2,0
+307,Backend 20/6/2022,33,,93,Full Time,In Person,,1,0
+308,Backend 20/6/2022,33,,93,Full Time,In Person,,1,0
+309,Job 220,1,,97,Full Time,Remote,,3,0
+310,Job 220,1,,97,Full Time,Remote,,1,1
+311,Job 220,1,,97,Full Time,Remote,,1,1
+312,Job 220,1,,97,Full Time,Remote,,1,1
+313,Job 220,1,,97,Full Time,Remote,,1,1
+314,Job 220,1,,97,Full Time,Remote,,1,1
+315,Job 220,1,,97,Full Time,Remote,,1,1
+316,Job 220,1,,97,Full Time,Remote,,1,1
+317,Job 220,1,,97,Full Time,Remote,,1,1
+318,Job 220,1,,97,Full Time,Remote,,1,1
+319,Job 220,1,,97,Full Time,Remote,,1,1
+320,Job 220,1,,97,Full Time,Remote,,1,1
+321,Job 220,1,,97,Full Time,Remote,,1,1
+322,Job 220,1,,97,Full Time,Remote,,1,1
+323,Job 220,1,,97,Full Time,Remote,,1,1
+324,Job 220,1,,97,Full Time,Remote,,1,1
+325,Job 220,1,,97,Full Time,Remote,,1,1
+326,Job 220,1,,97,Full Time,Remote,,1,1
+327,Job 220,1,,97,Full Time,Remote,,1,1
+328,Job 220,1,,97,Full Time,Remote,,1,1
+329,Job 220,1,,97,Full Time,Remote,,1,1
+330,Job 228,1,,96,Part Time,In Person,,3,0
+331,Job 228,1,,96,Part Time,In Person,,1,1
+332,Job 228,1,,96,Part Time,In Person,,1,1
+333,Job 228,1,,96,Part Time,In Person,,1,1
+334,Job 228,1,,96,Part Time,In Person,,1,1
+335,Job 1128,1,,15,Full Time,Remote,,3,0
+336,Job 1128,1,,15,Full Time,Remote,,2,1
+337,Job 1128,1,,15,Full Time,Remote,,1,1
+338,Job 1128,1,,15,Full Time,Remote,,1,1
+339,Job 1128,1,,15,Full Time,Remote,,1,1
+340,Job 1128,1,,15,Full Time,Remote,,1,1
+341,Job 1128,1,,15,Full Time,Remote,,1,1
+342,Job 1128,1,,15,Full Time,Remote,,1,1
+343,Job 1128,1,,15,Full Time,Remote,,1,1
+344,Job 1128,1,,15,Full Time,Remote,,1,1
+345,Job 1128,1,,15,Full Time,Remote,,1,1
+346,Job 1128,1,,15,Full Time,Remote,,1,1
+347,Job 1128,1,,15,Full Time,Remote,,1,1
+348,Job 1128,1,,15,Full Time,Remote,,1,1
+349,Job 1128,1,,15,Full Time,Remote,,1,1
+350,Job 1128,1,,15,Full Time,Remote,,1,1
+351,Job 1128,1,,15,Full Time,Remote,,1,1
+352,Job 1130,33,,59,Part Time,Remote,,3,0
+353,Job 1130,33,,59,Part Time,Remote,,2,1
+354,Job 1130,33,,59,Part Time,Remote,,2,1
+355,Job 1130,33,,59,Part Time,Remote,,2,1
+356,Job 1130,33,,59,Part Time,Remote,,2,1
+357,Job 1130,33,,59,Part Time,Remote,,2,1
+358,Job 1130,33,,59,Part Time,Remote,,2,1
+359,Job 1130,33,,59,Part Time,Remote,,2,1
+360,Job 1130,33,,59,Part Time,Remote,,2,1
+361,Job 1130,33,,59,Part Time,Remote,,2,1
+362,Job 1130,33,,59,Part Time,Remote,,2,1
+363,Job 1130,33,,59,Part Time,Remote,,2,1
+364,Job 1130,33,,59,Part Time,Remote,,2,1
+365,Job 1130,33,,59,Part Time,Remote,,2,1
+366,Job 1130,33,,59,Part Time,Remote,,2,1
+367,Job 1130,33,,59,Part Time,Remote,,2,1
+368,Job 1130,33,,59,Part Time,Remote,,2,1
+369,Job 1130,33,,59,Part Time,Remote,,2,1
+371,Job 935,33,,57,Part Time,Remote,,3,0
+372,Job 935,33,,57,Part Time,Remote,,3,0
+373,Job 935,33,,57,Part Time,Remote,,2,0
+374,Job 935,33,,57,Part Time,Remote,,2,0
+375,Job 935,33,,57,Part Time,Remote,,2,0
+376,Job 935,33,,57,Part Time,Remote,,2,0
+377,Job 935,33,,57,Part Time,Remote,,2,0
+378,Job 935,33,,57,Part Time,Remote,,2,0
+379,Job 935,33,,57,Part Time,Remote,,2,0
+380,Job 935,33,,57,Part Time,Remote,,2,0
+381,Job 935,33,,57,Part Time,Remote,,2,0
+382,Job 935,33,,57,Part Time,Remote,,2,0
+383,Job 935,33,,57,Part Time,Remote,,2,0
+384,Job 935,33,,57,Part Time,Remote,,2,0
+385,Job 935,33,,57,Part Time,Remote,,2,0
+386,Job 935,33,,57,Part Time,Remote,,2,0
+387,Job 935,33,,57,Part Time,Remote,,2,0
+388,Job 935,33,,57,Part Time,Remote,,2,0
+389,Job 935,33,,57,Part Time,Remote,,2,0
+390,Job 935,33,,57,Part Time,Remote,,2,0
+391,Job 935,33,,57,Part Time,Remote,,2,0
+392,Job 935,33,,57,Part Time,Remote,,2,0
+393,Job 935,33,,57,Part Time,Remote,,2,0
+394,Job 935,33,,57,Part Time,Remote,,2,0
+395,Job 935,33,,57,Part Time,Remote,,2,0
+396,Job 935,33,,57,Part Time,Remote,,2,0
+397,Job 935,33,,57,Part Time,Remote,,2,0
+398,Job 935,33,,57,Part Time,Remote,,2,0
+399,Job 935,33,,57,Part Time,Remote,,2,0
+400,Job 935,33,,57,Part Time,Remote,,2,0
+401,Job 935,33,,57,Part Time,Remote,,2,0
+402,Job 935,33,,57,Part Time,Remote,,2,0
+403,Job 935,33,,57,Part Time,Remote,,2,0
+404,Job 935,33,,57,Part Time,Remote,,2,0
+405,Job 935,33,,57,Part Time,Remote,,3,0
+406,Job 935,33,,57,Part Time,Remote,,2,0
+407,Job 935,33,,57,Part Time,Remote,,2,0
+408,Job 935,33,,57,Part Time,Remote,,2,0
+409,Job 935,33,,57,Part Time,Remote,,2,0
+410,Job 935,33,,57,Part Time,Remote,,2,0
+411,Job 935,33,,57,Part Time,Remote,,2,0
+412,Job 935,33,,57,Part Time,Remote,,2,0
+413,Job 935,33,,57,Part Time,Remote,,2,0
+414,Job 935,33,,57,Part Time,Remote,,2,0
+415,Job 935,33,,57,Part Time,Remote,,2,0
+416,Job 935,33,,57,Part Time,Remote,,2,0
+417,Job 935,33,,57,Part Time,Remote,,2,0
+418,Job 935,33,,57,Part Time,Remote,,2,0
+419,Job 935,33,,57,Part Time,Remote,,2,0
+420,Job 935,33,,57,Part Time,Remote,,2,0
+421,Job 935,33,,57,Part Time,Remote,,2,0
+422,Job 338,1,,5,Part Time,In Person,,3,0
+423,Job 338,1,,5,Part Time,In Person,,1,1
+424,Job 338,1,,5,Part Time,In Person,,1,1
+425,Job 338,1,,5,Part Time,In Person,,1,1
+426,Job 338,1,,5,Part Time,In Person,,1,1
+427,Job 338,1,,5,Part Time,In Person,,1,1
+428,Job 338,1,,5,Part Time,In Person,,1,1
+429,Job 338,1,,5,Part Time,In Person,,1,1
+430,Job 338,1,,5,Part Time,In Person,,1,1
+431,Job 338,1,,5,Part Time,In Person,,1,1
+432,Job 338,1,,5,Part Time,In Person,,1,1
+433,Job 338,1,,5,Part Time,In Person,,1,1
+434,Job 338,1,,5,Part Time,In Person,,1,1
+435,Job 338,1,,5,Part Time,In Person,,1,1
+436,Job 338,1,,5,Part Time,In Person,,1,1
+437,Job 338,1,,5,Part Time,In Person,,1,1
+438,Job 338,1,,5,Part Time,In Person,,1,1
+439,Job 338,1,,5,Part Time,In Person,,1,1
+440,PPH Level,1,,1,FULL_TIME,REMOTE,,1,1
+441,Job 452,33,,58,Part Time,In Person,,3,0
+442,Job 452,33,,58,Full Time,In Person,,2,1
+443,Job 452,33,,58,Part Time,In Person,,2,1
+444,Job 452,33,,58,Part Time,In Person,,2,1
+445,Job 452,33,,58,Part Time,In Person,,2,1
+446,Job 452,33,,58,Part Time,In Person,,2,1
+447,Job 452,33,,58,Part Time,In Person,,2,1
+448,Job 452,33,,58,Part Time,In Person,,2,1
+449,Job 452,33,,58,Part Time,In Person,,2,1
+450,Job 452,33,,58,Part Time,In Person,,2,1
+451,Job 452,33,,58,Part Time,In Person,,2,1
+452,Job 452,33,,58,Part Time,In Person,,2,1
+453,Job 452,33,,58,Part Time,In Person,,2,1
+454,Job 452,33,,58,Part Time,In Person,,2,1
+455,Job 452,33,,58,Part Time,In Person,,2,1
+456,Job 452,33,,58,Part Time,In Person,,2,1
+457,Job 452,33,,58,Part Time,In Person,,2,1
+458,Job 1136,1,,55,Full Time,Remote,,3,0
+459,Job 1136_update_v2,1,,55,Full Time,Remote,,1,0
+460,Job 1136,1,,55,Full Time,Remote,,1,1
+461,Job 1136,1,,55,Full Time,Remote,,1,1
+462,Job 1136,1,,55,Full Time,Remote,,1,1
+463,Job 1136,1,,55,Full Time,Remote,,1,1
+464,Job 1136,1,,55,Full Time,Remote,,1,1
+465,Job 1136,1,,55,Full Time,Remote,,1,1
+466,Job 1136,1,,55,Full Time,Remote,,1,1
+467,Job 1136,1,,55,Full Time,Remote,,1,1
+468,Job 1136,1,,55,Full Time,Remote,,1,1
+469,Job 1136,1,,55,Full Time,Remote,,1,1
+470,Job 1136,1,,55,Full Time,Remote,,1,1
+471,Job 1136,1,,55,Full Time,Remote,,1,1
+472,Job 1136,1,,55,Full Time,Remote,,1,1
+473,Job 1136,1,,55,Full Time,Remote,,1,1
+474,Job 1136,1,,55,Full Time,Remote,,1,1
+475,Job 1136,1,,55,Full Time,Remote,,1,1
+476,Job 1136,1,,55,Full Time,Remote,,1,1
+477,Job 1136,1,,55,Full Time,Remote,,1,1
+478,Job 1136,1,,55,Full Time,Remote,,1,0
+479,Job 1136,1,,55,Full Time,Remote,,1,1
+480,Job 1136,1,,55,Full Time,Remote,,1,1
+481,Job 1136_update_v2,1,,55,Full Time,Remote,,1,0
+482,Job 1136_update,1,,55,Full Time,Remote,,1,0
+483,Job 1136_update,1,,55,Full Time,Remote,,1,1
+484,Job 1136_update,1,,55,Full Time,Remote,,1,1
+485,Job 214,8,,62,Part Time,In Person,,3,0
+486,Job 214,8,,62,Part Time,In Person,,1,1
+487,Job 214,8,,62,Part Time,In Person,,1,1
+488,Job 214,8,,62,Part Time,In Person,,1,1
+489,Job 214,8,,62,Part Time,In Person,,1,1
+490,Job 214,8,,62,Part Time,In Person,,1,1
+491,Job 214,8,,62,Part Time,In Person,,1,1
+492,Job 1136_update_v2,1,,55,Full Time,Remote,,1,1
+493,Job 1136_update_v2,1,,55,Full Time,Remote,,1,1
+494,123,33,,100,Part Time,,,3,0
+495,123,33,,100,Part Time,,,1,0
+496,123,33,,100,Part Time,,,1,0
+497,123,33,,100,Part Time,,,1,0
+498,123,33,,100,Part Time,,,1,0
+499,123,33,,100,Part Time,,,1,0
+500,123,33,,100,Part Time,,,1,0
+501,123,33,,100,Part Time,,,1,0
+502,123,33,,100,Part Time,,,1,0
+503,123,33,,100,Part Time,,,1,0
+504,123,33,,100,Part Time,,,1,0
+505,Job 1136_update_v2,1,,55,Full Time,Remote,,1,1
+506,Job 1136_update_v2,1,,55,Full Time,Remote,,1,1
+507,Job 1227,1,,101,Part Time,In Person,,3,0
+508,Job 1227,1,,101,Part Time,In Person,,1,1
+509,Job 1227,1,,101,Part Time,In Person,,1,1
+510,Job 1227,1,,101,Part Time,In Person,,1,1
+511,Job 1227,1,,101,Part Time,In Person,,1,1
+512,Job 1227,1,,101,Part Time,In Person,,1,1
+513,Job 1227,1,,101,Part Time,In Person,,1,1
+514,Job 1227,1,,101,Part Time,In Person,,1,1
+515,Job 1227,1,,101,Part Time,In Person,,1,1
+516,Job 1227,1,,101,Part Time,In Person,,1,1
+517,Job 1227,1,,101,Part Time,In Person,,1,1
+518,Job 1227,1,,101,Part Time,In Person,,1,1
+519,Job 1227,1,,101,Part Time,In Person,,1,1
+520,Job 1227,1,,101,Part Time,In Person,,1,1
+521,Job 1227,1,,101,Part Time,In Person,,1,1
+522,Job 1227,1,,101,Part Time,In Person,,1,1
+523,Job 1227,1,,101,Part Time,In Person,,1,1
+524,Job 1227,1,,101,Part Time,In Person,,1,1
+525,Job 1227,1,,101,Part Time,In Person,,1,1
+526,Job 1227,1,,101,Part Time,In Person,,1,1
+527,Job 1227,1,,101,Part Time,In Person,,1,1
+528,Job 1258,33,,54,Part Time,In Person,,3,0
+529,Job 1258,33,,54,Part Time,In Person,,1,1
+530,Job 1258,33,,54,Part Time,In Person,,1,1
+531,Job 1258,33,,54,Part Time,In Person,,1,1
+532,Job 1258,33,,54,Part Time,In Person,,1,1
+533,Job 1258,33,,54,Part Time,In Person,,1,1
+534,Job 1258,33,,54,Part Time,In Person,,1,1
+535,Job 1258,33,,54,Part Time,In Person,,1,1
+536,Job 1258,33,,54,Part Time,In Person,,1,1
+537,Job 1258,33,,54,Part Time,In Person,,1,1
+538,Job 1258,33,,54,Part Time,In Person,,1,1
+539,Job 1258,33,,54,Part Time,In Person,,1,1
+540,Job 1258,33,,54,Part Time,In Person,,1,1
+541,Job 1258,33,,54,Part Time,In Person,,1,1
+542,Job 1258,33,,54,Part Time,In Person,,1,1
+543,Job 1258,33,,54,Part Time,In Person,,1,1
+544,Job 1258,33,,54,Part Time,In Person,,1,1
+545,Job 1258,33,,54,Part Time,In Person,,1,1
+546,Job 1258,33,,54,Part Time,In Person,,1,1
+547,Job 1258,33,,54,Part Time,In Person,,1,1
+548,Job 1258,33,,54,Part Time,In Person,,1,1
+549,Job 1258,33,,54,Part Time,In Person,,1,1
+550,Job 1258,33,,54,Part Time,In Person,,1,1
+551,Job 1258,33,,54,Part Time,In Person,,1,1
+552,Job 1258,33,,54,Part Time,In Person,,1,1
+553,Job 1258,33,,54,Part Time,In Person,,1,1
+554,Job 1258,33,,54,Part Time,In Person,,1,1
+555,Job 1258,33,,54,Part Time,In Person,,1,1
+557,test question form 1047 123,1,24,1,Full Time,Remote,,3,1
+560,The question must had an answer question,1,,5,Part Time,Remote,,3,0
+561,The question must had an answer question,1,,5,Part Time,Remote,,1,1
+562,The question must had an answer question,1,,5,Part Time,Remote,,1,1
+564,PHP FE,33,,48,Part Time,,,3,0
+565,PHP FE,33,,48,Part Time,,,1,1
+566,PHP FE,33,,48,Part Time,,,1,1
+567,PHP FE,33,,48,Part Time,,,1,1
+568,PHP FE,33,,48,Part Time,,,1,1
+569,PHP FE,33,,48,Part Time,,,1,1
+570,Java BE,33,,48,Full Time,Remote,,3,0
+571,Java BE,33,,48,Full Time,Remote,,1,1
+572,Java BE,33,,48,Full Time,Remote,,1,1
+573,Java BE,33,,48,Full Time,Remote,,1,1
+574,Java BE,33,,48,Full Time,Remote,,1,1
+575,Java BE,33,,48,Full Time,Remote,,1,1
+576,Java BE,33,,48,Full Time,Remote,,1,1
+577,Java BE,33,,48,Full Time,Remote,,1,1
+578,Java BE,33,,48,Full Time,Remote,,1,1
+579,Java BE,33,,48,Full Time,Remote,,1,1
+580,Java BE,33,,48,Full Time,Remote,,1,1
+581,Job PHP,33,,58,Full Time,,,2,1
+582,Min,33,,58,Full Time,,,2,1
+583,PHP Full Stack,33,,58,Full Time,,,2,1
+584,PHP Full Stack dev,33,,48,Full Time,,,3,0
+585,PHP Full Stack dev,33,,48,Full Time,,,2,1
+586,PHP Full Stack dev,33,,48,Full Time,,,2,1
+587,PHP Full Stack dev,33,,48,Full Time,,,1,1
+588,PHP Full Stack dev,33,,48,Full Time,,,1,1
+589,PHP Full Stack dev,33,,48,Full Time,,,1,1
+590,PHP Full Stack,33,,58,Full Time,,,3,0
+591,PHP Full Stack,33,,58,Full Time,,,2,1
+592,PHP Full Stack,33,,58,Full Time,,,2,1
+593,PHP Full Stack,33,,58,Full Time,,,2,1
+594,PHP Full Stack,33,,58,Full Time,,,2,1
+595,PHP Full Stack,33,,58,Full Time,,,2,1
+596,PHP Full Stack,33,,58,Full Time,,,2,1
+597,PHP Full Stack,33,,58,Full Time,,,2,1
+598,PHP Full Stack,33,,58,Full Time,,,2,1
+599,PHP Full Stack,33,,58,Full Time,,,2,1
+600,PHP Full Stack,33,,58,Full Time,,,2,1
+601,PHP Full Stack,33,,58,Full Time,,,2,1
+602,PHP Full Stack,33,,58,Full Time,,,2,1
+603,PHP Full Stack,33,,58,Full Time,,,2,1
+604,PHP Full Stack,33,,58,Full Time,,,2,1
+605,PHP Full Stack BE,33,,58,Full Time,,,2,1
+606,Java Full Stack Developer,33,,48,Full Time,,,3,0
+607,Java Full Stack Developer,33,,48,Full Time,,,1,1
+608,Java Full Stack Developer,33,,48,Full Time,,,1,1
+609,Java Full Stack Developer,33,,48,Full Time,,,1,1
+610,Java Full Stack Developer,33,,48,Full Time,,,1,1
+611,Java Full Stack Developer,33,,48,Full Time,,,1,1
+612,Java Full Stack Developer,33,,48,Full Time,,,1,1
+613,Java Full Stack Developer,33,,48,Full Time,,,1,1
+614,Java Full Stack Developer,33,,48,Full Time,,,1,1
+615,Java Full Stack Developer,33,,48,Full Time,,,1,1
+616,Java Full Stack Developer,33,,48,Full Time,,,1,1
+617,Java Full Stack Developer,33,,48,Full Time,,,1,1
+618,Java Full Stack Developer,33,,48,Full Time,,,1,1
+619,Java Full Stack Developer,33,,48,Full Time,,,1,1
+620,Java Full Stack Developer,33,,48,Full Time,,,1,1
+621,Java Full Stack Developer,33,,48,Full Time,,,1,1
+622,Java Full Stack Developer,33,,48,Full Time,,,1,1
+623,Java Full Stack Developer,33,,48,Full Time,,,1,1
+624,Java Full Stack Developer,33,,48,Full Time,,,1,1
+625,Job 2239,33,,103,Part Time,In Person,,3,0
+626,Job 2239,33,,103,Part Time,In Person,,2,0
+627,Job 2239,33,,103,Part Time,In Person,,2,0
+628,Job 2239,33,,103,Part Time,In Person,,2,0
+629,Job 2239,33,,103,Part Time,In Person,,2,0
+630,Job 2239,33,,103,Part Time,In Person,,2,0
+631,Job 2239,33,,103,Part Time,In Person,,2,0
+632,Job 957,33,,103,Part Time,In Person,,3,0
+633,Job 957,33,,103,Part Time,In Person,,2,0
+634,Job 957,33,,103,Part Time,In Person,,2,0
+635,Job 957,33,,103,Part Time,In Person,,2,0
+636,Job 957,33,,103,Part Time,In Person,,2,0
+637,Job 957,33,,103,Part Time,In Person,,2,0
+638,Job 957,33,,103,Part Time,In Person,,2,0
+639,Job 957,33,,103,Part Time,In Person,,2,0
+640,Job 957,33,,103,Part Time,In Person,,2,0
+641,www,1,,1,Full Time,,,3,1
+642,123,1,,1,Part Time,,,3,0
+643,123,1,,1,Part Time,,,3,0
+644,Job 1052,1,,5,Full Time,In Person,,3,0
+645,Job 1052,1,21,5,Full Time,In Person,,2,0
+646,Job 1052,1,21,5,Full Time,In Person,,2,0
+647,Job 1052,1,21,5,Full Time,In Person,,2,0
+648,Job 1052,1,21,5,Full Time,In Person,,2,0
+649,Job 1052,1,21,5,Full Time,In Person,,2,0
+650,Job 1052,1,21,5,Full Time,In Person,,2,0
+651,Job 1052,1,21,5,Full Time,In Person,,2,0
+652,Job 1052,1,21,5,Full Time,In Person,,2,0
+653,Job 1052,1,21,5,Full Time,In Person,,2,0
+654,Job 1052,1,21,5,Full Time,In Person,,2,0
+655,Job 1052,1,21,5,Full Time,In Person,,2,0
+656,letheanh test question,33,,48,Full Time,In Person,,3,0
+657,letheanh test question,33,,48,Full Time,In Person,,1,1
+658,letheanh test question,33,,48,Full Time,In Person,,1,1
+659,letheanh test question,33,,48,Full Time,In Person,,1,1
+660,letheanh test question,33,,48,Full Time,In Person,,1,1
+661,letheanh test question,33,,48,Full Time,In Person,,1,1
+662,letheanh test question,33,,48,Full Time,In Person,,1,1
+663,letheanh test question,33,,48,Full Time,In Person,,1,1
+664,letheanh test question,33,,48,Full Time,In Person,,1,1
+665,letheanh test question,33,,48,Full Time,In Person,,1,1
+666,letheanh test question,33,,48,Full Time,In Person,,1,1
+667,letheanh test question,33,,48,Full Time,In Person,,1,1
+668,letheanh test question,33,,48,Full Time,In Person,,1,1
+669,letheanh test question,33,,48,Full Time,In Person,,1,1
+670,letheanh test question,33,,48,Full Time,In Person,,1,1
+671,letheanh test question,33,,48,Full Time,In Person,,1,1
+672,letheanh test question,33,,48,Full Time,In Person,,1,1
+673,letheanh test question,33,,48,Full Time,In Person,,1,1
+674,Job 2341,1,,1,Full Time,In Person,,3,0
+675,Job 2341,1,,1,Full Time,In Person,,1,1
+676,Job 2341,1,,1,Full Time,In Person,,1,1
+677,Job 2341,1,,1,Full Time,In Person,,1,1
+678,Job 2341,1,,1,Full Time,In Person,,1,1
+679,Job 2341,1,,1,Full Time,In Person,,1,1
+680,Job 2341,1,,1,Full Time,In Person,,1,1
+681,Job 2341,1,,1,Full Time,In Person,,1,1
+682,Job 2341,1,,1,Full Time,In Person,,1,1
+683,Job 2341,1,,1,Full Time,In Person,,1,1
+684,Job 2341,1,,1,Full Time,In Person,,1,1
+685,Job 2341,1,,1,Full Time,In Person,,1,1
+686,Job 2341,1,,1,Full Time,In Person,,1,1
+687,Job 2341,1,,1,Full Time,In Person,,1,1
+688,Job 2341,1,,1,Full Time,In Person,,1,1
+689,Job 2341,1,,1,Full Time,In Person,,2,1
+690,Job 2341,1,,1,Full Time,In Person,,1,1
+691,Job 2341,1,,1,Full Time,In Person,,1,1
+692,Job 2341,1,,1,Full Time,In Person,,1,1
+693,Job 2341,1,,1,Full Time,In Person,,1,1
+694,Job 2341,1,,1,Full Time,In Person,,1,1
+695,Job 2341,1,,1,Full Time,In Person,,1,1
+696,Job 0000,8,,79,Part Time,In Person,,3,0
+697,Job 0000,8,,79,Part Time,In Person,,1,1
+698,Job 0000,8,,79,Part Time,In Person,,1,1
+699,Job 0000,8,,79,Part Time,In Person,,1,1
+700,Job 0000,8,,79,Part Time,In Person,,1,1
+701,Job 0000,8,,79,Part Time,In Person,,1,1
+702,Job 0000,8,,79,Part Time,In Person,,1,1
+703,Job 0000,8,,79,Part Time,In Person,,1,1
+704,Job 0000,8,,79,Part Time,In Person,,1,1
+705,Job 0000,8,,79,Part Time,In Person,,1,1
+706,Job 0000,8,,79,Part Time,In Person,,1,1
+707,Job 0000,8,,79,Part Time,In Person,,1,1
+708,Job 0000,8,,79,Part Time,In Person,,1,1
+709,Job 0000,8,,79,Part Time,In Person,,1,1
+710,Job 0000,8,,79,Part Time,In Person,,1,1
+711,Job 0000,8,,79,Part Time,In Person,,1,1
+712,Job 0000,8,,79,Part Time,In Person,,1,1
+713,Job 0000,8,,79,Part Time,In Person,,1,1
+714,Job 0000,8,,79,Part Time,In Person,,1,1
+715,Job 0003,1,,51,Part Time,Remote,,3,0
+716,Job 0003,1,,51,Part Time,Remote,,1,1
+717,Job 0003,1,,51,Part Time,Remote,,1,1
+718,Job 0003,1,,51,Part Time,Remote,,1,1
+719,Job 0003,1,,51,Part Time,Remote,,1,1
+720,Job 0003,1,,51,Part Time,Remote,,1,1
+721,Job 0037,33,,54,Part Time,In Person,,3,0
+722,Job 0037,33,,54,Part Time,In Person,,1,1
+723,Job 0037,33,,54,Part Time,In Person,,1,1
+724,Job 0037,33,,54,Part Time,In Person,,1,1
+725,Job 0037,33,,54,Part Time,In Person,,1,1
+726,Job 0037,33,,54,Part Time,In Person,,1,1
+727,Minh Chủ Võ Lâm,162,,116,Contract,ANY,,3,0
+728,Minh Chủ Võ Lâm,162,,116,Contract,ANY,,1,1
+729,job tester,33,,58,Full Time,,,3,0
+730,Recruit IT BA,33,,117,Full Time,Remote,,3,0
+731,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+732,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+733,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+734,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+735,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+736,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+737,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+738,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+739,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+740,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+741,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+742,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+743,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+744,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+745,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+746,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+747,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+748,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+749,Recruit IT BA,33,,117,Full Time,Remote,,1,1
+750,Job 346 - copy,1,,11,Full Time,In Person,,3,0
+751,Job 346 - copy,1,,11,Full Time,In Person,,3,0
+752,test create job le the anh,1,,1,Full Time,Remote,,3,0
+753,test create job le the anh,1,,1,Full Time,Remote,,1,1
+754,test create job le the anh,1,,1,Full Time,Remote,,1,1
+755,test create job le the anh,1,,1,Full Time,Remote,,1,1
+756,test create job le the anh,1,,1,Full Time,Remote,,1,1
+757,test create job le the anh,1,,1,Full Time,Remote,,1,1
+758,test create job le the anh,1,,1,Full Time,Remote,,1,1
+759,test create job le the anh,1,,1,Full Time,Remote,,1,1
+760,test create job le the anh,1,,1,Full Time,Remote,,1,1
+761,test create job le the anh,1,,1,Full Time,Remote,,1,1
+762,test create job le the anh,1,,1,Full Time,Remote,,1,1
+763,test create job le the anh,1,,1,Full Time,Remote,,1,1
+764,test create job le the anh,1,,1,Full Time,Remote,,1,1
+765,Job 1514,1,,12,Full Time,Remote,,3,0
+766,Job 1514,1,25,12,Full Time,Remote,,2,1
+767,Job 1514,1,25,12,Full Time,Remote,,2,1
+768,Job 1514,1,25,12,Full Time,Remote,,2,1
+769,Job 1514,1,25,12,Full Time,Remote,,2,1
+770,Job 1514,1,25,12,Full Time,Remote,,2,1
+771,Job 1514,1,25,12,Full Time,Remote,,2,1
+772,Job 1514,1,25,12,Full Time,Remote,,2,1
+773,Job 1550,1,,11,Part Time,In Person,,3,0
+774,Job 1550,1,,11,Part Time,In Person,,1,1
+775,Job 1550,1,,11,Part Time,In Person,,1,1
+776,Job 1550,1,,11,Part Time,In Person,,1,1
+777,Job 1550,1,,11,Part Time,In Person,,1,1
+778,Job 1550,1,,11,Part Time,In Person,,1,1
+779,Job 1550,1,,11,Part Time,In Person,,1,1
+780,Job 1550,1,,11,Part Time,In Person,,1,1
+781,Job 1550,1,,11,Part Time,In Person,,1,1
+782,Job 1550,1,,11,Part Time,In Person,,1,1
+783,Job 346 - copy,1,,11,FULL_TIME,REMOTE,,3,1
+785,Job 1550 - copy,1,,11,Full Time,In Person,,3,0
+786,Job 1631,1,,12,Part Time,In Person,,3,0
+788,Job 1633,1,,12,Part Time,In Person,,3,0
+806,123123123123,1,,1,Full Time,,,3,0
+807,Job 1030,1,,15,Part Time,Remote,,3,0
+808,Job 1030,1,,15,Part Time,Remote,,1,1
+809,Job 1030,1,,15,Part Time,Remote,,1,1
+810,Job 1030,1,,15,Part Time,Remote,,1,1
+811,Job 1030,1,,15,Part Time,Remote,,1,1
+812,Job 1030,1,,15,Part Time,Remote,,1,1
+813,Job 1030,1,,15,Part Time,Remote,,1,1
+814,Job 1030,1,,15,Part Time,Remote,,1,1
+815,Job 1030,1,,15,Part Time,Remote,,1,1
+816,Job 1030,1,,15,Part Time,Remote,,1,1
+817,Job 1030,1,,15,Part Time,Remote,,1,1
+818,Job 1030,1,,15,Part Time,Remote,,1,1
+819,Job 1030,1,,15,Part Time,Remote,,1,1
+820,Job 1030,1,,15,Part Time,Remote,,1,1
+821,Job 1030,1,,15,Part Time,Remote,,1,1
+822,Job 1030,1,,15,Part Time,Remote,,1,1
+823,Job1625,33,,100,Part Time,Remote,,3,1
+835,test create job,1,,1,Full Time,In Person,,3,0
+836,test create job,1,,1,Full Time,In Person,,1,1
+837,test create job,1,,1,Full Time,In Person,,1,1
+838,template Name test 12/7,1,,1,Part Time,In Person,,3,1
+839,create job test by lta 712 259,1,,1,Part Time,In Person,,3,0
+840,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+841,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+842,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+843,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+844,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+845,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+846,create job test by lta 712 259,1,,1,Part Time,In Person,,1,1
+847,create job test by lta 712 301,1,,1,Full Time,,,3,0
+848,create job test by lta 712 301,1,,1,Full Time,,,1,1
+849,create job test by lta 712 301,1,,1,Full Time,,,1,1
+850,create job test by lta 712 301,1,,1,Full Time,,,1,1
+851,create job test by lta 712 301,1,,1,Full Time,,,1,1
+852,create job test by lta 712 301,1,,1,Full Time,,,1,1
+853,create job test by lta 712 301,1,,1,Full Time,,,1,1
+854,create job test by lta 712 301,1,,1,Full Time,,,1,1
+855,test create job by lta 712 321,1,,1,Part Time,,,3,1
+856,create job by lta 712 325,1,,1,Full Time,In Person,,3,1
+857,job test 713 1037,1,,1,Full Time,In Person,,3,0
+858,job test 713 1037,1,,1,Full Time,In Person,,1,1
+859,Job136,1,,12,Part Time,Remote,,3,0
+866,Job136,1,,12,Part Time,Remote,,3,0
+867,Job136_update,1,,12,FULL_TIME,Remote,,2,1
+868,Job136_update_v2,1,,12,FULL_TIME,IN_PERSON,,2,1
+869,Job136,1,,12,FULL_TIME,Remote,,2,1
+870,Job136,1,,12,Part Time,Remote,,2,1
+871,Job136,1,,12,Part Time,Remote,,2,1
+872,Job136,1,,12,Part Time,Remote,,2,1
+873,Job1341,1,,12,Part Time,In Person,,3,0
+874,Job1341,1,,12,Part Time,In Person,,2,1
+875,Job1341,1,,12,Part Time,In Person,,2,1
+876,Job1341,1,,12,Part Time,In Person,,2,1
+877,Job1341,1,,12,Part Time,In Person,,2,1
+878,Job1341,1,,12,Part Time,In Person,,2,1
+879,Job1341,1,,12,Part Time,In Person,,2,1
+880,developer 1407 0857,165,,122,Part Time,,,3,0
+881,developer 1407 0857,165,,122,Part Time,,,1,1
+882,developer 1407 0857,165,,122,Part Time,,,1,1
+883,developer 1407 0857,165,,122,Part Time,,,1,1
+884,developer 1407 0857,165,,122,Part Time,,,1,1
+885,developer 1407 0857,165,,122,Part Time,,,1,1
+886,developer 1407 0857,165,,122,Part Time,,,1,1
+887,developer 1407 0857,165,,122,Part Time,,,1,1
+888,developer 1407 0857,165,,122,Part Time,,,1,1
+889,developer 1407 0925,165,,122,Full Time,Remote,,3,1
+898,Job123123312,165,,122,Part Time,Remote,,3,1
+906,job123123123344324,165,,122,Part Time,In Person,,3,0
+907,job123123123344324,165,,122,Part Time,In Person,,1,1
+908,job123123123344324,165,,122,Part Time,In Person,,1,1
+909,job123123123344324,165,,122,Part Time,In Person,,1,1
+910,job123123123344324,165,,122,Part Time,In Person,,1,1
+911,job123123123344324,165,,122,Part Time,In Person,,1,1
+912,job123123123344324,165,,122,Part Time,In Person,,1,1
+913,job123123123344324,165,,122,Part Time,In Person,,1,1
+914,job123123123344324,165,,122,Part Time,In Person,,1,1
+915,test 1407 0924,165,,122,Part Time,Remote,,3,0
+916,test 1407 0924,165,,122,Part Time,Remote,,1,1
+917,test 1407 0924,165,,122,Part Time,Remote,,1,1
+918,test 1407 0924,165,,122,Part Time,Remote,,1,1
+919,test 1407 0924,165,,122,Part Time,Remote,,1,1
+920,test 1407 0924,165,,122,Part Time,Remote,,1,1
+921,test 1407 0924,165,,122,Part Time,Remote,,1,1
+922,test 1407 0924,165,,122,Part Time,Remote,,1,1
+923,test 1407 0924,165,,122,Part Time,Remote,,1,1
+924,developer 1407 0933,165,,122,Part Time,Remote,,3,0
+925,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+926,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+927,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+928,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+929,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+930,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+931,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+932,developer 1407 0933,165,,122,Part Time,Remote,,1,1
+933,Job1411147,1,,13,Full Time,Remote,,1,0
+940,Job1415147,1,,13,Part Time,Remote,,3,0
+941,Job1415147,1,,13,Part Time,Remote,,1,1
+942,Job1415147,1,,13,Part Time,Remote,,1,1
+943,Job1415147,1,,13,Part Time,Remote,,1,1
+944,Job1415147,1,,13,Part Time,Remote,,1,1
+945,Job1415147,1,,13,Part Time,Remote,,1,1
+946,Job1415147,1,,13,Part Time,Remote,,1,1
+947,Job1415147,1,,13,Part Time,Remote,,1,1
+948,Job1415147,1,,13,Part Time,Remote,,1,1
+949,Job1415147,1,,13,Part Time,Remote,,1,1
+950,Job1415147,1,,13,Part Time,Remote,,1,1
+951,Job1415147,1,,13,Part Time,Remote,,1,1
+952,Job1415147,1,,13,Part Time,Remote,,1,1
+953,Job136 - copy,1,,12,Full Time,Remote,,3,0
+954,alo,33,,57,Full Time,Remote,,3,0
+955,alo,33,,57,Full Time,Remote,,1,1
+956,FE 001,33,,57,Full Time,Remote,,3,0
+957,FE 001,33,26,57,Full Time,Remote,,2,1
+958,FE 001,33,26,57,Full Time,Remote,,2,1
+959,FE 001,33,26,57,Full Time,Remote,,2,1
+960,FE 001,33,26,57,Full Time,Remote,,2,1
+961,FE 001,33,26,57,Full Time,Remote,,2,1
+962,FE 001,33,26,57,Full Time,Remote,,2,1
+963,FE 001,33,26,57,Full Time,Remote,,2,1
+964,FE 001,33,26,57,Full Time,Remote,,2,1
+965,FE 001,33,26,57,Full Time,Remote,,2,1
+966,FE 001,33,26,57,Full Time,Remote,,2,1
+967,FE 001,33,26,57,Full Time,Remote,,2,1
+968,FE 001,33,26,57,Full Time,Remote,,2,1
+969,FE 001,33,26,57,Full Time,Remote,,2,1
+970,FE 001,33,26,57,Full Time,Remote,,2,1
+971,FE 001,33,26,57,Full Time,Remote,,2,1
+972,FE 001,33,26,57,Full Time,Remote,,2,1
+973,FE 0002,33,,57,Full Time,,,3,0
+974,FE 0002,33,27,57,Full Time,,,2,1
+975,FE 0002,33,27,57,Full Time,,,2,1
+976,FE 0002,33,27,57,Full Time,,,2,1
+977,FE 0002,33,27,57,Full Time,,,2,1
+978,FE 0002,33,27,57,Full Time,,,2,1
+979,FE 0002,33,27,57,Full Time,,,2,1
+980,FE 0002,33,27,57,Full Time,,,2,1
+981,FE 0002,33,27,57,Full Time,,,2,1
+982,FE Con meo,2,,127,Full Time,Remote,,3,0
+983,FE Con meo,2,,127,Full Time,Remote,,1,1
+984,FE Con meo,2,,127,Full Time,Remote,,1,1
+985,FE Con meo,2,,127,Full Time,Remote,,1,1
+986,FE Con meo,2,,127,Full Time,Remote,,1,1
+987,FE Con meo,2,,127,Full Time,Remote,,1,1
+988,FE Con meo,2,,127,Full Time,Remote,,1,1
+989,FE Con meo,2,,127,Full Time,Remote,,1,1
+990,FE Con meo,2,,127,Full Time,Remote,,1,1
+991,FE Con meo,2,,127,Full Time,Remote,,1,1
+992,FE Con meo,2,,127,Full Time,Remote,,1,1
+993,FE Con meo,2,,127,Full Time,Remote,,1,1
+994,FE Con meo,2,,127,Full Time,Remote,,1,1
+995,FE Con meo,2,,127,Full Time,Remote,,1,1
+996,FE Con meo,2,,127,Full Time,Remote,,1,1
+997,FE Con meo,2,,127,Full Time,Remote,,1,1
+998,FE Con meo,2,,127,Full Time,Remote,,1,1
+999,FE Con meo,2,,127,Full Time,Remote,,1,1
+1000,Job1335157,2,,131,Part Time,Remote,,3,0
+1001,Job1335157,2,,131,Part Time,Remote,,1,1
+1002,Job1335157,2,,131,Part Time,Remote,,1,1
+1003,Job1335157,2,,131,Part Time,Remote,,1,1
+1004,Job1335157,2,,131,Part Time,Remote,,1,1
+1005,Job1335157,2,,131,Part Time,Remote,,1,1
+1006,Job1335157,2,,131,Part Time,Remote,,1,1
+1007,Job1429157,2,,133,Contract,In Person,,3,0
+1008,Job1429157,2,,133,Contract,In Person,,1,1
+1009,Job1429157,2,,133,Contract,In Person,,1,1
+1010,Job1429157,2,,133,Contract,In Person,,1,1
+1011,Job1429157,2,,133,Contract,In Person,,1,1
+1012,Job senior tester,175,,141,Part Time,,,3,0
+1013,Job senior tester,175,,141,Part Time,,,2,1
+1014,Job senior tester,175,,141,Part Time,,,2,1
+1015,Job1521157,40,,53,Part Time,Remote,,3,0
+1016,Job1521157 123456789999999,40,,53,PART_TIME,ANY,,2,1
+1017,Job1521157555,40,,53,PART_TIME,IN_PERSON,,1,1
+1018,Job1521157,40,,53,Part Time,Remote,,1,1
+1019,Job1521157_update,40,,53,PART_TIME,ANY,,2,1
+1020,job senior tester,33,,132,Part Time,Remote,,3,0
+1021,job senior tester,33,,132,Part Time,Remote,,1,1
+1022,job senior tester,33,,132,Part Time,Remote,,2,1
+1023,test job 715 3433333333333333,40,30,53,PART_TIME,IN_PERSON,,2,1
+1024,create job test 715 344_update,40,,53,FULL_TIME,In Person,,1,1
+1025,job senior tester,175,,142,Part Time,Remote,,3,0
+1026,job senior tester,175,,142,Part Time,Remote,,1,1
+1027,create job 715 352,40,,53,Full Time,,,3,0
+1028,create job 715 352,40,30,53,Full Time,,,2,1
+1029,create job 715 401,40,30,53,Part Time,In Person,,3,1
+1030,create job 715 401,40,,53,Full Time,,,3,0
+1031,create job 715 401,40,30,53,Full Time,,,2,1
+1032,create job 715 408,40,,53,Full Time,In Person,,3,0
+1033,create job 715 408,40,30,53,Full Time,In Person,,2,1
+1034,Junior Salesforce Developer (JavaScript),33,,48,Full Time,ANY,,3,1
+1056,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,3,0
+1057,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1058,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1059,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1060,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1061,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1062,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1063,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1064,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1065,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1066,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1067,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1068,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1069,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1070,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1071,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1072,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1073,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1074,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1075,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1076,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1077,Junior Salesforce Developer (JavaScript),33,,48,Full Time,Remote,,1,1
+1078,Normal developer,33,,144,Full Time,ANY,,3,0
+1079,Normal developer,33,,144,Full Time,ANY,,2,1
+1080,Normal developer,33,,144,Full Time,ANY,,1,1
+1081,Normal developer,33,,144,Full Time,ANY,,1,1
+1082,Normal developer,33,,144,Full Time,ANY,,1,1
+1083,Normal developer,33,,144,Full Time,ANY,,1,1
+1084,Normal developer,33,,144,Full Time,ANY,,1,1
+1085,Normal developer,33,,144,Full Time,ANY,,1,1
+1086,Normal developer,33,,144,Full Time,ANY,,1,1
+1087,Normal developer,33,,144,Full Time,ANY,,2,1
+1088,Normal developer,33,,144,Full Time,ANY,,2,1
+1089,Normal developer,33,,144,Full Time,ANY,,2,1
+1090,Normal developer,33,,144,Full Time,ANY,,1,1
+1091,Normal developer,33,,144,Full Time,ANY,,2,1
+1092,Normal developer,33,,144,Full Time,ANY,,1,1
+1093,Normal developer,33,,144,Full Time,ANY,,1,1
+1094,Normal developer,33,,144,Full Time,ANY,,1,1
+1095,Normal developer,33,,144,Full Time,ANY,,2,1
+1096,Normal developer,33,,144,Full Time,ANY,,2,1
+1097,Normal developer,33,,144,Full Time,ANY,,2,1
+1098,Normal developer,33,,144,Full Time,ANY,,1,1
+1099,Normal developer,33,,144,Full Time,ANY,,1,1
+1100,Sales Executive,1,,91,FULL_TIME,,,3,1
+1101,Job1133187,40,,53,PART_TIME,REMOTE,,3,1
+1102,Job tester 18t7,33,,151,Part Time,Remote,,3,0
+1103,Job tester 18t7,33,28,151,Part Time,Remote,,2,1
+1104,Job tester 18t7,33,28,151,Part Time,Remote,,1,1
+1105,job tester 18t7,1,,152,Part Time,,,3,0
+1106,Job tester 18t7,1,,152,Full Time,,,1,1
+1107,Job1411147,1,,13,Full Time,Remote,,1,1
+1108,Job1411147,1,,13,Full Time,Remote,,1,1
+1109,Job1411147,1,,13,Full Time,Remote,,1,1
+1110,Job1411147,1,,13,Full Time,Remote,,1,1
+1111,Job1411147,1,,13,Full Time,Remote,,1,1
+1112,Job1411147,1,,13,Full Time,Remote,,1,1
+1113,Job 1526187,3,,178,Part Time,Remote,,3,0
+1114,Job 1526187,3,,178,Part Time,Remote,,1,1
+1115,Job 1526187,3,,178,Part Time,Remote,,1,1
+1116,Job 1526187,3,,178,Part Time,Remote,,1,1
+1117,Job 1526187,3,,178,Part Time,Remote,,1,1
+1118,Job 1526187,3,,178,Part Time,Remote,,1,1
+1119,Job 1526187,3,,178,Part Time,Remote,,1,1
+1120,Job 1526187,3,,178,Part Time,Remote,,1,1
+1121,Job 1526187,3,,178,Part Time,Remote,,1,1
+1122,Job 1526187,3,,178,Part Time,Remote,,1,1
+1123,Job 1526187,3,,178,Part Time,Remote,,1,1
+1124,Job 1526187,3,,178,Part Time,Remote,,1,1
+1125,Job 1526187,3,,178,Part Time,Remote,,1,1
+1126,Job 1526187,3,,178,Part Time,Remote,,1,1
+1127,Job 1526187,3,,178,Part Time,Remote,,1,1
+1128,Job 1526187,3,,178,Part Time,Remote,,1,1
+1129,Job 1526187,3,,178,Part Time,Remote,,1,1
+1130,Job 1526187,3,,178,Part Time,Remote,,1,1
+1131,Job 1526187,3,,178,Part Time,Remote,,1,1
+1132,Job 1526187,3,,178,Part Time,Remote,,1,1
+1133,Job 1526187,3,,178,Part Time,Remote,,1,1
+1134,Job 1526187,3,,178,Part Time,Remote,,1,1
+1139,Job2252187,10,,63,Part Time,,,1,0
+1140,New Job 2342,10,,63,FULL_TIME,,,3,1
+1142,job 0009,10,,63,FULL_TIME,,,3,1
+1143,Job 0010,15,,69,Contract,Remote,,3,0
+1144,Job 0010,15,31,69,Contract,Remote,,1,1
+1145,Job 0010,15,31,69,Contract,Remote,,1,1
+1146,Job 0010,15,31,69,Contract,Remote,,1,1
+1147,Job 0010,15,31,69,Contract,Remote,,1,1
+1148,Job2252187,10,35,63,Part Time,,,1,1
+1149,Job2252187,10,35,63,Part Time,,,1,1
+1150,Job2252187,10,35,63,Part Time,,,1,1
+1151,Job2252187,10,35,63,Part Time,,,1,1
+1152,Job2252187,10,35,63,Part Time,,,1,1
+1153,Job2252187,10,35,63,Part Time,,,1,1
+1154,Job2252187,10,35,63,Part Time,,,1,1
+1155,Job2252187,10,35,63,Part Time,,,1,1
+1156,Job2252187,10,35,63,Part Time,,,1,1
+1157,Job2252187,10,35,63,Part Time,,,1,1
+1158,Job2252187,10,35,63,Part Time,,,1,1
+1159,Job2252187,10,35,63,Part Time,,,1,1
+1160,Job2252187,10,35,63,Part Time,,,1,1
+1161,Job2252187,10,35,63,Part Time,,,1,1
+1162,Job2252187,10,35,63,Part Time,,,1,1
+1163,Job2252187,10,35,63,Part Time,,,1,1
+1164,Job2252187,10,35,63,Part Time,,,1,1
+1165,Job2252187,10,35,63,Part Time,,,1,1
+1166,Job2252187,10,35,63,Part Time,,,1,1
+1167,Job2252187,10,35,63,Part Time,,,1,1
+1168,Job2252187,10,35,63,Part Time,,,1,1
+1169,Job 923197,33,,100,PART_TIME,REMOTE,,3,1
+1170,23412234134253425326,33,,100,FULL_TIME,,,3,1
+1171,Job929197,33,,100,PART_TIME,REMOTE,,3,1
+1172,Job 932197,33,,100,PART_TIME,REMOTE,,3,1
+1173,123_update,40,,53,FULL_TIME,,,3,1
+1174,123,40,,53,FULL_TIME,,,3,1
+1175,123,40,,53,FULL_TIME,,,3,1
+1176,123123123123123,4,,190,FULL_TIME,,,3,1
+1177,test 1021,4,,190,FULL_TIME,,,3,1
+1178,Job1023197,10,,63,FULL_TIME,,,3,1
+1179,1553,40,,53,FULL_TIME,,,3,1
+1180,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1181,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1182,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1183,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1184,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1185,create job bt lta 720 350,1,,1,Full Time,,,3,1
+1187,create job bt lta 720 350,1,,1,Full Time,,,3,0
+1188,create job bt lta 720 350,1,,1,Full Time,,,3,0
+1189,create job bt lta 720 350,1,,1,Full Time,,,3,0
+1190,create job bt lta 720 350,1,,1,Full Time,,,3,0
+1191,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1192,create job bt lta 720 350,1,,1,Full Time,,,3,0
+1193,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1194,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1195,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1196,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1197,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1198,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1199,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1200,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1201,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1202,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1203,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1204,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1205,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1206,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1207,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1208,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1209,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1210,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1211,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1212,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1213,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1214,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1215,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1216,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1217,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1218,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1219,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1220,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1221,create job bt lta 720 350,1,,1,Full Time,,,1,1
+1222,create job by lta 720 419,1,,4,Part Time,,,3,0
+1223,create job by lta 720 419,1,,4,Part Time,,,1,1
+1224,create job by lta 720 419,1,,4,Part Time,,,1,1
+1225,create job by lta 720 419,1,,4,Part Time,,,3,1
+1226,create job by lta 720 419,1,,4,Part Time,,,3,0
+1227,create job by lta 720 419,1,,4,Part Time,,,1,1
+1228,create job by lta 720 419,1,,4,Part Time,,,1,1
+1229,Who is your daddy,40,,53,Full Time,ANY,,3,1
+1251,Who is your daddy,40,,53,Full Time,ANY,,3,0
+1252,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1253,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1254,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1255,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1256,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1257,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1258,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1259,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1260,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1261,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1262,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1263,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1264,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1265,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1266,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1267,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1268,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1269,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1270,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1271,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1272,Who is your daddy,40,,53,Full Time,ANY,,1,1
+1273,Who your daddy,40,,70,Full Time,Remote,,1,0
+1274,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1275,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1276,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1277,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1278,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1279,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1280,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1281,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1282,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1283,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1284,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1285,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1286,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1287,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1288,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1289,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1290,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1291,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1292,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1293,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1294,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1295,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1296,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1297,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1298,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1299,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1300,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1301,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1302,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1303,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1304,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1305,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1306,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1307,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1308,Who your daddy,40,32,70,Full Time,Remote,,1,1
+1309,Hi Domainnnnnnnnnnnnnnnnn,3,,68,PART_TIME,ANY,,3,1
+1310,Hover,3,,68,PART_TIME,ANY,,3,1
+1311,Job 1118,194,,193,Full Time,,,1,1
+1312,Job 1117,194,,193,Full Time,,,1,1
+1313,Job 1116,194,,193,Full Time,,,3,0
+1314,Job 1116,194,,193,Full Time,,,1,1
+1315,Job 1115,194,,193,Full Time,,,1,1
+1316,create job title bt lta 328 721,40,,53,Full Time,In Person,,3,0
+1317,create job title bt lta 328 721,40,,53,Full Time,In Person,,2,1
+1318,create job title bt lta 328 721,40,,53,Full Time,,,1,1
+1319,create job title bt lta 328 721,40,,53,Part Time,,,3,0
+1320,create job title bt lta 328 721,40,,53,Part Time,,,1,1
+1321,Job 1533333333333333333333,3,,68,PART_TIME,ANY,,3,1
+1322,create job title bt lta 328 721,40,,53,Full Time,,,1,1
+1323,create job title bt lta 328 721,40,,53,Part Time,,,3,0
+1324,create job title bt lta 328 721,40,,53,Full Time,,,1,1
+1325,1234567891011121314151617,3,,68,PART_TIME,ANY,,3,1
+1326,Job 1544,3,,68,FULL_TIME,,,3,1
+1327,job15501010101,3,,68,PART_TIME,ANY,,3,1
+1328,Job 1557,1,,13,FULL_TIME,,,3,1
+1329,create job by lta check spin,1,,1,Full Time,,,3,1
+1330,create job by lta check spin,1,,1,Full Time,,,3,0
+1331,create job by lta check spin,1,,1,Full Time,,,1,1
+1332,create job 721 456,40,,53,Full Time,,,1,1
+1333,create job 721 456,40,,53,Part Time,,,3,0
+1334,create job 721 456,40,,53,Full Time,,,1,1
+1335,Job 0903,40,,53,FULL_TIME,,,3,1
+1336,Job 0904227777888888,3,,68,PART_TIME,ANY,,3,1
+1337,create job by lta 722 915,40,,53,Part Time,,,3,0
+1338,create job by lta 722 915,40,,53,Part Time,,,1,1
+1339,create job by lta 722 915,40,,53,Full Time,,,2,1
+1340,Create save draft job bt lta 722 917,40,,53,FULL_TIME,,,3,1
+1341,Job 0928,1,,198,FULL_TIME,,,3,1
+1342,Job 01234567890000,40,,53,PART_TIME,IN_PERSON,,3,1
+1343,create job draft - copy,40,,53,FULL_TIME,,,3,1
+1344,create job draft by lta 1015 722,40,,53,FULL_TIME,,,3,1
+1345,create job draft bt lta 722 1016,40,,53,FULL_TIME,,,3,1
+1346,Job1521157 123 - copy,40,,53,FULL_TIME,,,3,0
+1347,create job draft by lta 722 1109,1,,1,FULL_TIME,,,3,1
+1348,create job draft by lta 722 1111,1,,1,FULL_TIME,,,3,1
+1349,Su drr,33,,48,FULL_TIME,,,3,1
+1350,Job draft - 01_update,1,,10,PART_TIME,REMOTE,,3,1
+1351,Job draft 2,1,40,8,FULL_TIME,ANY,,3,1
+1352,Job 1631,1,,12,Part Time,In Person,,2,1
+1353,Job 1631,1,,12,Part Time,In Person,,2,1
+1354,Job 1631,1,,12,Part Time,In Person,,2,1
+1355,Job 1631,1,,12,Part Time,In Person,,2,1
+1356,Job 1631,1,,12,Part Time,In Person,,2,1
+1357,Job 1631,1,,12,Part Time,In Person,,2,1
+1358,Job 1631,1,,12,Part Time,In Person,,2,1
+1359,Job 1633,1,,12,Part Time,In Person,,2,1
+1360,Job 1633,1,,12,Part Time,In Person,,2,1
+1361,Job 1633,1,,12,Part Time,In Person,,2,1
+1362,Job 1633,1,,12,Part Time,In Person,,2,1
+1363,Job 1633,1,,12,Part Time,In Person,,2,1
+1364,Job 1633,1,,12,Part Time,In Person,,2,1
+1365,Job 1633,1,,12,Part Time,In Person,,2,1
+1366,Job 1633,1,,12,Part Time,In Person,,2,1
+1367,Job 1633,1,,12,Part Time,In Person,,2,1
+1368,Job 1633,1,,12,Part Time,In Person,,2,1
+1369,Job 1633,1,,12,Part Time,In Person,,2,1
+1370,Job 1633,1,,12,Part Time,In Person,,2,1
+1371,Job 1633,1,,12,Part Time,In Person,,2,1
+1372,Job 1633,1,,12,Part Time,In Person,,2,1
+1373,Job 1633,1,,12,Part Time,In Person,,2,1
+1374,Job 1633,1,,12,Part Time,In Person,,2,1
+1375,Job 1633,1,,12,Part Time,In Person,,2,1
+1376,Job136,1,,12,Part Time,Remote,,2,1
+1377,Job136,1,,12,Part Time,Remote,,2,1
+1378,Job136,1,,12,Part Time,Remote,,2,1
+1379,Job136,1,,12,Part Time,Remote,,2,1
+1380,Job136,1,,12,Part Time,Remote,,2,1
+1381,Job136,1,,12,Part Time,Remote,,2,1
+1382,123,33,,192,FULL_TIME,,,3,1
+1383,dsdsdgfiusgifsdf,1,,43,FULL_TIME,,,3,1
+1384,Job 1524,194,,193,Contract,,,3,1
+1385,Job 1524,194,,193,Contract,,,3,1
+1386,CDL-A Regional Truck Driver,1,,1,,,,3,1
+1387,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1388,CDL-A Regional Truck Driver,1,,12,FULL_TIME,,,3,1
+1389,CDL-A Regional Truck Driver_update,1,,12,FULL_TIME,,,3,1
+1390,Job 1015,1,,12,FULL_TIME,,,3,1
+1391,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1392,CDL-A Truck Driver,1,,12,,,,3,1
+1393,CDL-A Truck Driver,1,,12,,,,3,1
+1394,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1395,CDL-A Truck Driver,1,,12,,,,3,1
+1396,CDL-A Truck Driver,1,,12,,,,3,1
+1397,CDL-A Truck Driver,1,,12,,,,3,1
+1398,CDL-A Truck Driver,1,,12,,,,3,1
+1399,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1400,CDL-A Dedicated Truck Driver,1,,12,,,,3,1
+1401,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1402,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1403,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1404,CDL-A Truck Driver,1,,12,,,,3,1
+1405,CDL-A Truck Driver,1,,12,,,,3,1
+1406,CDL-A Truck Driver,1,,12,,,,3,1
+1407,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1408,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1409,CDL-A Dedicated Truck Driver,1,,12,,,,3,1
+1410,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1411,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1412,CDL-A Truck Driver,1,,12,,,,3,1
+1413,CDL-A Truck Driver,1,,12,,,,3,1
+1414,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1415,CDL-A Dedicated Truck Driver,1,,12,,,,3,1
+1416,CDL-A Truck Driver,1,,12,,,,3,1
+1417,CDL-A Truck Driver,1,,12,,,,3,1
+1418,CDL-A Truck Driver,1,,12,,,,3,1
+1419,CDL-A Truck Driver,1,,12,,,,3,1
+1420,CDL-A Truck Driver,1,,12,,,,3,1
+1421,CDL-A Truck Driver,1,,12,,,,3,1
+1422,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1423,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1424,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1425,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1426,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1427,CDL-A OTR Truck Driver,1,,12,,,,3,1
+1428,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1429,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1430,CDL-A Truck Driver,1,,12,,,,3,1
+1431,CDL-A Truck Driver,1,,12,,,,3,1
+1432,CDL-A Dedicated Truck Driver,1,,12,,,,3,1
+1433,CDL-A Truck Driver,1,,12,PART_TIME,REMOTE,,3,1
+1434,CDL-A Regional Truck Driver,1,,12,,,,3,1
+1435,CDL-A Truck Driver,1,,12,,,,3,1
+1436,CDL-A Regional Truck Driver,1,,12,FULL_TIME,,,3,1
+1437,CDL-A Truck Driver,1,,12,,,,3,1
+1438,Job 0902247,1,,12,CONTRACT,IN_PERSON,,3,1
+1439,CEO,1,,12,,,,3,1
+1440,CEO_update,1,,12,PART_TIME,REMOTE,,2,1
+1441,job1056,194,,193,PART_TIME,REMOTE,,3,1
+1442,CEO,1,,9,FULL_TIME,,,3,1
+1443,Job 1518,1,,12,PART_TIME,IN_PERSON,,3,0
+1444,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1445,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1446,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1447,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1448,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1449,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1450,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1451,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1452,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1453,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1454,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1455,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1456,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1457,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1458,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1459,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1460,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1461,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1462,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1463,Job 1518,1,,12,PART_TIME,IN_PERSON,,2,1
+1464,Job 1520,1,,12,PART_TIME,REMOTE,,3,1
+1465,Job 1522,1,,12,PART_TIME,REMOTE,,3,1
+1466,Job1529,1,,12,PART_TIME,IN_PERSON,,3,1
+1488,Job 1533,1,,12,PART_TIME,REMOTE,,3,0
+1489,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1490,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1491,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1492,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1493,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1494,Job 1533,1,,12,PART_TIME,REMOTE,,2,1
+1495,Test,10,,63,FULL_TIME,,,3,1
+1496,Job 1805,1,,12,FULL_TIME,,,3,1
+1497,CEO,1,,12,,,,3,1
+1498,create job by lta 724 1002,1,,1,PART_TIME,IN_PERSON,,3,1
+1499,CDL-A Truck Driver,1,,12,,,,3,1
+1500,CDL-A Truck Driver,1,,12,,,,3,1
+1501,CDL-A Truck Driver,1,,12,FULL_TIME,,,3,1
+1502,Job Su only test,1,,12,CONTRACT,REMOTE,,3,1
+1503,acbde,3,,68,PART_TIME,ANY,,3,1
+1504,Data Analyst,1,,222,FULL_TIME,ANY,,1,0
+1526,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,3,0
+1527,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1528,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1529,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1530,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1531,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1532,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1533,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1534,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1535,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1536,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1537,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1538,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1539,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1540,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1541,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1542,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1543,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1544,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1545,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1546,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1547,Data Analyst,1,,222,FULL_TIME,IN_PERSON,,1,1
+1548,Data engineer,1,,222,FULL_TIME,IN_PERSON,,3,1
+1549,Dancer,241,,197,FULL_TIME,REMOTE,,3,1
+1550,Prisoner,241,,197,FULL_TIME,REMOTE,,3,1
+1551,Dancer,3,,61,FULL_TIME,REMOTE,,3,1
+1552,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1553,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1554,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1555,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1556,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1557,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1558,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1559,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1560,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1561,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1562,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1563,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1564,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1565,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1566,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1567,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1568,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1569,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1570,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1571,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1572,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1573,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1574,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1575,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1576,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1577,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1578,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1579,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1580,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1581,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1582,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1583,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1584,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1585,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1586,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1587,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1588,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1589,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1590,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1591,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1592,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1593,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1594,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1595,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1596,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1597,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1598,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1599,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1600,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1601,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1602,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1603,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1604,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1605,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1606,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1607,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1608,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1609,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1610,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1611,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1612,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1613,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1614,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1615,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1616,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1617,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1618,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1619,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1620,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1621,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1622,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1623,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1624,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1625,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1626,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1627,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1628,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1629,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1630,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1631,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1632,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1633,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1634,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1635,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1636,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1637,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1638,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1639,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1640,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1641,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1642,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1643,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1644,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1645,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1646,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1647,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1648,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1649,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1650,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1651,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1652,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1653,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1654,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1655,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1656,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1657,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1658,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1659,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1660,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1661,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1662,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1663,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1664,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1665,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1666,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1667,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1668,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1669,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1670,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1671,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1672,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1673,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1674,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1675,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1676,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1677,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1678,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1679,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1680,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1681,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1682,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1683,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1684,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1685,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1686,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1687,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1688,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1689,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1690,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1691,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1692,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1693,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1694,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1695,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1696,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1697,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1698,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1699,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1700,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1701,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1702,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1703,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1704,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1705,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1706,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1707,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1708,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1709,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1710,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1711,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1712,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1713,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1714,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1715,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1716,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1717,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1718,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1719,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1720,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1721,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1722,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1723,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1724,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1725,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1726,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1727,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1728,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1729,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1730,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1731,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1732,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1733,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1734,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1735,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1736,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1737,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1738,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1739,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1740,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1741,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1742,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1743,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1744,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1745,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1746,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1747,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1748,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1749,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1750,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1751,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1752,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1753,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1754,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1755,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1756,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1757,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1758,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1759,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1760,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1761,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1762,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1763,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1764,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1765,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1766,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1767,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1768,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1769,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1770,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1771,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1772,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1773,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1774,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1775,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1776,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1777,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1778,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1779,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1780,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1781,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1782,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1783,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1784,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1785,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1786,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1787,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1788,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1789,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1790,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1791,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1792,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1793,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1794,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1795,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1796,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1797,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1798,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1799,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1800,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1801,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1802,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1803,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1804,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1805,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1806,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1807,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1808,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1809,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1810,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1811,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1812,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1813,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1814,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1815,Lawyer,3,,61,FULL_TIME,REMOTE,,3,1
+1816,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1817,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1818,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1819,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1820,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1821,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1822,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1823,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1824,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1825,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1826,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1827,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1828,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1829,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1830,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1831,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1832,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1833,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1834,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1835,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1836,Data Analyst,1,,222,FULL_TIME,ANY,,1,1
+1837,tho xay,1,,1,FULL_TIME,ANY,,3,0
+1838,tho xay,1,,1,FULL_TIME,ANY,,1,1
+1839,tho xay,1,,1,FULL_TIME,ANY,,1,1
+1840,tho xay,1,,1,FULL_TIME,ANY,,1,1
+1841,tho xay,1,,1,FULL_TIME,ANY,,1,1
+1842,tho xay,1,,1,FULL_TIME,ANY,,1,1
+1843,Job1654257,40,,223,PART_TIME,REMOTE,,3,0
+1844,Job1654257,40,,223,PART_TIME,REMOTE,,1,1
+1845,Job1654257,40,,223,PART_TIME,REMOTE,,1,1
+1846,Job1654257,40,,223,PART_TIME,REMOTE,,1,1
+1847,Job1654257,40,,223,PART_TIME,REMOTE,,1,1
+1848,Job1654257,40,,223,PART_TIME,REMOTE,,1,1
+1849,Job 1656257_update,40,,223,FULL_TIME,,,3,1
+1850,create job by lta 725 507,15,,69,FULL_TIME,ANY,,1,1
+1856,create job by lta 725 508 111,15,,69,PART_TIME,ANY,,1,1
+1857,create job by lta 725 515,15,,69,FULL_TIME,ANY,,1,1
+1858,CEO,40,,223,PART_TIME,REMOTE,,2,1
+1859,CFO,40,,223,,,,3,1
+1860,CTO,40,,223,,,,3,1
+1861,COO,40,,223,PART_TIME,ANY,,2,1
+1862,create bt lta 725 512,15,,69,FULL_TIME,ANY,,1,0
+1863,create bt lta 725 512,15,,69,FULL_TIME,ANY,,1,1
+1864,create bt lta 725 512,15,,69,FULL_TIME,ANY,,1,1
+1865,create bt lta 725 512 524,15,,69,PART_TIME,,,3,1
+1867,Job1817,40,,223,PART_TIME,REMOTE,,1,0
+1868,Su,1,,1,FULL_TIME,,,3,1
+1869,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1870,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1871,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1872,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1873,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1874,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1875,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1876,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1877,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1878,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1879,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1880,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1881,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1882,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1883,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1884,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1885,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1886,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1887,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1888,Job1817,40,,223,PART_TIME,REMOTE,,1,1
+1889,supervisor,1,,1,FULL_TIME,ANY,,3,0
+1890,supervisor,1,,1,FULL_TIME,ANY,,1,1
+1891,supervisor,1,,1,FULL_TIME,ANY,,1,1
+1892,supervisor,1,,1,FULL_TIME,ANY,,1,1
+1893,supervisor,1,,1,FULL_TIME,ANY,,1,1
+1894,12123,1,,221,FULL_TIME,ANY,,1,1
+1895,Job0953,1,,12,FULL_TIME,,,3,1
+1896,Job0957,1,,12,FULL_TIME,,,3,1
+1897,create job bt lta 726 1026,40,,53,FULL_TIME,ANY,,1,1
+1898,shipper,1,,1,FULL_TIME,ANY,,3,0
+1899,shipper,1,,1,FULL_TIME,ANY,,1,1
+1900,shipper,1,,1,FULL_TIME,ANY,,1,1
+1901,shipper,1,,1,FULL_TIME,ANY,,1,1
+1902,shipper,1,,1,FULL_TIME,ANY,,1,1
+1903,shipper,1,,1,FULL_TIME,ANY,,1,1
+1904,shipper,1,,1,FULL_TIME,ANY,,1,1
+1905,shipper,1,,1,FULL_TIME,ANY,,1,1
+1906,shipper,1,,1,FULL_TIME,ANY,,1,1
+1907,shipper,1,,1,FULL_TIME,ANY,,1,1
+1908,shipper,1,,1,FULL_TIME,ANY,,1,1
+1909,shipper,1,,1,FULL_TIME,ANY,,1,1
+1910,shipper,1,,1,FULL_TIME,ANY,,1,1
+1911,shipper,1,,1,FULL_TIME,ANY,,1,1
+1912,shipper,1,,1,FULL_TIME,ANY,,1,1
+1913,shipper,1,,1,FULL_TIME,ANY,,1,1
+1914,shipper,1,,1,FULL_TIME,ANY,,1,1
+1915,shipper,1,,1,FULL_TIME,ANY,,1,1
+1916,shipper,1,,1,FULL_TIME,ANY,,1,1
+1917,shipper,1,,1,FULL_TIME,ANY,,1,1
+1918,shipper,1,,1,FULL_TIME,ANY,,1,1
+1919,shipper,1,,1,FULL_TIME,ANY,,1,1
+1920,crypto digger,1,,1,FULL_TIME,ANY,,3,0
+1921,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1922,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1923,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1924,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1925,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1926,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1927,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1928,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1929,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1930,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1931,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1932,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1933,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1934,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1935,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1936,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1937,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1938,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1939,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1940,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1941,crypto digger,1,,1,FULL_TIME,ANY,,1,1
+1942,influencer,1,,1,FULL_TIME,ANY,,3,1
+1943,Fan MU,1,,1,FULL_TIME,ANY,,3,1
+1944,voizer,1,,1,PART_TIME,ANY,,3,1
+1945,Tech leader,1,,1,FULL_TIME,ANY,,1,1
+1946,body guard,1,,1,FULL_TIME,ANY,,3,1
+1947,hackerr,1,,1,FULL_TIME,ANY,,1,0
+1948,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1949,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1950,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1951,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1952,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1953,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1954,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1955,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1956,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1957,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1958,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1959,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1960,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1961,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1962,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1963,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1964,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1965,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1966,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1967,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1968,hackerr,1,,1,FULL_TIME,ANY,,1,1
+1969,body guard,1,,1,FULL_TIME,ANY,,1,1
+1970,body guard,1,,1,FULL_TIME,ANY,,1,1
+1971,helo,1,,1,FULL_TIME,ANY,,3,1
+1972,crypto digger,1,,1,FULL_TIME,,,3,1
+1973,Job1427_update,1,,10,PART_TIME,REMOTE,,1,0
+1974,body guard,1,,1,FULL_TIME,,,3,1
+1975,helo,1,,1,FULL_TIME,ANY,,3,1
+1976,crypto digger,1,,1,FULL_TIME,ANY,,3,1
+1977,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1978,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1979,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1980,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1981,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1982,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1983,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1984,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1985,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1986,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1987,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1988,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1989,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1990,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1991,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1992,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1993,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1994,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1995,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1996,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1997,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1998,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+1999,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+2000,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+2001,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+2002,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+2003,Job1427_update,1,,10,PART_TIME,REMOTE,,1,1
+2004,helo,1,,1,FULL_TIME,ANY,,3,1
+2005,Job 1444,194,,193,FULL_TIME,ANY,,3,0
+2006,Job 1444,194,,193,FULL_TIME,ANY,,1,1
+2007,Job 1446,1,,9,PART_TIME,IN_PERSON,,1,0
+2008,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2009,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2010,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2011,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2012,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2013,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2014,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2015,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2016,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2017,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2018,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2019,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2020,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2021,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2022,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2023,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2024,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2025,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2026,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2027,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2028,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2029,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2030,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2031,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2032,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2033,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2034,Job 1446,1,41,9,PART_TIME,IN_PERSON,,1,1
+2040,Job1700,1,,221,PART_TIME,REMOTE,,3,0
+2041,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2042,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2043,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2044,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2045,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2046,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2047,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2048,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2049,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2050,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2051,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2052,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2053,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2054,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2055,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2056,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2057,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2058,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2059,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2060,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2061,Job1700,1,,221,PART_TIME,REMOTE,,1,1
+2069,Job_n_test,2,,231,FULL_TIME,REMOTE,,3,0
+2070,Job_n_test,2,42,231,FULL_TIME,REMOTE,,1,1
+2071,Job_n_test,2,,232,FULL_TIME,REMOTE,,3,0
+2072,Job_n_test,2,43,232,FULL_TIME,REMOTE,,1,1

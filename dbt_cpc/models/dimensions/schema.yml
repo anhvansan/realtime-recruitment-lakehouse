@@ -1,0 +1,94 @@
+version: 2
+
+models:
+  - name: dim_campaign_budget
+    description: "Campaign dimension and real daily_budget normalized from data/raw/campaign.csv (ADR-010)."
+    columns:
+      - name: campaign_id
+        description: "Primary key of advertising campaign."
+        data_tests:
+          - not_null
+          - unique
+      - name: campaign_name
+        description: "Human-readable campaign display name."
+        data_tests:
+          - not_null
+      - name: company_id
+        description: "Foreign key to dim_company."
+      - name: pacing_unit
+        description: "Original budget pacing cycle ('Daily' or 'Weekly')."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Daily", "Weekly"]
+      - name: budget_total
+        description: "Raw budget_total from campaign.csv in DECIMAL(18,4)."
+      - name: daily_budget
+        description: "Effective daily budget in DECIMAL(18,4) (Weekly divided by 7)."
+        data_tests:
+          - not_null
+      - name: is_active
+        description: "Active status flag from source OLTP."
+      - name: is_outlier_budget
+        description: "True for extreme test budgets >= 100,000,000 (e.g. campaign_id = 1)."
+      - name: budget_source
+        description: "Provenance tag ('campaign.csv' — real source data per R1/R13)."
+
+  - name: dim_job
+    description: "Job posting dimension normalized from data/raw/job.csv."
+    columns:
+      - name: job_id
+        description: "Primary key of job posting."
+        data_tests:
+          - not_null
+          - unique
+      - name: job_title
+        description: "Job posting title."
+        data_tests:
+          - not_null
+      - name: company_id
+        description: "Foreign key to dim_company."
+      - name: group_id
+        description: "Foreign key to dim_group."
+      - name: campaign_id
+        description: "Default campaign associated with the job."
+
+  - name: dim_publisher
+    description: "Publisher partner dimension normalized from data/raw/master_publisher.csv plus 'unknown' fallback."
+    columns:
+      - name: publisher_id
+        description: "Primary key of partner publisher (includes 'unknown' fallback)."
+        data_tests:
+          - not_null
+          - unique
+      - name: publisher_name
+        description: "Human-readable publisher name."
+        data_tests:
+          - not_null
+
+  - name: dim_company
+    description: "Advertiser company dimension normalized from data/raw/company.csv."
+    columns:
+      - name: company_id
+        description: "Primary key of advertiser company."
+        data_tests:
+          - not_null
+          - unique
+      - name: company_name
+        description: "Advertiser company name."
+        data_tests:
+          - not_null
+
+  - name: dim_group
+    description: "Customer account group dimension normalized from data/raw/group.csv."
+    columns:
+      - name: group_id
+        description: "Primary key of customer group."
+        data_tests:
+          - not_null
+          - unique
+      - name: group_name
+        description: "Customer group name."
+        data_tests:
+          - not_null

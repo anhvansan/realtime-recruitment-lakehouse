@@ -923,7 +923,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
    **AC:** `dbt debug` ✔ · `dbt run -s stg_cpc_events` trả về dòng dữ liệu từ Silver thật trên MinIO.
    **Learn:** T05, T06.
 
-### Task 4.2 — Tích hợp Dimension từ các file CSV đã chọn và Ngân sách Campaign (ADR-010) \[M\] \[Depends: 2.1\]
+### Task 4.2 — Tích hợp Dimension từ các file CSV đã chọn và Ngân sách Campaign (ADR-010) \[M\] \[Depends: 2.1\] \[x\]
 
 **Goal:** tận dụng các bảng danh mục có giá trị từ 17 file CSV (đã được chốt ở Task 2.1, ví dụ `campaign.csv`, `job.csv`, `master_publisher.csv`, `company.csv`, `group.csv`) và thiết lập ngân sách ngày (`daily_budget`) cho từng campaign.
 **Steps:**

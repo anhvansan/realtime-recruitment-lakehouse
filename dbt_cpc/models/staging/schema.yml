@@ -32,16 +32,28 @@ models:
         description: "Job posting identifier."
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_job')
+                field: job_id
       - name: campaign_id
         description: "Advertising campaign identifier (Kafka partition key)."
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_campaign_budget')
+                field: campaign_id
       - name: group_id
         description: "Optional advertiser group identifier."
       - name: publisher_id
         description: "Partner publisher identifier."
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_publisher')
+                field: publisher_id
       - name: bid
         description: "CPC bid amount in DECIMAL(18,4); required for click events."
       - name: spend

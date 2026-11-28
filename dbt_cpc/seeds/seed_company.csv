@@ -1,0 +1,106 @@
+company_id,company_name,billing_id,customer_type,status,is_active
+1,GOTORO,,1,1,1
+2,FPT,,1,1,1
+3,Gotoro 0805,2,2,1,1
+4,Fsoft,3,2,1,1
+8,Publisher Company,,4,1,1
+10,Gotoro 6,9,4,1,1
+11,le the anh test 1,10,1,0,1
+12,le the anh test 2,11,1,0,1
+13,Gotoro 67,12,2,0,1
+14,Gotoro 10051,13,2,0,1
+15,Gotoro 10052,14,2,1,1
+16,Gotoro 10053,15,2,1,1
+17,Gotoro4,16,2,1,1
+19,Gotoro 10056,18,2,1,1
+20,Gotoro 10057,19,2,1,1
+21,Ben BEn,20,2,1,1
+23,suphan1,22,3,1,1
+24,test user 100,23,2,1,1
+25,test user 1000,24,2,1,1
+26,test user 101,25,2,1,1
+27,test user 202,26,2,1,1
+28,letheanh test 2005,27,2,1,1
+31,vansuphan8888@gmail.com,30,1,1,1
+32,SalesSu,31,1,1,1
+33,managedclient23,32,1,1,1
+37,suphan-t1,36,1,1,1
+38,13,37,2,1,1
+39,letheanh test 2305 1102,38,3,1,1
+40,FPT - managed,39,1,1,1
+41,anhnd70,40,1,1,1
+42,Nguyễn Đức Anh,41,1,1,1
+44,anhnd,43,1,1,1
+45,FPT - 2,44,1,1,1
+48,nducanh,47,1,1,1
+50,su phan,49,1,1,1
+51,nducanh70,50,1,1,1
+52,linhnv53,51,1,1,1
+54,Client Sean Test,53,1,1,1
+55,Erins Test Account,54,1,1,1
+56,Microsoft,,4,1,1
+57,Thought Source,55,1,1,1
+58,ZipperCruiter,,4,1,1
+59,Facebook modify,,4,1,1
+61,nguyen test,57,1,1,1
+62,le the anh test 3,58,2,1,1
+63,1,,4,1,1
+68,FeedName,,4,1,1
+69,testclosejob,59,1,1,1
+70,Microsoft le the anh,,4,1,1
+72,le the anh test 627,61,1,1,1
+74,template Name,63,2,1,1
+76,self_manage,65,1,1,1
+77,test client lta 7/1,66,1,1,1
+78,test client lta 7/1 admin,67,2,1,1
+79,le the anh test 4,68,2,1,1
+80,le the anh test 5 self,69,3,1,1
+81,le the anh test 6 self,70,2,1,1
+82,le the anh test 7,71,2,1,1
+157,Thang Nguyen,146,1,1,1
+162,VINFAST,151,1,1,1
+163,fsdfsdf,152,2,1,1
+164,APPLE,153,1,1,1
+165,test,154,1,1,1
+166,test new 11-07 10:07,155,1,1,1
+167,create test sign deal by lta 714 1033,156,1,1,1
+169,Client 10,158,1,1,1
+170,phan su 1211,159,1,1,1
+171,test create client 714 203,160,1,1,1
+172,Su 123456,161,1,1,1
+173,Duy Vuong,162,1,1,1
+174,cileso6727@tebyy.com,163,1,1,1
+175,self_client_01,164,1,1,1
+176,secoc24752@teasya.com,165,2,1,1
+177,Alphabet,166,1,1,1
+178,client name test 715 411,167,3,1,1
+179,rrwer,168,1,1,1
+180,test create 715 438,169,3,1,1
+181,nivix18944@teasya.com,170,1,1,1
+182,Zalo client man,171,2,1,1
+183,client 1807 1115,172,1,1,1
+185,yexix28076@tebyy.com,174,1,1,1
+186,Su PV,175,1,1,1
+187,ASDADASDASD,176,1,1,1
+188,asdfasdfasdf,177,1,1,1
+189,asdfasdfgasdfg,178,1,1,1
+190,SelfClientNghia,179,1,0,1
+191,FUSIONRL,180,2,1,1
+192,Hovile,181,2,1,1
+193,Honda man,182,3,1,1
+194,NVM,183,1,1,1
+195,FDN SSG,184,1,1,1
+196,create new client,185,2,1,1
+241,Alice,221,1,1,1
+242,testCreate,222,2,1,1
+244,testCreaeClientByLTA,224,2,1,1
+245,CreateClientNameByLTAa,225,1,1,1
+246,ironMan,226,1,1,1
+248,Publisher test 0807 1044,,4,1,1
+250,VMN,228,1,1,1
+251,KhaHL,229,1,1,1
+253,KhaHL c,231,1,1,1
+254,KhaHL B,232,1,1,1
+255,KhaHL D,233,1,1,1
+256,khahl e,234,3,1,1
+257,ClientNameTestLTAbc,235,2,1,1

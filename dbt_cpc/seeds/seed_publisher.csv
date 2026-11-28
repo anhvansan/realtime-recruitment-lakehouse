@@ -1,0 +1,31 @@
+publisher_id,publisher_name,publisher_type,min_bid,max_bid,cpc_increment,is_active
+1,Facebook modify,0,1.0000,1.0000,0,1
+2,HiredCDC,1,1.0000,10.0000,0,1
+3,Talroo,1,1.0000,10.0000,0,1
+4,ZipperCruiter,1,1.0000,10.0000,0,1
+5,Microsoft,1,1.0000,10.0000,0,1
+9,textUrl 123,0,12.0000,23.0000,0,0
+10,le the anh tets 3,0,1.0000,2.0000,0,0
+11,le the anh tets 2 3,0,1.0000,122.0000,0,0
+12,FeedName 4,1,1.0000,2.0000,0,0
+13,Microsoft le the anh tets 2,0,1.0000,2.0000,1,0
+15,Microsoft le the anh tets 223,0,1.0000,2.0000,2,0
+16,Microsoft le the anh tets 2345,0,1.0000,2.0000,1,0
+17,1,0,1.0000,1.0000,1,1
+20,FeedName,0,1.0000,1.0000,0,1
+22,Microsoft le the anh,1,1.0000,1222.0000,1,1
+23,le the anh test 306 1034,0,1.0000,100.0000,0,0
+24,1231,0,123.0000,123.0000,1,1
+27,bao test,0,1.0000,1.0000,1,1
+28,123,0,1.0000,1.0000,0,0
+29,tesst4,0,1.0000,1.0000,0,0
+30,tesst5,0,12.0000,12.0000,1,0
+31,tesst6,0,1.0000,1.0000,0,0
+32,le the anh test master publisher 0507,1,1200.0000,122221.0000,1,1
+33,le the anh tets 0507 0357,1,12.0000,1234.0000,2,0
+34,le the anh test 0507 0442,1,1.0000,1200.0000,1,1
+35,test master publisher 0507,0,1.0000,1200.0000,1,0
+36,test create master publisher 0607,0,1.0000,1200.0000,0,1
+37,Publisher test 0807,0,123.0000,1234.0000,0,1
+38,Publisher test 0807 1044,0,1.0000,123.0000,1,1
+unknown,Unknown Publisher,,,,,0
