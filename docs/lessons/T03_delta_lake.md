@@ -36,6 +36,8 @@ Trong [tests/integration/smoke_delta_interop.py](file:///d:/realtime-recruitment
 | `tests/integration/smoke_delta_interop.py:264-295` | `run_test_d` | Bật `delta.enableDeletionVectors`, chạy `dt.delete()`, kiểm tra `DESCRIBE DETAIL` và xác minh DuckDB đọc đúng. |
 | `src/streaming/ingest.py:106-127` | `make_process_batch` | Ghi Delta `append` idempotent vào Bronze (`partitionBy("event_date")`) và DLQ bằng `txnAppId` + `txnVersion=batch_id`. |
 | `src/streaming/refine.py:216-243` | `make_upsert_silver` | Kiểm tra `DeltaTable.isDeltaTable()`, khởi tạo bảng phân vùng `event_date` lần đầu và chạy `MERGE` insert-only kèm điều kiện cắt tỉa partition. |
+| `src/streaming/maintenance.py:82-232` | `run_with_conflict_retry`, `compact_table`, `vacuum_table` | Chạy `OPTIMIZE` lọc theo partition đã đóng (`event_date < MAX(event_date)`), retry OCC với backoff, và giữ `VACUUM >= 168h`. |
+| `scripts/bench/bench_small_files.py:132-186` | `main` | Đo số file, kích thước trung bình, và độ trễ DuckDB `delta_scan()` trước/sau `OPTIMIZE` (Lab L4). |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Làm thế nào để xem một bảng Delta đang yêu cầu `minReaderVersion` và những `tableFeatures` nào?  

@@ -90,3 +90,24 @@ Quy trình chuẩn cho mọi thí nghiệm: **Dự đoán trước khi chạy** 
 ### 3. Giải thích & Kiểm chứng dự đoán
 - **Đúng như dự đoán về xu hướng state & mất dữ liệu:** Khi tăng watermark `5m ➔ 10m ➔ 20m`, `max_state_rows` tăng đều `242 ➔ 339 ➔ 421` (`78 KB ➔ 97 KB ➔ 116 KB`). Tại `5m`, watermark dâng quá sát làm rơi 7 bản ghi trễ (`spend_loss = 12.4000`), còn từ `10m` trở lên giữ đủ `1,958` dòng.
 - **Điểm bất ngờ có giá trị từ số đo (R14):** Ở tập ~2k dòng, **`P3_merge_only` không chỉ tốn 0 byte state mà còn nhanh hơn P1 khoảng 14%** (`165.17s` vs `192.83s`) vì bỏ được chi phí shuffle stateful và ghi state snapshot mỗi micro-batch. Kết quả này là cơ sở để giữ P1 `10 minutes` làm mặc định và ghi rõ điều kiện chuyển sang P3/P2 trong **ADR-006** (`docs/adr/006-late-data.md`).
+
+---
+
+## Lab L4 — Small File Problem & Compaction an toàn (Task 3.8 / F10, T03)
+
+- **Nguyên lý liên quan:** **F10** (`_delta_log`, `dataChange=false` trong `OPTIMIZE`), **T03** (`OPTIMIZE`, `VACUUM` an toàn & tránh xung đột `ConcurrentModification`).
+
+### 1. Dự đoán trước khi chạy
+1. Khi tạo bảng Delta phân mảnh thành ~240 file Parquet nhỏ trên MinIO (`_bench_small_files`), DuckDB `delta_scan()` phải gửi hàng trăm HTTP GET request tới MinIO ➔ độ trễ truy vấn tăng vọt dù tổng dữ liệu chỉ vài chục KB.
+2. Sau khi chạy `compact_table()` (`OPTIMIZE`), số file giảm mạnh xuống còn vài file (hoặc 1 file), kích thước trung bình mỗi file tăng lên tương ứng, và thời gian truy vấn DuckDB giảm rõ rệt.
+3. Khi chạy `make compact` trên `bronze/cpc_events` (khiến `_delta_log` ghi commit mới chứa các file đã nén với `dataChange=false`), chạy lại `refine.py --available-now` sau đó sẽ **không đọc lại các file đã nén** và không tạo bản ghi mới ở Silver (`make reconcile` vẫn **PASS**).
+
+### 2. Quan sát thực tế
+- Chạy `scripts/bench/bench_small_files.py --target-files 240 --queries 5` (tạo `960` dòng trải trên `156` file Parquet nhỏ ở MinIO):
+  - **Trước `OPTIMIZE`:** `156` file (`1,092 bytes/file`, tổng `170,318 bytes`), DuckDB `delta_scan()` mất **`572.41 ms`** (median) và **`645.97 ms`** (p95).
+  - **Sau `OPTIMIZE` (`10.02s`):** còn **`1` file** (`5,621 bytes`, giảm **`99.36%`** số file), DuckDB chỉ mất **`54.45 ms`** (median) và **`67.31 ms`** (p95) — nhanh hơn **`10.51x`**.
+- Chạy `make compact` trên dữ liệu `ac_3_9`: Bronze giảm `39 ➔ 30` file (`7.04s`), Silver giảm `79 ➔ 30` file (`7.55s`); `make reconcile` vẫn **`PASS`** (`0`); chạy lại `refine.py --available-now` không phát sinh batch mới và giữ nguyên **`1,958`** dòng Silver.
+
+### 3. Giải thích & Kiểm chứng dự đoán
+- Khớp 100% dự đoán: khi bị phân mảnh thành `156` file nhỏ trên MinIO, phần lớn thời gian truy vấn của DuckDB bị đốt vào chi phí HTTP round-trip + đọc footer Parquet từng file; gộp về 1 file làm giảm độ trễ hơn **10 lần** và thu gọn dung lượng tới **~96.7%** (loại bỏ overhead header/footer lặp lại).
+- Vì `OPTIMIZE` ghi vào `_delta_log` các file mới kèm cờ **`dataChange=false`**, luồng Structured Streaming Q2 (`readStream` từ Bronze) nhận biết đây chỉ là tái sắp xếp vật lý không đổi dữ liệu logic nên tự động bỏ qua, hoàn toàn không gây nhân đôi hay đọc lại Silver.

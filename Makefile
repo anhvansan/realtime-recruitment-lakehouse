@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream reconcile lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -14,6 +14,8 @@ RUN_ID ?=
 MAX_SLEEP_SEC ?=
 LIMIT ?=
 MANIFEST ?=
+TABLE ?= all
+COMPACT_MODE ?= --full
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -30,6 +32,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make smoke-interop  - Run Spark <-> Delta <-> MinIO <-> DuckDB smoke test (Task 3.1)"
 	@echo "  make spark-shell    - Open interactive PySpark shell inside Spark container (Task 3.1)"
 	@echo "  make stream         - Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)"
+	@echo "  make compact        - Run Delta Lake compaction (OPTIMIZE) safely (Task 3.8)"
 	@echo "  make reconcile      - Run DuckDB reconciliation vs replay manifest (Task 3.5)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
@@ -90,6 +93,9 @@ reconcile: ## Run DuckDB reconciliation harness against replay manifest (Task 3.
 
 stream: ## Run Q1 Ingest + Q2 Refine concurrently in 1 Spark JVM (Task 3.6)
 	docker compose --profile core --profile apps exec -T spark python3 /app/src/streaming/run_all.py
+
+compact: ## Run Delta Lake compaction (OPTIMIZE) on Bronze/Silver tables (Task 3.8)
+	docker compose --profile core --profile apps exec -T spark python3 /app/src/streaming/maintenance.py --table $(TABLE) $(COMPACT_MODE)
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

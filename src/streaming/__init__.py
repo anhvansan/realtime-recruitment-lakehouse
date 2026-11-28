@@ -7,6 +7,7 @@ from src.streaming.ingest import (
     start_ingest_query,
 )
 from src.streaming.listener import MetricsListener, parse_query_progress
+from src.streaming.maintenance import compact_table, get_table_stats, vacuum_table
 from src.streaming.refine import (
     make_upsert_silver,
     read_bronze_delta_stream,
@@ -29,7 +30,9 @@ __all__ = [
     "MetricsListener",
     "build_spark",
     "build_spark_conf",
+    "compact_table",
     "ensure_bronze_table_exists",
+    "get_table_stats",
     "list_s3a_paths",
     "make_process_batch",
     "make_upsert_silver",
@@ -42,5 +45,6 @@ __all__ = [
     "start_ingest_query",
     "start_refine_query",
     "transform_bronze_to_silver",
+    "vacuum_table",
     "validate_df",
 ]

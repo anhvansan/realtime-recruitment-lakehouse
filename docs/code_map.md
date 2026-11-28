@@ -66,3 +66,7 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | StreamingQueryListener Unit Test Suite | F14 | `tests/unit/test_listener.py:82` | `test_metrics_listener_buffers_until_interval_and_flushes_on_demand` | 3.9 |
 | Watermark vs P3 MERGE-Only Experiment Runner | F04, F05 | `scripts/bench/exp_watermark.py:227` | `main` | 3.7 |
 | Watermark & Late-Data Policy ADR | F04, F05 | `docs/adr/006-late-data.md:54` | `ADR-006` | 3.7 |
+| Delta Compaction & OCC Conflict Retry | F10, T03 | `src/streaming/maintenance.py:150` | `compact_table`, `run_with_conflict_retry` | 3.8 |
+| Safe Delta VACUUM Retention Guard (>= 1h / 168h) | F10, T03 | `src/streaming/maintenance.py:197` | `vacuum_table`, `validate_vacuum_retention` | 3.8 |
+| Small Files Benchmark (DuckDB vs OPTIMIZE) | F10, T03, T05 | `scripts/bench/bench_small_files.py:132` | `main` | 3.8 |
+| Maintenance Retry & Safety Unit Tests | T03 | `tests/unit/test_maintenance.py:31` | `test_run_with_conflict_retry_succeeds_after_transient_conflicts` | 3.8 |

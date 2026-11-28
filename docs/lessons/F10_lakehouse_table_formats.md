@@ -49,6 +49,7 @@ Trong bài smoke test Task 3.1 (`tests/integration/smoke_delta_interop.py`):
 | `tests/integration/smoke_delta_interop.py:121-167` | `run_test_a` | Ghi 3 commit (`append`, `append`, `merge`) và xác minh 3 phiên bản trong `_delta_log`. |
 | `tests/integration/smoke_delta_interop.py:193-261` | `run_test_c` | Kiểm chứng Snapshot Isolation: 20 commit Spark song song với DuckDB đọc liên tục. |
 | `tests/integration/smoke_delta_interop.py:264-295` | `run_test_d` | Kiểm tra Table Features (`delta.enableDeletionVectors = true`, Protocol v3/v7). |
+| `src/streaming/maintenance.py:150-232` | `compact_table`, `vacuum_table` | Nén file nhỏ bằng `OPTIMIZE` (hỗ trợ `--closed-only` + retry OCC) và chặn `VACUUM < 1h` để bảo vệ reader. |
 | `docs/adr/003-delta.md` | ADR-003 | So sánh Delta Lake với Apache Iceberg và Apache Hudi. |
 
 ## 8. Tự kiểm tra

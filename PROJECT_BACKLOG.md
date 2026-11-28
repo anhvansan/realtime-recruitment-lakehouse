@@ -865,7 +865,7 @@ def upsert_silver(batch_df, batch_id: int):
 **AC:** `docs/adr/006-late-data.md` có bảng số đo và kết luận kèm _điều kiện xem xét lại_; mặc định chọn theo dữ liệu đo được (v2 đề xuất bắt đầu bằng P1 vì dạy được watermark, nhưng P3 hợp lệ nếu số đo ủng hộ).
 **Learn:** F04, F05.
 
-### Task 3.8 — Compaction và bảo trì Delta an toàn \[M\] \[Depends: 3.4\]
+### Task 3.8 — Compaction và bảo trì Delta an toàn \[M\] \[Depends: 3.4\] \[x\]
 
 **Goal:** xử lý **small file problem** để truy vấn không chậm dần mà **không gây xung đột với luồng MERGE đang chạy** hoặc làm crash DuckDB reader.
 **Steps:**
