@@ -273,7 +273,7 @@ def start_refine_query(
     upsert_fn = make_upsert_silver(spark, cfg)
 
     writer = (
-        deduped_stream.writeStream.queryName("q2_refine_silver")
+        deduped_stream.writeStream.queryName("refine_silver")
         .foreachBatch(upsert_fn)
         .option("checkpointLocation", checkpoint_uri)
     )

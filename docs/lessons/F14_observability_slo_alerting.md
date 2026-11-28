@@ -42,6 +42,8 @@ Với đợt chạy `ac_3_3` (`seed=42`, `rows_read=1977`):
 | `tests/integration/reconcile.py:130-221` | `evaluate_reconciliation` | Hàm thuần kiểm tra đủ 5 hạng mục `(a)-(e)` và trả báo cáo JSON `PASS`/`FAIL`. |
 | `tests/integration/reconcile.py:255-319` | `fetch_lakehouse_snapshot` | Dùng DuckDB `delta_scan` đọc trực tiếp Bronze/Silver/DLQ từ MinIO để đối soát độc lập với Spark. |
 | `tests/unit/test_reconcile.py:55-162` | `test_reconcile_*` | Kiểm chứng logic đối soát trên host cho cả ca sạch, ca có event trễ >10m, và các ca cố tình làm hỏng dữ liệu. |
+| `src/streaming/listener.py:157-263` | `MetricsListener` | Lắng nghe `onQueryProgress`: cập nhật tức thời `ops/latest.json` qua boto3 và đệm 60s ghi Delta `ops/stream_metrics`. |
+| `tests/unit/test_listener.py:46-163` | `test_parse_query_progress_*`, `test_metrics_listener_*` | Kiểm chứng trích xuất `state_num_rows_total`, `state_memory_used_bytes`, `event_time_watermark`, và cơ chế buffer 60s. |
 | `scripts/bench/resource_snapshot.sh:1` | `resource_snapshot.sh` | Ghi mẫu tài nguyên RAM/CPU Docker phục vụ theo dõi saturation (Task 1.6). |
 | `docs/benchmarks/baseline.md:12` | `Resource Baseline` | Báo cáo đối chiếu RAM thực tế của các container so với ngân sách mục 4.4. |
 

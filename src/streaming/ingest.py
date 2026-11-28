@@ -153,7 +153,7 @@ def start_ingest_query(
     process_batch = make_process_batch(cfg, publish_kafka_dlq=publish_kafka_dlq)
 
     writer = (
-        raw_stream.writeStream.queryName("q1_ingest_bronze_dlq")
+        raw_stream.writeStream.queryName("ingest_bronze")
         .foreachBatch(process_batch)
         .option("checkpointLocation", checkpoint_uri)
     )

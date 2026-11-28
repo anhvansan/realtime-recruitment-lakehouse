@@ -61,3 +61,6 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Empty Bronze Delta Initializer | T02, T03 | `src/streaming/run_all.py:33` | `ensure_bronze_table_exists` | 3.6 |
 | Single-JVM Q1 + Q2 Pipeline Runner | F16, T02, R5 | `src/streaming/run_all.py:78` | `run_streaming_pipeline` | 3.6 |
 | Streaming Failure Models & Recovery Guide | F16 | `docs/lessons/F16_failure_models_recovery.md:1` | `F16` | 3.6 |
+| QueryProgress Parser (State, Watermark, Rates) | F14, T02 | `src/streaming/listener.py:51` | `parse_query_progress` | 3.9 |
+| Live JSON & 60s Buffered Delta Metrics Listener | F14, T02, R6 | `src/streaming/listener.py:157` | `MetricsListener` | 3.9 |
+| StreamingQueryListener Unit Test Suite | F14 | `tests/unit/test_listener.py:82` | `test_metrics_listener_buffers_until_interval_and_flushes_on_demand` | 3.9 |

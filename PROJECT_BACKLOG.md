@@ -895,7 +895,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
 **AC:** số file giảm rõ rệt, truy vấn nhanh hơn (số đo trong `docs/benchmarks/small_files.md`) · reconcile PASS sau nén · không có ngoại lệ xung đột làm job streaming chết hay làm Dashboard bị lỗi đọc file.
 **Learn:** F10, T03.
 
-### Task 3.9 — Quan sát luồng: StreamingQueryListener \[M\] \[Depends: 3.3\]
+### Task 3.9 — Quan sát luồng: StreamingQueryListener \[M\] \[Depends: 3.3\] \[x\]
 
 **Goal:** pipeline tự báo cáo sức khoẻ để Panel 4 hiển thị.
 **Steps:** `src/streaming/listener.py` cài `StreamingQueryListener` (PySpark ≥ 3.4). Mỗi progress ghi: tên query, `batchId`, `inputRowsPerSecond`, `processedRowsPerSecond`, thời gian batch, `eventTime.watermark`, số dòng/bộ nhớ state. Ghi hai nơi:

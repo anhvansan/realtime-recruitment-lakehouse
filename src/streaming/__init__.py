@@ -6,6 +6,7 @@ from src.streaming.ingest import (
     read_kafka_raw_stream,
     start_ingest_query,
 )
+from src.streaming.listener import MetricsListener, parse_query_progress
 from src.streaming.refine import (
     make_upsert_silver,
     read_bronze_delta_stream,
@@ -25,12 +26,14 @@ from src.streaming.spark_session import (
 from src.streaming.validation import validate_df
 
 __all__ = [
+    "MetricsListener",
     "build_spark",
     "build_spark_conf",
     "ensure_bronze_table_exists",
     "list_s3a_paths",
     "make_process_batch",
     "make_upsert_silver",
+    "parse_query_progress",
     "publish_to_kafka_dlq",
     "read_bronze_delta_stream",
     "read_kafka_raw_stream",

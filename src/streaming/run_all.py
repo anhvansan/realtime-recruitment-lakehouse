@@ -11,6 +11,7 @@ import argparse
 import logging
 import signal
 import sys
+import time
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
@@ -21,6 +22,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from src.common.config import AppConfig, load  # noqa: E402
 from src.streaming.ingest import start_ingest_query  # noqa: E402
+from src.streaming.listener import MetricsListener  # noqa: E402
 from src.streaming.refine import start_refine_query  # noqa: E402
 from src.streaming.spark_session import build_spark  # noqa: E402
 
@@ -85,53 +87,62 @@ def run_streaming_pipeline(
 ) -> None:
     """Start Q1 Ingest and Q2 Refine inside one SparkSession and wait cleanly."""
     ensure_bronze_table_exists(spark, cfg)
+    listener = MetricsListener(cfg=cfg, spark=spark)
+    spark.streams.addListener(listener)
 
-    if available_now:
-        logger.info("Starting Q1 Ingest (availableNow=True)...")
+    try:
+        if available_now:
+            logger.info("Starting Q1 Ingest (availableNow=True)...")
+            q1 = start_ingest_query(
+                spark,
+                cfg,
+                available_now=True,
+                starting_offsets=starting_offsets,
+                publish_kafka_dlq=publish_kafka_dlq,
+            )
+            q1.awaitTermination()
+
+            logger.info("Starting Q2 Refine (availableNow=True)...")
+            q2 = start_refine_query(spark, cfg, available_now=True)
+            q2.awaitTermination()
+            return
+
         q1 = start_ingest_query(
             spark,
             cfg,
-            available_now=True,
+            available_now=False,
             starting_offsets=starting_offsets,
             publish_kafka_dlq=publish_kafka_dlq,
         )
-        q1.awaitTermination()
+        q2 = start_refine_query(spark, cfg, available_now=False)
+        queries = (q1, q2)
+        logger.info("Started Q1 (%s) and Q2 (%s) in single SparkSession.", q1.name, q2.name)
 
-        logger.info("Starting Q2 Refine (availableNow=True)...")
-        q2 = start_refine_query(spark, cfg, available_now=True)
-        q2.awaitTermination()
-        return
+        def _stop_all(_signum: int, _frame: Any) -> None:
+            logger.info("Received stop signal; stopping Q1 and Q2 queries...")
+            for query in queries:
+                if query.isActive:
+                    query.stop()
 
-    q1 = start_ingest_query(
-        spark,
-        cfg,
-        available_now=False,
-        starting_offsets=starting_offsets,
-        publish_kafka_dlq=publish_kafka_dlq,
-    )
-    q2 = start_refine_query(spark, cfg, available_now=False)
-    queries = (q1, q2)
-    logger.info("Started Q1 (%s) and Q2 (%s) in single SparkSession.", q1.name, q2.name)
+        prev_sigint = signal.getsignal(signal.SIGINT)
+        prev_sigterm = signal.getsignal(signal.SIGTERM)
+        signal.signal(signal.SIGINT, _stop_all)
+        signal.signal(signal.SIGTERM, _stop_all)
 
-    def _stop_all(_signum: int, _frame: Any) -> None:
-        logger.info("Received stop signal; stopping Q1 and Q2 queries...")
-        for query in queries:
-            if query.isActive:
-                query.stop()
-
-    prev_sigint = signal.getsignal(signal.SIGINT)
-    prev_sigterm = signal.getsignal(signal.SIGTERM)
-    signal.signal(signal.SIGINT, _stop_all)
-    signal.signal(signal.SIGTERM, _stop_all)
-
-    try:
-        spark.streams.awaitAnyTermination()
+        try:
+            spark.streams.awaitAnyTermination()
+        finally:
+            for query in queries:
+                if query.isActive:
+                    query.stop()
+            signal.signal(signal.SIGINT, prev_sigint)
+            signal.signal(signal.SIGTERM, prev_sigterm)
     finally:
-        for query in queries:
-            if query.isActive:
-                query.stop()
-        signal.signal(signal.SIGINT, prev_sigint)
-        signal.signal(signal.SIGTERM, prev_sigterm)
+        # Allow async QueryProgressEvents from final batch to arrive before flushing
+        time.sleep(0.25)
+        flushed = listener.flush()
+        spark.streams.removeListener(listener)
+        logger.info("Flushed %d buffered streaming metric rows to Delta.", flushed)
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:

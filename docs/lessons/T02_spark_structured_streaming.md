@@ -58,6 +58,7 @@ infra/spark/Dockerfile (apache/spark:3.5.3-scala2.12-java17-python3-ubuntu)
 | `src/streaming/validation.py:132-304` | `validate_df` | Parse JSON chế độ `PERMISSIVE` với `columnNameOfCorruptRecord`, phân tách luồng sạch vào Bronze và bản ghi lỗi vào DLQ. |
 | `src/streaming/ingest.py:86-166` | `make_process_batch`, `start_ingest_query` | Đọc stream Redpanda (`maxOffsetsPerTrigger`, `failOnDataLoss`), gọi `persist()`/`unpersist()` trong `foreachBatch` ghi đa sink + checkpoint S3A. |
 | `src/streaming/refine.py:50-286` | `read_bronze_delta_stream`, `make_upsert_silver`, `start_refine_query` | Đọc stream từ Bronze Delta (`maxFilesPerTrigger`), khử trùng theo watermark 10 phút và `foreachBatch` gọi Delta `MERGE` sang Silver. |
+| `src/streaming/listener.py:157-263` | `MetricsListener` | Kế thừa `StreamingQueryListener` thu thập metric từng micro-batch ra `ops/latest.json` và flush theo chu kỳ 60s vào `ops/stream_metrics` để tránh small files. |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao trong `Dockerfile` ta thay `spark-submit --packages` (Ivy) bằng `download_jars.py` tải trực tiếp 8 file JAR từ Maven Central?  
