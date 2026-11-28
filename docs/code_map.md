@@ -64,3 +64,5 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | QueryProgress Parser (State, Watermark, Rates) | F14, T02 | `src/streaming/listener.py:51` | `parse_query_progress` | 3.9 |
 | Live JSON & 60s Buffered Delta Metrics Listener | F14, T02, R6 | `src/streaming/listener.py:157` | `MetricsListener` | 3.9 |
 | StreamingQueryListener Unit Test Suite | F14 | `tests/unit/test_listener.py:82` | `test_metrics_listener_buffers_until_interval_and_flushes_on_demand` | 3.9 |
+| Watermark vs P3 MERGE-Only Experiment Runner | F04, F05 | `scripts/bench/exp_watermark.py:227` | `main` | 3.7 |
+| Watermark & Late-Data Policy ADR | F04, F05 | `docs/adr/006-late-data.md:54` | `ADR-006` | 3.7 |

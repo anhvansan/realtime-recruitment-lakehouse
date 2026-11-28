@@ -47,12 +47,22 @@ SILVER_COLUMNS: tuple[str, ...] = (
 )
 
 
-def read_bronze_delta_stream(spark: SparkSession, cfg: AppConfig) -> DataFrame:
+def read_bronze_delta_stream(
+    spark: SparkSession,
+    cfg: AppConfig,
+    *,
+    bronze_path: str | None = None,
+    max_files_per_trigger: int | None = None,
+) -> DataFrame:
     """Read Bronze Delta table as a stream with TIMESTAMP ``event_time`` for watermarking."""
     from pyspark.sql import functions as F
 
-    bronze_uri = cfg.s3a_uri(cfg.pipeline.storage.bronze_path)
-    max_files = str(cfg.pipeline.streaming.max_files_per_trigger)
+    bronze_uri = bronze_path or cfg.s3a_uri(cfg.pipeline.storage.bronze_path)
+    max_files = str(
+        max_files_per_trigger
+        if max_files_per_trigger is not None
+        else cfg.pipeline.streaming.max_files_per_trigger
+    )
 
     bronze_df = (
         spark.readStream.format("delta")
@@ -262,18 +272,40 @@ def start_refine_query(
     cfg: AppConfig,
     *,
     available_now: bool = False,
+    bronze_path: str | None = None,
+    silver_path: str | None = None,
+    dlq_path: str | None = None,
+    checkpoint_path: str | None = None,
+    watermark_delay: str | None = None,
+    max_files_per_trigger: int | None = None,
+    disable_stateful_dedup: bool = False,
+    query_name: str = "refine_silver",
 ) -> StreamingQuery:
     """Start the Q2 Refine Structured Streaming query (Bronze -> Silver)."""
-    bronze_stream = read_bronze_delta_stream(spark, cfg)
-    deduped_stream = bronze_stream.withWatermark(
-        "event_time", cfg.pipeline.streaming.watermark_delay
-    ).dropDuplicatesWithinWatermark(["event_id"])
+    bronze_stream = read_bronze_delta_stream(
+        spark,
+        cfg,
+        bronze_path=bronze_path,
+        max_files_per_trigger=max_files_per_trigger,
+    )
+    if disable_stateful_dedup:
+        refined_stream = bronze_stream
+    else:
+        resolved_watermark = watermark_delay or cfg.pipeline.streaming.watermark_delay
+        refined_stream = bronze_stream.withWatermark(
+            "event_time", resolved_watermark
+        ).dropDuplicatesWithinWatermark(["event_id"])
 
-    checkpoint_uri = cfg.s3a_uri(cfg.pipeline.storage.checkpoints.refine_silver)
-    upsert_fn = make_upsert_silver(spark, cfg)
+    checkpoint_uri = checkpoint_path or cfg.s3a_uri(cfg.pipeline.storage.checkpoints.refine_silver)
+    upsert_fn = make_upsert_silver(
+        spark,
+        cfg,
+        silver_path=silver_path,
+        dlq_path=dlq_path,
+    )
 
     writer = (
-        deduped_stream.writeStream.queryName("refine_silver")
+        refined_stream.writeStream.queryName(query_name)
         .foreachBatch(upsert_fn)
         .option("checkpointLocation", checkpoint_uri)
     )

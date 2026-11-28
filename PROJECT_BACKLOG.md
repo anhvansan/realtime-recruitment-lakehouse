@@ -858,7 +858,7 @@ def upsert_silver(batch_df, batch_id: int):
   **Pitfalls:** S3 chỉ an toàn vì MERGE; hiểu vì sao Q1 _không_ được xoá checkpoint nếu không có cơ chế chống trùng khác.
   **Learn:** F06, F16.
 
-### Task 3.7 — Chính sách dữ liệu đến trễ (ADR-006) bằng thực nghiệm \[M\] \[Depends: 3.5\]
+### Task 3.7 — Chính sách dữ liệu đến trễ (ADR-006) bằng thực nghiệm \[M\] \[Depends: 3.5\] \[x\]
 
 **Goal:** quyết định dựa trên số đo: chấp nhận mất bao nhiêu event trễ ở Silver, đổi lại state nhỏ thế nào.
 **Steps:** chạy cùng một dữ liệu với watermark 5 / 10 / 20 phút; ghi: số event bị loại do trễ, kích thước state (`numRowsTotal`, `memoryUsedBytes` từ listener ở 3.9), độ trễ. So sánh **P1** (dedup theo watermark + MERGE, loại event trễ ở Silver) với **P3** (bỏ dedup stateful, chỉ MERGE ➔ không mất event trễ, state ≈ 0, MERGE tốn hơn). **P2** (job `reconcile_silver` dựng lại từ Bronze) là hướng mở rộng (Task 7.2).

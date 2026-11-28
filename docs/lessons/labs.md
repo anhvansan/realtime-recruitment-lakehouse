@@ -66,3 +66,27 @@ Quy trình chuẩn cho mọi thí nghiệm: **Dự đoán trước khi chạy** 
 
 ### 3. Giải thích & Kiểm chứng dự đoán
 - Khớp 100% dự đoán: khi mất checkpoint Q2, Spark mất state trong bộ nhớ nên đọc lại toàn bộ Bronze, nhưng vì Silver sử dụng Delta `MERGE` insert-only theo `(event_id, event_date)` nên mọi bản ghi đã tồn tại đều bị bỏ qua an toàn — chứng minh lý do S3 an toàn tuyệt đối (khác với việc xoá checkpoint Q1 trên sink append-only).
+
+---
+
+## Lab L3 — Thực nghiệm Watermark (5m / 10m / 20m) vs P3 MERGE-only (Task 3.7 / F04, F05)
+
+- **Nguyên lý liên quan:** **F04** (Watermark & Late Data), **F05** (State store sizing vs eviction), **ADR-006**.
+
+### 1. Dự đoán trước khi chạy
+1. Khi chia Bronze (`ac_3_9`, gồm 35 event trễ 5–15 phút mô phỏng trong `late_ids.jsonl`) thành 40 micro-batch tuần tự theo thứ tự đến:
+   - **P1 (`watermark = 5 minutes`):** Watermark dâng sát giờ hiện tại nên sẽ loại nhiều event trễ (kể cả phần lớn nhóm 5–15 phút), đổi lại số dòng và dung lượng **state nhỏ nhất**.
+   - **P1 (`watermark = 10 minutes`):** Giữ lại nhóm trễ 5–10 phút, chủ yếu loại một phần nhóm trễ `> 10 phút`; state lớn hơn mức 5 phút nhưng vẫn bị giới hạn.
+   - **P1 (`watermark = 20 minutes`):** Vì độ trễ tối đa do `FaultInjector` bơm là `15 phút < 20 phút`, kỳ vọng giữ lại gần như toàn bộ hoặc 100% event trễ (0 hoặc rất ít mất mát), đổi lại **state lớn nhất** trong 3 mức P1.
+   - **P3 (Bỏ dedup stateful, chỉ dùng Delta `MERGE`):** Không loại bất kỳ event trễ nào (**0 mất dòng, `spend_loss = 0.0000`**) và **`max_state_rows = 0`**, đổi lại mọi batch đều phải chạy Delta `MERGE` đầy đủ xuống đĩa/S3.
+
+### 2. Quan sát thực tế
+- Chạy `scripts/bench/exp_watermark.py --manifest /app/data/manifests/replay_ac_3_9.json --num-batches 40` trên `1,986` bản ghi Bronze (`1,958` unique, `35` event trễ `5–15 phút`), đo bằng `MetricsListener`:
+  - **`P1_wm_5m` (`5 minutes`):** Silver còn **`1,951` dòng**, loại **`7` event** (7/7 đều thuộc `late_ids.jsonl`, 0 mất bất ngờ), `spend_loss = 12.4000`, `max_state_rows = 242` (`78,568 bytes`), `avg_batch_ms = 5,026.3`, tổng thời gian `201.99s`.
+  - **`P1_wm_10m` (`10 minutes`):** Silver đủ **`1,958` dòng**, loại **`0` event**, `spend_loss = 0.0000`, `max_state_rows = 339` (`97,144 bytes`), `avg_batch_ms = 4,788.2`, tổng thời gian `192.83s`.
+  - **`P1_wm_20m` (`20 minutes`):** Silver đủ **`1,958` dòng**, loại **`0` event**, `spend_loss = 0.0000`, `max_state_rows = 421` (`116,120 bytes`), `avg_batch_ms = 4,928.5`, tổng thời gian `197.83s`.
+  - **`P3_merge_only` (không watermark state):** Silver đủ **`1,958` dòng**, loại **`0` event**, `spend_loss = 0.0000`, **`max_state_rows = 0` (`0 bytes`)**, `avg_batch_ms = 4,119.8`, tổng thời gian **`165.17s`**.
+
+### 3. Giải thích & Kiểm chứng dự đoán
+- **Đúng như dự đoán về xu hướng state & mất dữ liệu:** Khi tăng watermark `5m ➔ 10m ➔ 20m`, `max_state_rows` tăng đều `242 ➔ 339 ➔ 421` (`78 KB ➔ 97 KB ➔ 116 KB`). Tại `5m`, watermark dâng quá sát làm rơi 7 bản ghi trễ (`spend_loss = 12.4000`), còn từ `10m` trở lên giữ đủ `1,958` dòng.
+- **Điểm bất ngờ có giá trị từ số đo (R14):** Ở tập ~2k dòng, **`P3_merge_only` không chỉ tốn 0 byte state mà còn nhanh hơn P1 khoảng 14%** (`165.17s` vs `192.83s`) vì bỏ được chi phí shuffle stateful và ghi state snapshot mỗi micro-batch. Kết quả này là cơ sở để giữ P1 `10 minutes` làm mặc định và ghi rõ điều kiện chuyển sang P3/P2 trong **ADR-006** (`docs/adr/006-late-data.md`).
