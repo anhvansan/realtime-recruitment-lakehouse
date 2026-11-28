@@ -1092,7 +1092,7 @@ def run_query(sql: str, params: list | None = None) -> pd.DataFrame:
    **Pitfalls:** gửi alert trong `st.fragment` (lặp mỗi 10s, và chỉ khi có người xem); không lưu trạng thái nên restart là báo lại; token nằm trong log.
    **Learn:** F14, F15.
 
-### Task 5.9 — Đóng gói dashboard và alert worker \[S\] \[Depends: 5.1–5.8\]
+### Task 5.9 — Đóng gói dashboard và alert worker \[S\] \[Depends: 5.1–5.8\] \[x\]
 
 **Steps:** Dockerfile nhỏ cho `dashboard` và `alert-worker` (profile `apps`), healthcheck, `mem_limit` theo 4.4, extension DuckDB cài sẵn.
 **AC:** `make ui` mở `http://localhost:8501` · RAM mỗi service trong ngân sách · khởi động lại container không cần mạng để tải extension.

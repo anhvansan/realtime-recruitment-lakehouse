@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop ui alerts lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop ui alerts apps-up lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -45,6 +45,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make dbt-loop       - Run periodic dbt build loop with flock (Task 4.6)"
 	@echo "  make ui             - Launch Streamlit Lakehouse Dashboard on localhost:8501 (Task 5.7)"
 	@echo "  make alerts         - Run Alert Worker against Lakehouse metrics (Task 5.8)"
+	@echo "  make apps-up        - Build and start containerized Dashboard + Alert Worker (Task 5.9)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -128,6 +129,9 @@ ui: ## Launch Streamlit Lakehouse Dashboard (Task 5.7)
 
 alerts: ## Run Alert Worker (Task 5.8; ALERT_ONCE=1 for single pass)
 	$(PYTHON) -m src.alerts.worker $(if $(filter 1 true,$(ALERT_ONCE)),--once,--interval-sec $(ALERT_INTERVAL_SEC))
+
+apps-up: ## Build and start containerized Dashboard + Alert Worker (Task 5.9)
+	docker compose --profile core --profile apps up -d --build dashboard alert-worker
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

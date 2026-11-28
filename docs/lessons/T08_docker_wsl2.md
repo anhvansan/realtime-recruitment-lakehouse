@@ -60,6 +60,8 @@ Máy có 16GB RAM:
 | `Makefile:6-16` | `help` | Trích đoạn từ `Makefile`: | Định nghĩa các lệnh vận hành chuẩn hóa cho hạ tầng Docker (`up`, `down`, `clean`, `nuke-data`, `disk-report`). |
 | `config/pipeline.yaml:18-26` | `spark` | `driver_memory: "1536m"`, `warehouse_dir: "/tmp/spark-warehouse"` | Cấp heap Spark `1536m` vừa khít trong `mem_limit: 2304m` (chừa overhead JVM/Python) và đặt warehouse ở `/tmp` để tránh lỗi `chmod` trên NTFS bind mount `/app`. |
 | `src/streaming/spark_session.py:48-106` | `build_spark_conf` | Cấu hình tập trung từ `AppConfig` | Đọc `spark.*` và `s3a.*` từ config, đảm bảo không hard-code endpoint hay để lộ credentials ra log container. |
+| `infra/dashboard/Dockerfile:3-48` | `DUCKDB_EXTENSION_DIRECTORY` | Pre-install `httpfs` & `delta` lúc build image | Cài sẵn extension DuckDB vào `/opt/duckdb_extensions` và chạy bằng `USER appuser` để container khởi động offline không cần tải lại từ Internet. |
+| `docker-compose.yml:156-234` | `services.dashboard`, `services.alert-worker` | `mem_limit: 768m` & `384m` trong profile `apps` | Dùng chung một image gọn (`python:3.11-slim`), nối mạng nội bộ `http://minio:9000` (`S3_ENDPOINT_HOST_PORT=minio:9000`), không copy `.env`. |
 
 ```makefile
 help: ## Show available commands and their descriptions

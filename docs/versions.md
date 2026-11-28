@@ -16,7 +16,7 @@ Tài liệu này lưu trữ toàn bộ các phiên bản phần mềm, Docker im
 | Confluent-Kafka | 2.16.2 | 2026-11-25 | Python Kafka/Redpanda Producer client (Task 2.5) |
 | PyArrow | 25.0.1 | 2026-11-25 | Đọc file Parquet dạng chunk/batch cho Replay Producer (Task 2.5) |
 | GNU Make | 4.1 | 2026-11-19 | Build tool & workflow orchestration |
-| DuckDB | `1.5.6` (Spark container) / `2.0.0` (Windows host) + `httpfs`, `delta` | 2026-11-25 | In-memory OLAP & Delta direct scan engine (Task 2.1, 3.1) |
+| DuckDB | `1.5.6` (Spark/Serving containers) / `2.0.0` (Windows host) + `httpfs`, `delta` | 2026-11-28 | In-memory OLAP & Delta direct scan engine (Task 2.1, 3.1, 5.9) |
 | dbt-core | `1.11.17` | 2026-11-28 | SQL/Jinja transformation runner & generic test engine (Task 4.1) |
 | dbt-duckdb | `1.11.1` | 2026-11-28 | DuckDB adapter cho dbt kết nối Delta trên MinIO via `httpfs`/`delta` (Task 4.1) |
 | Boto3 | 1.44.6 | 2026-11-19 | AWS SDK Python kiểm tra S3 API |
@@ -29,7 +29,7 @@ Tài liệu này lưu trữ toàn bộ các phiên bản phần mềm, Docker im
 | Spark Kafka Connector | `org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3` | 2026-11-25 | Kafka/Redpanda Structured Streaming connector (Task 3.1) |
 | Hadoop AWS (S3A) | `org.apache.hadoop:hadoop-aws:3.3.4` | 2026-11-25 | S3A filesystem khớp Hadoop 3.3.4 trong Spark 3.5.3 (Task 3.1) |
 | AWS Java SDK Bundle | `com.amazonaws:aws-java-sdk-bundle:1.12.262` | 2026-11-25 | Bộ AWS SDK khớp POM của `hadoop-aws:3.3.4` (Task 3.1) |
-| Streamlit | `1.67.0` | 2026-11-28 | Dashboard UI & cache/fragment runtime (Task 5.1) |
+| Streamlit | `1.67.0` | 2026-11-28 | Dashboard UI & cache/fragment runtime trên host & image `python:3.11-slim` (Task 5.1, 5.9) |
 | Deltalake (`delta-rs`) | `1.7.0` | 2026-11-28 | Tạo fixture Delta cục bộ cho unit test không cần Spark (Task 5.1) |
 
 ## 2. Ma trận tương thích (Compatibility Matrix)

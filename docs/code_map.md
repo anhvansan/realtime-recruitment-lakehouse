@@ -108,3 +108,6 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Dashboard Panel Helpers & S3 Cache Unit Tests | T07, R9 | `tests/unit/test_dashboard_panels.py:22` | `test_format_metric_and_percent_return_na_for_missing_or_infinite` | 5.3-5.7 |
 | Standalone Alert Worker (Rules, Cooldown, S3 JSONL) | F14, R6 | `src/alerts/worker.py:144` | `evaluate_alerts`, `CooldownStore`, `append_alerts_to_s3` | 5.8 |
 | Alert Worker Rules, Cooldown & Webhook Unit Tests | F14, R6 | `tests/unit/test_alert_worker.py:34` | `test_evaluate_alerts_covers_all_four_rule_groups` | 5.8 |
+| Shared Serving & Alerting Dockerfile (Pre-baked DuckDB Ext) | T08, R5, R6 | `infra/dashboard/Dockerfile:3` | `FROM python:3.11-slim`, `DUCKDB_EXTENSION_DIRECTORY` | 5.9 |
+| Dashboard & Alert Worker Compose Services (`apps`) | T08, R5 | `docker-compose.yml:156` | `services.dashboard`, `services.alert-worker` | 5.9 |
+| Offline Docker Packaging Verification Tests | T08, R6 | `tests/unit/test_docker_packaging.py:12` | `test_dashboard_dockerfile_prebakes_extensions_and_excludes_secrets` | 5.9 |
