@@ -1046,27 +1046,27 @@ def run_query(sql: str, params: list | None = None) -> pd.DataFrame:
 **Steps:** `src/dashboard/queries/{sim_now,pacing,publisher_quality,funnel,health}.sql` tham số hoá; `repository.py` trả DataFrame. Mọi truy vấn lọc `event_date` trước để cắt tỉa partition; dùng `EXPLAIN ANALYZE` kiểm tra thực tế. Test bằng fixture Delta tạo bởi `deltalake`, kỳ vọng khớp ví dụ số ở mục 2.3. `sim_now` = `MAX(event_time)` (mục 2.4).
 **AC:** mỗi file `.sql` có ít nhất 1 test với con số kỳ vọng tính tay · thời gian truy vấn ghi lại.
 
-### Task 5.3 — Panel 1: Budget Pacing Monitor \[M\] \[Depends: 5.2\]
+### Task 5.3 — Panel 1: Budget Pacing Monitor \[M\] \[Depends: 5.2\] \[x\]
 
 **Hiển thị:** KPI (tổng chi hôm nay theo `sim_now`, số campaign vượt 90% ngân sách); chọn campaign ➔ đường chi tiêu thực tế so với đường lý tưởng theo giờ; bảng xếp hạng theo `pacing_ratio` tô màu (đỏ > 1.2, vàng < 0.6); `projected_eod_spend`; nhãn nguồn ngân sách (từ `campaign.csv` hoặc `"SIMULATED BUDGET"` tùy kết quả Task 2.1/4.2).
 **AC:** với fixture của mục 2.3, campaign `C1` hiển thị `pacing_ratio = 1.6` và màu cảnh báo.
 
-### Task 5.4 — Panel 2: Publisher Fraud & Quality Radar \[M\] \[Depends: 5.2\]
+### Task 5.4 — Panel 2: Publisher Fraud & Quality Radar \[M\] \[Depends: 5.2\] \[x\]
 
 **Hiển thị:** bảng publisher (kèm tên publisher từ `master_publisher.csv` nếu có) với `clicks_60m`, `applies_60m`, `click_to_apply_rate`, cờ R1/R2 (tô đỏ), sắp xếp theo mức nghi ngờ; ngưỡng đọc từ `config/alerts.yaml`; ghi chú "heuristic, không phải ML".
 **AC:** publisher `P9` ở fixture (`130` click, `0` apply) bị cờ R1; `99` click không bị cờ.
 
-### Task 5.5 — Panel 3: Hiring Funnel và CPA \[M\] \[Depends: 4.4\]
+### Task 5.5 — Panel 3: Hiring Funnel và CPA \[M\] \[Depends: 4.4\] \[x\]
 
 **Hiển thị:** phễu (Impression nếu có ➔ Click ➔ Apply ➔ Qualified) kèm tỷ lệ chuyển giữa các bước; bảng job/campaign (kèm tên job/công ty từ `job.csv`/`company.csv`) tốt nhất và tệ nhất theo `CPQA`; đọc từ Gold Parquet, hiển thị "gold cập nhật lúc …".
 **AC:** số liệu khớp `fct_recruitment_efficiency` · hiển thị đúng khi mẫu số = 0 ("n/a", không phải 0).
 
-### Task 5.6 — Panel 4: Pipeline Health và DLQ Inspector \[M\] \[Depends: 3.9, 5.2\]
+### Task 5.6 — Panel 4: Pipeline Health và DLQ Inspector \[M\] \[Depends: 3.9, 5.2\] \[x\]
 
 **Hiển thị:** `data_freshness_s`; `e2e_latency_s` p50/p95; `dedup_rate`, `late_rate`, `dlq_rate`; bảng DLQ theo `error_type`; mẫu payload lỗi (cắt ngắn, che dữ liệu nhạy cảm); thông số Spark từ `ops/latest.json`; số file Delta của Bronze/Silver.
 **AC:** `docker kill` Spark ➔ `data_freshness_s` chuyển trạng thái đỏ trong ≤ 2 phút · số liệu DLQ khớp manifest.
 
-### Task 5.7 — Tự làm tươi và hiệu năng \[S\] \[Depends: 5.3–5.6\]
+### Task 5.7 — Tự làm tươi và hiệu năng \[S\] \[Depends: 5.3–5.6\] \[x\]
 
 **Steps:** dùng `@st.fragment(run_every="10s")` cho từng panel; `st.cache_data(ttl=5)` cho truy vấn dùng chung để N người xem không nhân N lần truy vấn S3; hiển thị "cập nhật lúc" và "truy vấn mất X ms"; giới hạn số dòng trả về.
 **AC:** 5 tab trình duyệt mở 10 phút: RAM ổn định dưới `mem_limit`, p95 truy vấn ≤ 1.5s, không có lỗi khoá file (Lab L6).

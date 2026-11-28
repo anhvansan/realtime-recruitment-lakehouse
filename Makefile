@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop ui lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -41,6 +41,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make dbt-build      - Run dbt models and tests against Silver Delta (Task 4.1/4.3)"
 	@echo "  make dbt-test       - Run dbt data quality tests (Task 4.1/4.3)"
 	@echo "  make dbt-loop       - Run periodic dbt build loop with flock (Task 4.6)"
+	@echo "  make ui             - Launch Streamlit Lakehouse Dashboard on localhost:8501 (Task 5.7)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -118,6 +119,9 @@ dbt-test: ## Run dbt data quality tests (loads .env safely)
 
 dbt-loop: ## Run periodic dbt build loop with flock + _last_run.json (Task 4.6)
 	@bash scripts/dbt_loop.sh --interval $(INTERVAL_SEC)
+
+ui: ## Launch Streamlit Lakehouse Dashboard (Task 5.7)
+	$(PYTHON) -m streamlit run src/dashboard/app.py
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

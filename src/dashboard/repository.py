@@ -110,6 +110,7 @@ class DashboardRepository:
         self.paths = paths or DataSourcePaths.from_config(self.cfg)
         self.thresholds = thresholds or AlertThresholds.from_yaml()
         self.root_conn = root_conn
+        self._s3_client: Any = None
 
     def _render_sql(self, filename: str) -> str:
         template = _load_sql(filename)
@@ -242,25 +243,33 @@ class DashboardRepository:
         """
         return run_query(sql, [int(limit)], root_conn=self.root_conn)
 
+    def _get_s3_client(self) -> Any:
+        """Lazily initialize and cache the S3 client per repository instance."""
+        if self._s3_client is None:
+            import boto3
+            from botocore.config import Config as BotoConfig
+
+            endpoint = (
+                self.cfg.s3_endpoint
+                if Path("/.dockerenv").exists()
+                or os.environ.get("S3_ENDPOINT_HOST_PORT") == "minio:9000"
+                else self.cfg.s3_endpoint_external
+            )
+            self._s3_client = boto3.client(
+                "s3",
+                endpoint_url=endpoint,
+                aws_access_key_id=self.cfg.s3_access_key,
+                aws_secret_access_key=self.cfg.s3_secret_key,
+                region_name=self.cfg.s3_region,
+                config=BotoConfig(s3={"addressing_style": "path"}),
+            )
+        return self._s3_client
+
     def _read_s3_json(self, key: str) -> dict[str, Any] | None:
         """Read an optional JSON metadata object from MinIO without logging credentials."""
-        import boto3
-        from botocore.config import Config as BotoConfig
         from botocore.exceptions import ClientError
 
-        endpoint = (
-            self.cfg.s3_endpoint
-            if Path("/.dockerenv").exists() or os.environ.get("S3_ENDPOINT_HOST_PORT") == "minio:9000"
-            else self.cfg.s3_endpoint_external
-        )
-        s3 = boto3.client(
-            "s3",
-            endpoint_url=endpoint,
-            aws_access_key_id=self.cfg.s3_access_key,
-            aws_secret_access_key=self.cfg.s3_secret_key,
-            region_name=self.cfg.s3_region,
-            config=BotoConfig(s3={"addressing_style": "path"}),
-        )
+        s3 = self._get_s3_client()
         try:
             obj = s3.get_object(Bucket=self.cfg.s3_bucket, Key=key)
             return dict(json.loads(obj["Body"].read().decode("utf-8")))

@@ -45,6 +45,8 @@ Streamlit vận hành theo mô hình **chạy lại toàn bộ script Python t�
 | `src/dashboard/db.py:141-144` | `get_root_connection` | `@st.cache_resource(show_spinner=False)` | Cache duy nhất một root `:memory:` connection cho mọi thread Streamlit. |
 | `src/dashboard/db.py:91-103` | `create_root_connection` | `DUCKDB_EXTENSION_DIRECTORY` | Cho phép trỏ thư mục extension cài sẵn trong container ở Task 5.9. |
 | `src/dashboard/db.py:44-56` | `DatabaseConnectionError` | Lỗi kết nối có cấu trúc | Giúp UI hiển thị trạng thái *"Mất kết nối dữ liệu"* thân thiện thay vì crash traceback. |
+| `src/dashboard/panels/common.py:177-195` | `get_repository`, `fetch_pacing` | `@st.cache_resource` + `@st.cache_data(ttl=5)` | Dùng chung `DashboardRepository` và cache bảng kết quả 5s theo chuỗi ISO `sim_now`/`event_date`. |
+| `src/dashboard/app.py:34-52` | `_pacing_fragment` .. `_health_fragment` | `@st.fragment(run_every="10s")` | Tự làm tươi độc lập từng panel mỗi 10 giây mà không rerun toàn bộ trang. |
 
 ```python
 # Trích nguyên văn từ src/dashboard/db.py:141-144
@@ -52,6 +54,36 @@ Streamlit vận hành theo mô hình **chạy lại toàn bộ script Python t�
 def get_root_connection() -> duckdb.DuckDBPyConnection:
     """Return process-wide cached DuckDB root connection for Streamlit threads."""
     return create_root_connection()
+```
+
+```python
+# Trích nguyên văn từ src/dashboard/panels/common.py:177-195
+@st.cache_resource(show_spinner=False)
+def get_repository() -> DashboardRepository:
+    """Return process-wide cached DashboardRepository bound to the cached DuckDB root."""
+    return DashboardRepository(root_conn=get_root_connection())
+
+
+@st.cache_data(ttl=5, show_spinner=False)
+def fetch_sim_now() -> tuple[dict[str, Any], float]:
+    t0 = time.perf_counter()
+    data = get_repository().get_sim_now()
+    return data, (time.perf_counter() - t0) * 1000.0
+
+
+@st.cache_data(ttl=5, show_spinner=False)
+def fetch_pacing(sim_now_iso: str, event_date_iso: str) -> tuple[pd.DataFrame, float]:
+    t0 = time.perf_counter()
+    sim_now = datetime.fromisoformat(sim_now_iso)
+    event_date = date.fromisoformat(event_date_iso)
+    df = get_repository().get_pacing(sim_now=sim_now, event_date=event_date)
+```
+
+```python
+# Trích nguyên văn từ src/dashboard/app.py:34-36
+@st.fragment(run_every="10s")
+def _pacing_fragment(repo: DashboardRepository) -> None:
+    render_pacing_panel(repo)
 ```
 
 ## 8. Tự kiểm tra

@@ -99,3 +99,10 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Dashboard & Alerting Query Repository | T05, T07, R9 | `src/dashboard/repository.py:98` | `DashboardRepository`, `DataSourcePaths` | 5.2 |
 | Query Layer Unit Tests (Section 2.3 & DLQ) | F13, R9 | `tests/unit/test_dashboard_queries.py:217` | `test_all_five_dashboard_queries_against_section_2_3_examples` | 5.2 |
 | Fast Path vs Deep Path Metric Parity Test (`<= 1e-6`) | F12, R9 | `tests/integration/test_metric_parity.py:72` | `test_fast_path_and_deep_path_metric_parity` | 4.7 |
+| Shared Panel Helpers & `@st.cache_data(ttl=5)` | T07, R9 | `src/dashboard/panels/common.py:21` | `format_metric_or_na`, `fetch_pacing`, `sanitize_dlq_payload` | 5.3-5.7 |
+| Panel 1: Budget Pacing Monitor (`campaign.csv`) | T07, R9, R13 | `src/dashboard/panels/pacing.py:22` | `render_pacing_panel` | 5.3 |
+| Panel 2: Publisher Fraud & Quality Radar | T07, R9 | `src/dashboard/panels/publisher_quality.py:20` | `render_publisher_quality_panel` | 5.4 |
+| Panel 3: Hiring Funnel & CPA (Gold Parquet) | T07, R9 | `src/dashboard/panels/funnel.py:42` | `render_funnel_panel` | 5.5 |
+| Panel 4: Pipeline Health & DLQ Inspector | T07, F14 | `src/dashboard/panels/health.py:24` | `render_health_panel` | 5.6 |
+| Streamlit App (`@st.fragment(run_every="10s")`) | T07, F15 | `src/dashboard/app.py:34` | `_pacing_fragment`, `main` | 5.7 |
+| Dashboard Panel Helpers & S3 Cache Unit Tests | T07, R9 | `tests/unit/test_dashboard_panels.py:22` | `test_format_metric_and_percent_return_na_for_missing_or_infinite` | 5.3-5.7 |
