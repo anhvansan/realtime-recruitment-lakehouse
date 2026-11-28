@@ -9,6 +9,7 @@ thresholds:
   data_stale_seconds: 120
   click_fraud_min_clicks: 100
   click_fraud_max_applies: 0
+  dlq_rate_threshold: 0.05
 
 channels:
   cooldown_seconds: 300

@@ -106,3 +106,5 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Panel 4: Pipeline Health & DLQ Inspector | T07, F14 | `src/dashboard/panels/health.py:24` | `render_health_panel` | 5.6 |
 | Streamlit App (`@st.fragment(run_every="10s")`) | T07, F15 | `src/dashboard/app.py:34` | `_pacing_fragment`, `main` | 5.7 |
 | Dashboard Panel Helpers & S3 Cache Unit Tests | T07, R9 | `tests/unit/test_dashboard_panels.py:22` | `test_format_metric_and_percent_return_na_for_missing_or_infinite` | 5.3-5.7 |
+| Standalone Alert Worker (Rules, Cooldown, S3 JSONL) | F14, R6 | `src/alerts/worker.py:144` | `evaluate_alerts`, `CooldownStore`, `append_alerts_to_s3` | 5.8 |
+| Alert Worker Rules, Cooldown & Webhook Unit Tests | F14, R6 | `tests/unit/test_alert_worker.py:34` | `test_evaluate_alerts_covers_all_four_rule_groups` | 5.8 |

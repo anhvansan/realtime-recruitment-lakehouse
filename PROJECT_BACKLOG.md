@@ -1072,7 +1072,7 @@ def run_query(sql: str, params: list | None = None) -> pd.DataFrame:
 **AC:** 5 tab trình duyệt mở 10 phút: RAM ổn định dưới `mem_limit`, p95 truy vấn ≤ 1.5s, không có lỗi khoá file (Lab L6).
 **Pitfalls:** làm tươi cả trang thay vì từng fragment; cache theo tham số sai làm hiển thị số cũ.
 
-### Task 5.8 — Alert Worker (process riêng) \[L\] \[Depends: 5.2\]
+### Task 5.8 — Alert Worker (process riêng) \[L\] \[Depends: 5.2\] \[x\]
 
 **Goal:** cảnh báo **đúng lúc, đúng một lần, có kết thúc**, độc lập với việc có ai mở dashboard.
 **Steps:**

@@ -1,4 +1,4 @@
-.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop ui lint test format profile status stats
+.PHONY: help up down clean nuke-data disk-report bench-snapshot s3-check topics replay spark-build spark-up smoke-interop spark-shell stream compact reconcile prepare-seeds dbt-seed dbt-build dbt-test dbt-loop ui alerts lint test format profile status stats
 
 .DEFAULT_GOAL := help
 
@@ -18,6 +18,8 @@ TABLE ?= all
 COMPACT_MODE ?= --full
 DBT_SELECT ?=
 INTERVAL_SEC ?= 60
+ALERT_INTERVAL_SEC ?= 30
+ALERT_ONCE ?= 0
 
 help: ## Show available commands and their descriptions
 	@echo "Available commands in CPC AdTech Lakehouse:"
@@ -42,6 +44,7 @@ help: ## Show available commands and their descriptions
 	@echo "  make dbt-test       - Run dbt data quality tests (Task 4.1/4.3)"
 	@echo "  make dbt-loop       - Run periodic dbt build loop with flock (Task 4.6)"
 	@echo "  make ui             - Launch Streamlit Lakehouse Dashboard on localhost:8501 (Task 5.7)"
+	@echo "  make alerts         - Run Alert Worker against Lakehouse metrics (Task 5.8)"
 	@echo "  make profile        - Profile all 18 raw CSV datasets with DuckDB (Task 2.1)"
 	@echo "  make lint           - Run ruff linter check"
 	@echo "  make format         - Run ruff code formatter"
@@ -122,6 +125,9 @@ dbt-loop: ## Run periodic dbt build loop with flock + _last_run.json (Task 4.6)
 
 ui: ## Launch Streamlit Lakehouse Dashboard (Task 5.7)
 	$(PYTHON) -m streamlit run src/dashboard/app.py
+
+alerts: ## Run Alert Worker (Task 5.8; ALERT_ONCE=1 for single pass)
+	$(PYTHON) -m src.alerts.worker $(if $(filter 1 true,$(ALERT_ONCE)),--once,--interval-sec $(ALERT_INTERVAL_SEC))
 
 clean: ## Clean dangling containers and caches
 	docker compose --profile core down --remove-orphans 2>/dev/null || true

@@ -46,6 +46,9 @@ Với đợt chạy `ac_3_3` (`seed=42`, `rows_read=1977`):
 | `tests/unit/test_listener.py:46-163` | `test_parse_query_progress_*`, `test_metrics_listener_*` | Kiểm chứng trích xuất `state_num_rows_total`, `state_memory_used_bytes`, `event_time_watermark`, và cơ chế buffer 60s. |
 | `scripts/bench/resource_snapshot.sh:1` | `resource_snapshot.sh` | Ghi mẫu tài nguyên RAM/CPU Docker phục vụ theo dõi saturation (Task 1.6). |
 | `docs/benchmarks/baseline.md:12` | `Resource Baseline` | Báo cáo đối chiếu RAM thực tế của các container so với ngân sách mục 4.4. |
+| `src/alerts/worker.py:144-382` | `evaluate_alerts`, `CooldownStore` | Đánh giá 4 nhóm luật cảnh báo dùng lại `DashboardRepository` và lọc chống spam theo cặp `(rule, entity_id)` trong `cooldown_seconds`. |
+| `src/alerts/worker.py:384-453` | `append_alerts_to_s3`, `send_webhook` | Lưu lịch sử `ops/alerts.jsonl` lên MinIO và gửi webhook tùy chọn (không lộ URL/token ra log theo R6). |
+| `tests/unit/test_alert_worker.py:34-185` | `test_evaluate_alerts_*`, `test_cooldown_store_*` | Kiểm chứng 4 nhóm luật, cơ chế cooldown qua nhiều lần chạy `--once`, và an toàn credential webhook. |
 
 ## 8. Tự kiểm tra
 1. *Câu hỏi:* Vì sao bộ đối soát ở `tests/integration/reconcile.py` dùng DuckDB thay vì dùng lại Spark `DataFrame` để tự kiểm tra mình?  
