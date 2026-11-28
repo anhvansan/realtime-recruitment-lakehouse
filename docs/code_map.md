@@ -95,3 +95,7 @@ Bảng ánh xạ trực tiếp từ các khái niệm lý thuyết / kiến trú
 | Dashboard DuckDB `:memory:` Root Connection & K1/R6 | F11, T05, T07 | `src/dashboard/db.py:91` | `create_root_connection`, `get_root_connection` | 5.1 |
 | Thread-Safe Per-Query Cursor & Retry Runner | F11, F15, F16 | `src/dashboard/db.py:157` | `run_query`, `DatabaseConnectionError` | 5.1 |
 | Dashboard DB Concurrency, Delta & Secret Redaction Tests | F11, R6 | `tests/unit/test_dashboard_db.py:55` | `test_run_query_five_concurrent_threads_no_lock_or_race` | 5.1 |
+| Dashboard Parameterized SQL Queries (5 panels) | T05, R9 | `src/dashboard/queries/pacing.sql:1` | `pacing`, `sim_now`, `publisher_quality`, `funnel`, `health` | 5.2 |
+| Dashboard & Alerting Query Repository | T05, T07, R9 | `src/dashboard/repository.py:98` | `DashboardRepository`, `DataSourcePaths` | 5.2 |
+| Query Layer Unit Tests (Section 2.3 & DLQ) | F13, R9 | `tests/unit/test_dashboard_queries.py:217` | `test_all_five_dashboard_queries_against_section_2_3_examples` | 5.2 |
+| Fast Path vs Deep Path Metric Parity Test (`<= 1e-6`) | F12, R9 | `tests/integration/test_metric_parity.py:72` | `test_fast_path_and_deep_path_metric_parity` | 4.7 |

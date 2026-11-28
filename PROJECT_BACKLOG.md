@@ -1002,7 +1002,7 @@ from cum c join {{ ref('campaign_budget') }} b using (campaign_id)
 **Steps:** `scripts/dbt_loop.sh` (`make dbt-loop`) chạy `dbt build` mỗi 60 giây, có khoá `flock` chống chạy chồng, log thời lượng, ghi `gold/_last_run.json` (để dashboard hiển thị "cập nhật lúc"). Ghi rõ đây là lựa chọn thay thế nhẹ; Airflow là tuỳ chọn ở Task 7.1.
 **AC:** hai lần chạy chồng không xảy ra · file `_last_run.json` cập nhật đều.
 
-### Task 4.7 — Test "metric parity" giữa đường nhanh và đường sâu \[M\] \[Depends: 4.4, 5.2\]
+### Task 4.7 — Test "metric parity" giữa đường nhanh và đường sâu \[M\] \[Depends: 4.4, 5.2\] \[x\]
 
 **Goal:** chặn lệch công thức giữa SQL dashboard và dbt.
 **Steps:** dựng fixture Delta cục bộ (tạo bằng thư viện `deltalake`, không cần Spark); kiểm tra cả một giờ đã đóng và giờ hiện tại tại `sim_now`; so sánh `spend`, `cum_spend`, `ideal_cum_spend`, `pacing_ratio` từ truy vấn dashboard và từ model gold.
@@ -1041,7 +1041,7 @@ def run_query(sql: str, params: list | None = None) -> pd.DataFrame:
    **AC:** test đơn vị trên Delta cục bộ · 5 thread chạy truy vấn đồng thời không lỗi · không có credential trong log (grep).
    **Learn:** F11, F15, T05, T07.
 
-### Task 5.2 — Lớp truy vấn (query layer) có test \[M\] \[Depends: 5.1, 3.4\]
+### Task 5.2 — Lớp truy vấn (query layer) có test \[M\] \[Depends: 5.1, 3.4\] \[x\]
 
 **Steps:** `src/dashboard/queries/{sim_now,pacing,publisher_quality,funnel,health}.sql` tham số hoá; `repository.py` trả DataFrame. Mọi truy vấn lọc `event_date` trước để cắt tỉa partition; dùng `EXPLAIN ANALYZE` kiểm tra thực tế. Test bằng fixture Delta tạo bởi `deltalake`, kỳ vọng khớp ví dụ số ở mục 2.3. `sim_now` = `MAX(event_time)` (mục 2.4).
 **AC:** mỗi file `.sql` có ít nhất 1 test với con số kỳ vọng tính tay · thời gian truy vấn ghi lại.
