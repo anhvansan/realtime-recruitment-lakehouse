@@ -941,7 +941,7 @@ dt.vacuum()        # giữ retention mặc định (168h), không dùng vacuum(0
 **Steps:** `stg_cpc_events` (view): chọn đúng cột, ép kiểu, thêm `event_hour`; **không** chứa logic kinh doanh.
 **AC:** `dbt build -s stg_cpc_events` pass kèm test `not_null`, `unique(event_id)`.
 
-### Task 4.4 — Các model Gold \[L\] \[Depends: 4.2, 4.3\]
+### Task 4.4 — Các model Gold \[L\] \[Depends: 4.2, 4.3\] \[x\]
 
 **Goal:** hiện thực hoá đúng Phần 2 thành 3 bảng gold, xuất ra Parquet trên MinIO (`materialized='external'`, `format='parquet'`, `location='s3://lakehouse/gold/<model>.parquet'`).
 **Steps:**

@@ -1,0 +1,116 @@
+version: 2
+
+models:
+  - name: fct_campaign_hourly_pacing
+    description: "Gold mart for P1 Budget Pacing at campaign_id x event_date x hour_ts grain (external Parquet on MinIO)."
+    columns:
+      - name: campaign_id
+        description: "Campaign identifier."
+        data_tests:
+          - not_null
+      - name: event_date
+        description: "UTC calendar date."
+        data_tests:
+          - not_null
+      - name: hour_ts
+        description: "UTC hour timestamp generated from the continuous hour spine."
+        data_tests:
+          - not_null
+      - name: cum_spend
+        description: "Cumulative spend within event_date up to hour_ts in DECIMAL(18,4)."
+        data_tests:
+          - not_null
+      - name: daily_budget
+        description: "Campaign daily budget from dim_campaign_budget (campaign.csv)."
+        data_tests:
+          - not_null
+      - name: ideal_cum_spend
+        description: "Linear ideal cumulative spend (uses elapsed seconds at sim_now for in-progress hour)."
+        data_tests:
+          - not_null
+      - name: pacing_ratio
+        description: "cum_spend / NULLIF(ideal_cum_spend, 0)."
+      - name: budget_utilization
+        description: "cum_spend / NULLIF(daily_budget, 0)."
+      - name: burn_rate
+        description: "Hourly spend rate (trailing 60m at sim_now for in-progress hour)."
+      - name: projected_eod_spend
+        description: "End-of-day projected spend based on cum_spend and burn_rate."
+
+  - name: fct_publisher_quality
+    description: "Gold mart for P2 Publisher Quality & Click Fraud heuristics at publisher_id x hour_ts grain (external Parquet on MinIO)."
+    columns:
+      - name: publisher_id
+        description: "Publisher identifier."
+        data_tests:
+          - not_null
+      - name: hour_ts
+        description: "UTC hour timestamp."
+        data_tests:
+          - not_null
+      - name: clicks
+        description: "Valid click count."
+        data_tests:
+          - not_null
+      - name: applies
+        description: "Apply event count."
+        data_tests:
+          - not_null
+      - name: spend
+        description: "Total click spend in DECIMAL(18,4)."
+        data_tests:
+          - not_null
+      - name: click_to_apply_rate
+        description: "applies / NULLIF(clicks, 0)."
+      - name: fraud_flag_r1
+        description: "Heuristic rule R1: clicks >= 100 AND applies = 0."
+        data_tests:
+          - not_null
+      - name: fraud_flag_r2
+        description: "Heuristic rule R2: clicks >= 50 AND click_to_apply_rate < 0.2 * peer hourly median."
+        data_tests:
+          - not_null
+
+  - name: fct_recruitment_efficiency
+    description: "Gold mart for P3 Hiring Efficiency at job_id x campaign_id x event_date grain (external Parquet on MinIO)."
+    columns:
+      - name: job_id
+        description: "Job posting identifier."
+        data_tests:
+          - not_null
+      - name: campaign_id
+        description: "Campaign identifier."
+        data_tests:
+          - not_null
+      - name: event_date
+        description: "UTC calendar date."
+        data_tests:
+          - not_null
+      - name: spend
+        description: "Total click spend in DECIMAL(18,4)."
+        data_tests:
+          - not_null
+      - name: clicks
+        description: "Valid click count."
+        data_tests:
+          - not_null
+      - name: applies
+        description: "Apply count."
+        data_tests:
+          - not_null
+      - name: qualified
+        description: "Qualified application count."
+        data_tests:
+          - not_null
+      - name: unqualified
+        description: "Unqualified application count."
+        data_tests:
+          - not_null
+      - name: cpc
+        description: "spend / NULLIF(clicks, 0)."
+      - name: cpa
+        description: "spend / NULLIF(applies, 0)."
+      - name: cpqa
+        description: "spend / NULLIF(qualified, 0)."
+      - name: qualified_rate
+        description: "qualified / NULLIF(applies, 0)."

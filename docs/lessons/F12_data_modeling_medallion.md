@@ -62,13 +62,18 @@ Kiến trúc phân tầng Medallion trong Lakehouse tách biệt rõ ràng trác
 
 | File:dòng | Symbol | Đoạn code | Giải thích |
 | :--- | :--- | :--- | :--- |
-| `docs/data_dictionary.md:12-21` | `Nhóm A & B` | Trích từ Data Dictionary: | Phân định ranh giới giữa bảng Event Stream (Bronze/Silver) và bảng Dimension (Gold). |
+| `docs/data_dictionary.md:12-21` | `Nhóm A & B` | Bảng phân loại Stream vs Dimension | Phân định ranh giới giữa bảng Event Stream (Bronze/Silver) và bảng Dimension (Gold). |
+| `dbt_cpc/models/gold/fct_campaign_hourly_pacing.sql:86-90` | `elapsed_day_fraction` | Tính đường lý tưởng cho giờ đóng & giờ dở | Đảm bảo giờ hiện tại dùng tỷ lệ giây thực tế tại `sim_now` thay vì `(hour + 1)/24`. |
+| `dbt_cpc/models/gold/fct_publisher_quality.sql:62-68` | `fraud_flag_r1`, `fraud_flag_r2` | Cờ heuristic P2 theo `publisher × hour` | Dùng `NULLIF(clicks, 0)` và cửa sổ `median(...) over (partition by hour_ts)`. |
+| `dbt_cpc/models/gold/fct_recruitment_efficiency.sql:46-50` | `cpc`, `cpa`, `cpqa`, `qualified_rate` | Chỉ số P3 theo `job × campaign × date` | Mọi phép chia dùng `NULLIF(..., 0.0)` để trả `NULL` khi mẫu số bằng 0 (R9). |
 
-```markdown
-| 1 | `tracking.csv` | 2.5 MB | 6,662 | **Nhóm A — Event Stream** | Nguồn phát sự kiện chính (Bronze/Silver) |
-| 2 | `application.csv` | 19.2 KB | 102 | **Nhóm A/B — Event Stream** | Nguồn sự kiện ứng tuyển |
-| 3 | `campaign.csv` | 33.0 KB | 193 | **Nhóm B — Dimension / Seed** | Bảng danh mục chiến dịch cho tầng Gold |
-| 4 | `job.csv` | 458.5 KB | 1,868 | **Nhóm B — Dimension / Seed** | Bảng danh mục tin tuyển dụng cho tầng Gold |
+```sql
+-- Trích nguyên văn từ dbt_cpc/models/gold/fct_campaign_hourly_pacing.sql:86-90
+        case
+            when hs.hour_ts = date_trunc('hour', hs.sim_now)
+                then extract(epoch from (hs.sim_now - date_trunc('day', hs.sim_now))) / 86400.0
+            else (extract(hour from hs.hour_ts) + 1) / 24.0
+        end as elapsed_day_fraction,
 ```
 
 ## 8. Tự kiểm tra

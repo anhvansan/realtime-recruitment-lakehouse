@@ -59,6 +59,7 @@ Giả sử bảng Silver trên MinIO hiện có **`1,958` dòng** sạch (`event
 | `dbt_cpc/models/staging/sources.yml:6-10` | `lakehouse_silver.cpc_events` | Khai báo `external_location` | Dùng `delta_scan('s3://.../silver/cpc_events')` trực tiếp qua `config.external_location` trên `dbt-duckdb 1.11.1`. |
 | `dbt_cpc/models/staging/stg_cpc_events.sql:21-36` | `stg_cpc_events` | Chiếu cột tường minh + `event_hour` | Không dùng `SELECT *`, chuẩn hóa kiểu dữ liệu và thêm `date_trunc('hour', event_time) as event_hour` theo UTC. |
 | `dbt_cpc/models/staging/schema.yml:7-30` | `stg_cpc_events` `data_tests` | Generic tests chuẩn `dbt-core 1.11` | Dùng `data_tests:` và `arguments:` lồng trong `accepted_values` để tránh deprecation warning. |
+| `dbt_cpc/models/gold/fct_campaign_hourly_pacing.sql:1-7` | `external` Parquet sink | `materialized='external'`, `format='parquet'` | Xuất thẳng Gold mart ra tệp Parquet trên MinIO (`s3://.../gold/*.parquet`) mà không cần lưu bảng nội bộ DuckDB. |
 
 ```sql
 -- Trích nguyên văn từ dbt_cpc/models/staging/stg_cpc_events.sql:21-36
